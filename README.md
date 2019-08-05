@@ -29,7 +29,7 @@
 * [Biblioteca JS configuração: npm init, eslint, testes com mocha, nyc, chai, publicação no npm](https://github.com/layshidani/my-learning-notes/tree/master/lib-js-config)
 
 ## Firebase
-* [Firebase](https://github.com/layshidani/my-learning-notes/blob/master/firebase/firebase-config.md)
+* [Firebase Config](https://github.com/layshidani/my-learning-notes/blob/master/firebase/firebase-config.md)
 
 ## Testes
 * [Testes com mocha, chai e nyc](https://github.com/layshidani/my-learning-notes/tree/master/notes/tests-tdd/)

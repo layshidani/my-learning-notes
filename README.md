@@ -3,6 +3,9 @@
 ## Linha de comando
 * [Linha de Comando](https://github.com/layshidani/linha-de-comando/)
 
+## VSCode
+* [VSCode](https://github.com/layshidani/my-learning-notes/blob/master/vscode.md)
+
 ## GitHub
 * [Git e GitHub](https://layshidani.github.io/learning-front-end/projects/Git-GitHub-MyNotebook/)
   * [GitHub Badges](https://github.com/layshidani/my-learning-notes/blob/master/github-badges.md)
@@ -39,4 +42,3 @@
   * [Arquitetura CSS: CSSOO, SMACSS, BEM](arq-css.md)
   * [Sass](sass.md)
   * [Design Responsivo - CookBook](design-reponsivo-receita.md)
-  

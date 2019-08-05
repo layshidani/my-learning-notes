@@ -15,6 +15,7 @@
   * [Exemplo de Componente](https://github.com/layshidani/my-learning-notes/blob/master/react/component.md)
   * [Exemplo de página](https://github.com/layshidani/my-learning-notes/blob/master/react/page.md)
   * [Exemplo de rota](https://github.com/layshidani/my-learning-notes/blob/master/react/rota.md)
+  * [Arquivo gitignore](https://github.com/layshidani/my-learning-notes/blob/master/react/gitignore-react.md)
 
 ## Módulos
 * [Módulos - WebPack](https://github.com/layshidani/my-learning-notes/tree/master/modules-webpack/)

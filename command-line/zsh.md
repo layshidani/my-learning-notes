@@ -73,3 +73,5 @@ Exemplo:
 ```
 ZSH_THEME="fino"
 ```
+
+<!-- TODO escrever sobre alias -->

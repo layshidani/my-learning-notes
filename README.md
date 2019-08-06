@@ -2,6 +2,7 @@
 
 ## Linha de comando
 * [Linha de Comando](https://github.com/layshidani/my-learning-notes/blob/master/command-line/command-line.md)
+* [ZSH](https://github.com/layshidani/my-learning-notes/blob/master/command-line/zsh.md)
 
 ## VSCode
 * [VSCode](https://github.com/layshidani/my-learning-notes/blob/master/vscode.md)

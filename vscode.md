@@ -73,3 +73,8 @@
     },
 }
 ```
+
+## Fonte com ligatura
+[FiraCode](https://github.com/tonsky/FiraCode)
+
+Instale conforme as instruções do link acima. 

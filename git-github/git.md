@@ -75,9 +75,16 @@ Meu Notebook - Lays Marie Hidani
 - [\# Comandos Terminal](#comandos-terminal)
 - [Configuração inicial/preparatória](#configura%c3%a7%c3%a3o-inicialpreparat%c3%b3ria)
   - [\# Configurar usuário](#configurar-usu%c3%a1rio)
+  - [\# Configurar email](#configurar-email)
   - [\# Verificar configuração](#verificar-configura%c3%a7%c3%a3o)
+  - [\# Trocar nome de usuário ou email](#trocar-nome-de-usu%c3%a1rio-ou-email)
+  - [\# Apagar nome de usuário](#apagar-nome-de-usu%c3%a1rio)
+  - [\# Apagar e-mail](#apagar-e-mail)
+  - [\# Diretório do repositório](#diret%c3%b3rio-do-reposit%c3%b3rio)
+  - [\# Visualizar o arquivo oculto do Git](#visualizar-o-arquivo-oculto-do-git)
 - [\# Status do diretório](#status-do-diret%c3%b3rio)
   - [\# Status dentro de pastas do diretório](#status-dentro-de-pastas-do-diret%c3%b3rio)
+  - [\# Iniciar um Git](#iniciar-um-git)
   - [\# Desligar Git no repositório](#desligar-git-no-reposit%c3%b3rio)
 - [GitHub: cadastrar chave SSH. Autenticação](#github-cadastrar-chave-ssh-autentica%c3%a7%c3%a3o)
   - [1º passo: Gerar as chaves](#1%c2%ba-passo-gerar-as-chaves)
@@ -85,32 +92,59 @@ Meu Notebook - Lays Marie Hidani
   - [3º passo: adicionar repositório local para remoto](#3%c2%ba-passo-adicionar-reposit%c3%b3rio-local-para-remoto)
 - [Sobre o parentesco entre commits](#sobre-o-parentesco-entre-commits)
   - [Visualizar pais](#visualizar-pais)
+- [Utilizando o Git](#utilizando-o-git)
+  - [\[add\] Adicionar arquivos ao STAGED](#add-adicionar-arquivos-ao-staged)
   - [\[commit\]](#commit)
+  - [Atalho para add e commit de uma vez](#atalho-para-add-e-commit-de-uma-vez)
   - [Modificar o editor de texto padrão do Git](#modificar-o-editor-de-texto-padr%c3%a3o-do-git)
+  - [Recapitulando...](#recapitulando)
+- [Visualizar alterações (git log)](#visualizar-altera%c3%a7%c3%b5es-git-log)
+  - [Visualizar Commits resumidos em 1 linha](#visualizar-commits-resumidos-em-1-linha)
   - [Visualizar últimos commits](#visualizar-%c3%baltimos-commits)
   - [Visualizar alterações em todas as branchs resumidas em uma linha](#visualizar-altera%c3%a7%c3%b5es-em-todas-as-branchs-resumidas-em-uma-linha)
+  - [Visualizar graficamente](#visualizar-graficamente)
   - [Visualizar detalhes de um commit específico](#visualizar-detalhes-de-um-commit-espec%c3%adfico)
+  - [\[diff\] Histórico de diferença entre modificações](#diff-hist%c3%b3rico-de-diferen%c3%a7a-entre-modifica%c3%a7%c3%b5es)
   - [ver histórico com formatação específica (hash abreviada, autor, data e comentário)](#ver-hist%c3%b3rico-com-formata%c3%a7%c3%a3o-espec%c3%adfica-hash-abreviada-autor-data-e-coment%c3%a1rio)
+  - [Visualizar histórico de um arquivo específico pelo caminho](#visualizar-hist%c3%b3rico-de-um-arquivo-espec%c3%adfico-pelo-caminho)
   - [Visualizar histórico de um arquivo específico que contêm uma determinada palavra](#visualizar-hist%c3%b3rico-de-um-arquivo-espec%c3%adfico-que-cont%c3%aam-uma-determinada-palavra)
+  - [Exibir histórico modificação de um arquivo com parâmetros](#exibir-hist%c3%b3rico-modifica%c3%a7%c3%a3o-de-um-arquivo-com-par%c3%a2metros)
+  - [Visualizar commits de determinado autor](#visualizar-commits-de-determinado-autor)
 - [\[gitignore\] Ignorar determinados arquivos na hora de commitar](#gitignore-ignorar-determinados-arquivos-na-hora-de-commitar)
   - [ATALHO gitignore: todos os arquivos de mesma extensão](#atalho-gitignore-todos-os-arquivos-de-mesma-extens%c3%a3o)
+  - [Adicionar um arquivo que esta listado no .gitignore (geral ou do repositório)](#adicionar-um-arquivo-que-esta-listado-no-gitignore-geral-ou-do-reposit%c3%b3rio)
 - [Git diff](#git-diff)
   - [Visualizar últimas atualizações que estão em :::modified:::](#visualizar-%c3%baltimas-atualiza%c3%a7%c3%b5es-que-est%c3%a3o-em-modified)
+  - [Visualizar últimas modificações em um arquivo específico](#visualizar-%c3%baltimas-modifica%c3%a7%c3%b5es-em-um-arquivo-espec%c3%adfico)
   - [Visualizar últimas atualizações que estão em :::staged:::](#visualizar-%c3%baltimas-atualiza%c3%a7%c3%b5es-que-est%c3%a3o-em-staged)
+  - [comparar modificações entre commits](#comparar-modifica%c3%a7%c3%b5es-entre-commits)
+- [Desfazer alterações](#desfazer-altera%c3%a7%c3%b5es)
+  - [Desfazer alterações: arquivo em :::untracked:::](#desfazer-altera%c3%a7%c3%b5es-arquivo-em-untracked)
   - [Desfazer alterações: arquivos em :::modified::: (já feito add, mas não commit)](#desfazer-altera%c3%a7%c3%b5es-arquivos-em-modified-j%c3%a1-feito-add-mas-n%c3%a3o-commit)
   - [Desfazer alterações: arquivos já commitados](#desfazer-altera%c3%a7%c3%b5es-arquivos-j%c3%a1-commitados)
     - [1º caso SOFT](#1%c2%ba-caso-soft)
+    - [2º caso MIXED](#2%c2%ba-caso-mixed)
     - [3º caso DELETAR HARD](#3%c2%ba-caso-deletar-hard)
+  - [Reverter alterações](#reverter-altera%c3%a7%c3%b5es)
+    - [1° caso](#1%c2%b0-caso)
     - [2° caso](#2%c2%b0-caso)
+- [Arquivo deletado manualmente pelo OS, como commitar](#arquivo-deletado-manualmente-pelo-os-como-commitar)
+- [Desfazer: arquivo deletado da máquina](#desfazer-arquivo-deletado-da-m%c3%a1quina)
 - [Remover arquivo/pasta pelo Git](#remover-arquivopasta-pelo-git)
   - [Remover arquivo](#remover-arquivo)
+  - [Remover pasta](#remover-pasta)
 - [Renomear arquivo local](#renomear-arquivo-local)
   - [1ª opção: renomear pelo computador](#1%c2%aa-op%c3%a7%c3%a3o-renomear-pelo-computador)
   - [2ª opção: pelo Git](#2%c2%aa-op%c3%a7%c3%a3o-pelo-git)
 - [1ª vez conectar conta do Github](#1%c2%aa-vez-conectar-conta-do-github)
   - [Gerar chaves SSH](#gerar-chaves-ssh)
+  - [Adicionar chave SSH](#adicionar-chave-ssh)
+- [\[remote add\] Repositório local para remoto - da sua máquina para Github](#remote-add-reposit%c3%b3rio-local-para-remoto---da-sua-m%c3%a1quina-para-github)
+  - [Verificar se está conectado](#verificar-se-est%c3%a1-conectado)
   - [Verificar detalhes do repositório no Github](#verificar-detalhes-do-reposit%c3%b3rio-no-github)
+- [push: sincronizar alterações locais para o repositório do Github](#push-sincronizar-altera%c3%a7%c3%b5es-locais-para-o-reposit%c3%b3rio-do-github)
 - [clone: trazer repositório remoto para o arquivo local](#clone-trazer-reposit%c3%b3rio-remoto-para-o-arquivo-local)
+- [pull: sincronizar alterações do repositótio remoto para o local](#pull-sincronizar-altera%c3%a7%c3%b5es-do-reposit%c3%b3tio-remoto-para-o-local)
 - [Trabalhando com repositórios de outras pessoas](#trabalhando-com-reposit%c3%b3rios-de-outras-pessoas)
   - [Modo Colaborador](#modo-colaborador)
   - [Pull request](#pull-request)
@@ -119,16 +153,16 @@ Meu Notebook - Lays Marie Hidani
   - [Criar uma nova branch](#criar-uma-nova-branch)
   - [Efetivar branch através do commit](#efetivar-branch-atrav%c3%a9s-do-commit)
   - [Criar branch no repositório remoto](#criar-branch-no-reposit%c3%b3rio-remoto)
+  - [Criar branch já trackeada ao repositório remoto](#criar-branch-j%c3%a1-trackeada-ao-reposit%c3%b3rio-remoto)
   - [Visualizar Branchs](#visualizar-branchs)
     - [Visualizar todas as braches (LOCAIS e REMOTAS)](#visualizar-todas-as-braches-locais-e-remotas)
+    - [Visualizar braches LOCAIS](#visualizar-braches-locais)
     - [Visualizar braches REMOTAS](#visualizar-braches-remotas)
+    - [Último commit foi commitado em qual branch?](#%c3%9altimo-commit-foi-commitado-em-qual-branch)
   - [Mudar de branch, commitar entre branchs](#mudar-de-branch-commitar-entre-branchs)
+  - [Deletar uma branch local](#deletar-uma-branch-local)
+  - [Deletar uma branch remota](#deletar-uma-branch-remota)
 - [Mesclar branches: merge e rebase](#mesclar-branches-merge-e-rebase)
-  - [:::merge::: para Mesclar branches](#merge-para-mesclar-branches)
-  - [:::rebase::: para Mesclar branches](#rebase-para-mesclar-branches)
-    - [Conflitos e abortar rebase](#conflitos-e-abortar-rebase)
-- [Tracking: rastreando branchs entre repositório local e remoto](#tracking-rastreando-branchs-entre-reposit%c3%b3rio-local-e-remoto)
-- [Verificar url remota](#verificar-url-remota)
 
 # O que é: Git e GitHub
 
@@ -241,7 +275,9 @@ A configuração inicial deve ser feita somente quando inicia-se um novo reposit
 
 ## \# Configurar usuário
 
-```git config --global user.name nome_de_usuario```
+```
+git config --global user.name nome_de_usuario
+```
 
 
 (ex: git config --global user.name hlays)
@@ -256,16 +292,26 @@ Assim, pode-se configurar como global, local, ou system, dependendo do caso. Na 
 
 ## \# Configurar email
 
-```git config --global user.email e-mail```
+```
+git config --global user.email e-mail
+```
 
-ex: ```git config --global user.email meuemail@gmail.com```
+ex:
+```
+git config --global user.email meuemail@gmail.com
+```
 
 ## \# Verificar configuração
 
-```git config --global --list```
+```
+git config --global --list
+```
 
 Pode abreviar usando --l ao invés de --list
-ex: ```git config --global --l```
+ex:
+```
+git config --global --l
+```
 
 ## \# Trocar nome de usuário ou email
 
@@ -302,30 +348,45 @@ Dicas de abreviação/atalho
     ![](img/local_padrao.png)
     ![](img/local_padrao2.png)
 
-ex: ```cd desktop/projetos/site```
+ex:
+```
+cd desktop/projetos/site
+```
 
-Para listar os arquivos da pasta ```ls```
+Para listar os arquivos da pasta `ls`
 
 ## \# Visualizar o arquivo oculto do Git
 
-```cd .git
-ls```
+```
+cd .git
+ls
+```
 
 # \# Status do diretório
 
-Este comando será muito utilizado durante o uso do Git, por ele poderemos visualizar qual o status de nossos arquivos, se untracked, modified, staged, commited.. ```git status```
+Este comando será muito utilizado durante o uso do Git, por ele poderemos visualizar qual o status de nossos arquivos, se untracked, modified, staged, commited..
+```
+git status
+```
 
 ## \# Status dentro de pastas do diretório
 
-```git status -u```
+```
+git status -u
+```
 
 ## \# Iniciar um Git
 
-```git init```
+```
+git init
+```
 
 ## \# Desligar Git no repositório
 
-Se por algum motivo não deseja mais usar o controle de versões e deseja desligar o Git do repositório (esse comando irá remover/deletar o Git do repositório em questão): ```rm -rf .git/```
+Se por algum motivo não deseja mais usar o controle de versões e deseja desligar o Git do repositório (esse comando irá remover/deletar o Git do repositório em questão):
+```
+rm -rf .git/
+```
 
 # GitHub: cadastrar chave SSH. Autenticação
 
@@ -333,7 +394,10 @@ Na primeira vez que você for fazer push de um repositório de sua máquina para
 
 ## 1º passo: Gerar as chaves
 
-No terminal digite o comando abaixo. Você deverá informar o mesmo e-mail que está cadastrado no GitHub ```ssh-keygen -t rsa -b 4096 -C "your_email@example.com"```
+No terminal digite o comando abaixo. Você deverá informar o mesmo e-mail que está cadastrado no GitHub
+```
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+```
 
 O prompt irá informar que está gerando as chaves. depois disso irá perguntar onde você deseja salvar a chave privada, se quiser no local já sugerido pelo git, basta teclar ENTER.
 
@@ -341,10 +405,16 @@ Depois disso ele irá perguntar se você deseja salvar uma senha adicional, gera
 
 ## 2º passo: Adicionar sua chave SSH pública
 
-Entre no diretório das chaves salvas: ```cd ~/.ssh/```
+Entre no diretório das chaves salvas:
+```
+cd ~/.ssh/
+```
 
 Depois irá mostrar o nome das chaves, a que interessa é a .pub, copie o nome dela. Pode usar o comando \[cat\] ou \[more\].
-Digite: ```cat id_rsa.pub```
+Digite:
+```
+cat id_rsa.pub
+```
 
 Irá aparecer sua chave pública no terminal..copie.
 
@@ -355,17 +425,26 @@ Vá no site do Github, clique em sua imagem de perfil
 
 1.  criar um repositório no Github e copiar o endereço SSH do repositório.
 2.  no terminal digitar o comando abaixo ((este nome origin pode ser o nome que você quiser, mas é mais comumente utilizado o origin):
-    ```git remote add origin endereço_ssh```
+    ```
+    git remote add origin endereço_ssh
+    ```
+
 3.  enviar arquivos para o GitHub:
-    ```git push origin master```
+    ```
+    git push origin master
+    ```
 4.  da primeira vez que conectar ao GitHub (seu primeiro repositório nesta máquina) irá pedir usuário e senha do Github, após informar, ele automaticamente irá fazer o push dos seus arquivos.
 
 Quando quiser verificar se o repositório está conectado, digite:
-```git remote```
+```
+git remote
+```
 (deverá aparecer: origin)
 
 Para verificar detalhes:
-```git remote -v```
+```
+git remote -v
+```
 
 # Sobre o parentesco entre commits
 
@@ -383,25 +462,37 @@ Então: C0 é pai de C1, C1 é pai de C2, C4 é filho de c3, etc.
 
 ## Visualizar pais
 
-```git log --parents --oneline```
+```
+git log --parents --oneline
+```
 
 # Utilizando o Git
 
 ## \[add\] Adicionar arquivos ao STAGED
 :::de UNTRACKED ou de MODIFIED para STAGED:::
 
-Adiciona o arquivo para os cuidados do git (stage: área do Git) ```git add nome do arquivo.extensão```
+Adiciona o arquivo para os cuidados do git (stage: área do Git)
+```
+git add nome do arquivo.extensão
+```
 
 Para adicionar todos os arquivos de uma vez:
-```git add .```
+```
+git add .
+```
 
 ## \[commit\]
 :::de STAGED para COMMITED:::
 
 Commitar (o git tira uma “foto” do estado atual do projeto p/ acompanhar as mudanças)
-```git commit -m “mensagem de minha preferência”```
+```
+git commit -m “mensagem de minha preferência”
+```
 
-Ex: ```git commit -m “C0 - Primeiro commit do projeto”```
+Ex:
+```
+git commit -m “C0 - Primeiro commit do projeto”
+```
 
 Obs: \*Se vc não colocar a mensagem, automaticamente ele irá abrir um editor de texto para que você digite a mensagem.
 
@@ -409,19 +500,23 @@ Neste caso, digite a mensagem no editor que irá abrir, crtl + S para salvar e d
 
 ## Atalho para add e commit de uma vez
 
-```git commit -am “mensagem de minha preferência”```
+```
+git commit -am “mensagem de minha preferência”
+```
 
 ## Modificar o editor de texto padrão do Git
 
 O editor de texto padrão do Git é o VIM, durante a instalação você também recebe um opção de alterar essa configuração. Mas se por algum motivo, depois de instalado, desejar mudar o editor padrão:
-```git config --global core.editor nome do editor que deseja```
+```
+git config --global core.editor nome do editor que deseja
+```
 
 ## Recapitulando...
 
 Sempre que quiser atualizar uma mudança no repositório, repetir:
 
-1.  ```git add nome_do_arquivo_extensão```
-2.  ```git commit + mudanças realizadas ex: git commit -m “C1 - Alterações na parte de css do código”)```
+1.  `git add nome_do_arquivo_extensão`
+2.  `git commit + mudanças realizadas ex: git commit -m “C1 - Alterações na parte de css do código”)`
 
 Uma vez, que devemos passar os arquivos de MODIFIED para COMMITED novamente.
 
@@ -429,55 +524,89 @@ Sempre que ocorre alguma mudança em um arquivo, o Git inteligentemente irá mos
 
 # Visualizar alterações (git log)
 
-Para visualizar todos os commits realizados Modo completo (tecle ENTER ou seta para baixo até chegar ao final (end).. para sair: tecle (q) ```git log```
+Para visualizar todos os commits realizados Modo completo (tecle ENTER ou seta para baixo até chegar ao final (end).. para sair: tecle (q)
+
+```
+git log
+```
 
 ## Visualizar Commits resumidos em 1 linha
 
-```git log --oneline```
+```
+git log --oneline
+```
 
 ## Visualizar últimos commits
 
 Para visualizar o ultimo commit em uma linha:
-```git log -1 --oneline```
+```
+git log -1 --oneline
+```
 
 Para visualizar os 2 últimos commits em uma linha:
-```git log -2 --oneline```
+```
+git log -2 --oneline
+```
 
 Assim, por diante, basta trocar o número. Para verificar não resumidos em uma linha, basta tirar o trecho de código --oneline.
 
 ## Visualizar alterações em todas as branchs resumidas em uma linha
 
 Você visualizar todos os commits realizados no repositório independentemente da branch, através do comando:
-```git log --oneline --all```
+```
+git log --oneline --all
+```
 
 ## Visualizar graficamente
 
 Ou para ficar ainda melhor, é possível verificar graficamente:
-```git log --oneline --all --graph```
+```
+git log --oneline --all --graph
+```
 
 ## Visualizar detalhes de um commit específico
 
-Visualização completa, contendo modificações realizadas: ```git show número_da_hash```
+Visualização completa, contendo modificações realizadas:
+```
+git show número_da_hash
+```
 
 Você pode encontrar a hash de cada commit através do comando
-```git log --oneline```
+```
+git log --oneline
+```
 
 \>>> Por exemplo, quero informações sobre o commit C5, cuja hash é 574cc01.
 
 ![](img/hash.png)
-Digito no terminal: ```git show 574cc01```
+Digito no terminal:
 
-Para Visualização resumida (sem info sobre linhas de código modificadas): ```git log -1 stat```
+```
+git show 574cc01
+```
+
+Para Visualização resumida (sem info sobre linhas de código modificadas):
+```
+git log -1 stat
+```
 
 ## \[diff\] Histórico de diferença entre modificações
 
-```git log -p -posição_do_commit```
+```
+git log -p -posição_do_commit
+```
 
-Ex: Exibir histórico com diff das duas últimas alterações: ```git log -p -2```
+Ex: Exibir histórico com diff das duas últimas alterações:
+```
+git log -p -2
+```
 
 ## ver histórico com formatação específica (hash abreviada, autor, data e comentário)
 
-```git log --pretty=format:"%h - %an, %ar : %s"```
+```
+git log --pretty=format:"%h - %an, %ar : %s"
+```
+
 Onde:
 
 *   %h: Abreviação do hash;
@@ -487,20 +616,33 @@ Onde:
 
 ## Visualizar histórico de um arquivo específico pelo caminho
 
-```git log -- caminho_do_arquivo```
+```
+git log -- caminho_do_arquivo
+```
 
 ## Visualizar histórico de um arquivo específico que contêm uma determinada palavra
 
-```git log --summary -S [caminho_do_arquivo]```
+```
+git log --summary -S [caminho_do_arquivo]
+```
 
 ## Exibir histórico modificação de um arquivo com parâmetros
 
-O M pode ser substituido por: Adicionado (A), Copiado (C), Apagado (D), Modificado (M), Renomeado (R), entre outros. ```git log --diff-filter=M --```
+O M pode ser substituido por: Adicionado (A), Copiado (C), Apagado (D), Modificado (M), Renomeado (R), entre outros.
+```
+git log --diff-filter=M --
+```
 
 ## Visualizar commits de determinado autor
 
-```git log --author=nomedoautor```
-Ex: ```git log --author=hlays```
+```
+git log --author=nomedoautor
+```
+
+Ex:
+```
+git log --author=hlays
+```
 
 # \[gitignore\] Ignorar determinados arquivos na hora de commitar
 
@@ -510,26 +652,37 @@ Passos:
 
 1.  criar um arquivo com extensão (.gitignore) na pasta onde estão os arquivos de commit
 2.  num editor de texto adicionar no arquivo .gitignore o nome dos arquivos que deverão ser ignorados. Todos esses arquivos depois de terem o nome salvo no .gitignore não aparecerão mais em git status. exemplo:
-    ```fonte.txt```
-    ```img21.png```
+    `fonte.txt` e
+    `img21.png`
 3.  salvar e fazer o commit deste arquivo .gitignore como outro arquivo qualquer
 
 ## ATALHO gitignore: todos os arquivos de mesma extensão
 
 Vamos supor que queremos que o git ignore todos os arquivos em formato txt que estão na pasta. Basta salvar no arquivo .gitignore \* + extensão do tipo de arquivo a ser ignorado (no editor de texto):
-```*.txt```
+`*.txt`
 
 ## Adicionar um arquivo que esta listado no .gitignore (geral ou do repositório)
 
-```git add -f nome_do_arquivo.extensão```
+```
+git add -f nome_do_arquivo.extensão
+```
 
 # Git diff
 
 Para comparar:
 
-*   modified e commited: ```git diff```
-*   staged e commited:```git diff --staged``` ou ```git diff --cached```
-*   commited e commited:```git diff hash_do_commit_antigo..hash_do_commit_atual```
+*   modified e commited:
+    ```
+    git diff
+    ```
+*   staged e commited:
+      ```
+      git diff --staged``` ou ```git diff --cached
+      ```
+*   commited e commited:
+    ```
+    git diff hash_do_commit_antigo..hash_do_commit_atual
+    ```
 
 ## Visualizar últimas atualizações que estão em :::modified:::
 
@@ -539,20 +692,28 @@ O console irá mostrar todas as modificações realizadas que estão diferentes 
 Em verde (+) tudo o que foi acrescentado e em vermelho (-) tudo o que foi removido.
 
 Tecle ENTER ou seta para baixo até chegar ao final do documento (END) e então tecle (q) para sair. Comando:
-```git diff```
+```
+git diff
+```
 
 ## Visualizar últimas modificações em um arquivo específico
 
-```git diff nome_do_arquivo.extensão```
+```
+git diff nome_do_arquivo.extensão
+```
 
 ## Visualizar últimas atualizações que estão em :::staged:::
 
 Para visualizar modificações que não estão em modified acrescentar (--staged ou --cached)
-```git diff --staged```
+```
+git diff --staged
+```
 
 ## comparar modificações entre commits
 
-```git diff hash_do_commit_antigo..hash_do_commit_atual```
+```
+git diff hash_do_commit_antigo..hash_do_commit_atual
+```
 
 Exemplo. Dados os commits abaixo, para comparar C5 e C6:
 Lays@Krasco MINGW64 ~/desktop/teste\_git (master)
@@ -569,7 +730,9 @@ d6ec6be C3 - Acresc nome do curso e prof
 bd5dcc8 "add novo paragrafo em "
 98f7dd4 C1 - h1 e parágrafo
 e0a52d7 C0 - Primeiro commit
-```-> comando : git diff 574cc01..fc5cbee```
+```
+-> comando : git diff 574cc01..fc5cbee
+```
 
 Resumindo...
 ![](img/modificar.png)
@@ -581,31 +744,43 @@ Supondo que você deseja desfazer alterações no arquivo..vai depender em que p
 
 ## Desfazer alterações: arquivo em :::untracked:::
 
-```git checkout --nome_do_arquivo.extensão```
+```
+git checkout --nome_do_arquivo.extensão
+```
 
 ## Desfazer alterações: arquivos em :::modified::: (já feito add, mas não commit)
 
 1.  1º tira ele de modified e leva de volta para untracked:
-    ```git reset nome_do_arquivo.extensão```
+    ```
+    git reset nome_do_arquivo.extensão
+    ```
 2.  2º já é possível fazer checkout e reverter alterações
-    ```git checkout --nome_do_arquivo.extensão```
+    ```
+    git checkout --nome_do_arquivo.extensão
+    ```
 
 ## Desfazer alterações: arquivos já commitados
 
 ### 1º caso SOFT
 
 Tirar arquivo de commit e passar de volta para staged, sem deletar o arquivo, usa-se o comando --soft + a hash do pai, ou seja, a hash do commit anterior ao que eu quero apagar. e depois é possível fazer o checkout.
-```git reset --soft hash_do_pai```
+```
+git reset --soft hash_do_pai
+```
 
 ### 2º caso MIXED
 
 Tirar arquivo de commit e passar para modified (fora do staged), sem deletar o arquivo, usa-se o comando --mixed + a hash do pai, ou seja, a hash do commit anterior ao que eu quero apagar e depois é possível fazer o checkout.
-```git reset --mixed hash_do_pai```
+```
+git reset --mixed hash_do_pai
+```
 
 ### 3º caso DELETAR HARD
 
 Tirar arquivo de commit e deletar o arquivo (todos os commits e arquivos que estão depois do que o commit em questão deixam de existir, são deletados e fica só do commit pai/anterior para baixo). Usa-se o comando --hard + a hash do pai, ou seja, a hash do commit anterior ao que eu quero apagar e depois é possível fazer o checkout.
-```git reset --mixed hash_do_pai```
+```
+git reset --mixed hash_do_pai
+```
 
 ## Reverter alterações
 
@@ -614,40 +789,58 @@ Quase semelhante ao desfazer, mas nesse caso será criado um commit que indica a
 ### 1° caso
 
 Com mensagem sobre a reversão, neste caso o editor de texto irá abrir para que você insira a mensagem sobre o por que da reversão, ou digite (-m “mensagem”) após o hash
-```git revert hash_do_commit_a_ser_revertido```
+```
+git revert hash_do_commit_a_ser_revertido
+```
 
 ### 2° caso
 
 Sem mensagem sobre a reversão:
-```git revert hash_do_commit_a_ser_revertido --no-edit```
+```
+git revert hash_do_commit_a_ser_revertido --no-edit
+```
 
 # Arquivo deletado manualmente pelo OS, como commitar
 
 Quando deletar um arquivo do arquivo local de sua máquina, o git irá reconhecer isso e se você verificar no comando git status irá verificar que ele está em uma nova instância do git chamada “deleted” , para confirmar essa exclusão e manter documentado esse processo.
 
 Deve-se:
-```git rm nome_do_arquivo.extensão```
-```git commit```
+```
+git rm nome_do_arquivo.extensão
+```
+```
+git commit
+```
 
 OU
-```git add nome_do_arquivo.extensão```
-```git commit```
+```
+git add nome_do_arquivo.extensão
+```
+```
+git commit
+```
 
 Os dois métodos são distintos. Quando removemos pelo sistema operacional ou por alguma ide e queremos commitar essa ação, temos que add ao stage e commitar. Agora se commitarmos diretamente pelo git (com git rm) não precisamos fazer o add, pois a deleção já vai para a stage. Nesse caso é só um corte de caminho para não precisar usar o git add.
 
 # Desfazer: arquivo deletado da máquina
 
-```git checkout -- nome_do_arquivo.extensão```
+```
+git checkout -- nome_do_arquivo.extensão
+```
 
 # Remover arquivo/pasta pelo Git
 
 ## Remover arquivo
 
-```git rm nome_do_arquivo.extensão```
+```
+git rm nome_do_arquivo.extensão
+```
 
 ## Remover pasta
 
-```git rm -r nome da pasta```
+```
+git rm -r nome da pasta
+```
 
 # Renomear arquivo local
 
@@ -672,7 +865,9 @@ Os dois métodos são distintos. Quando removemos pelo sistema operacional ou po
 Quando usar pela primeira vez, deverá conectar a sua conta do Github na sua máquina, para isso, é necessário Connectar o SSH da sua conta. Onde sua Chave pública do github será autenticada pela chave privada da sua máquina. [link para instruções](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)
 
 No terminal, digite:
-```ssh-keygen -t rsa -b 4096 -C "your_email@example.com"```
+```
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+```
 
 O terminal irá informar que está gerando as chaves.
 Depois disso irá perguntar onde você deseja salvar a chave privada, se quiser no local já sugerido pelo git, basta teclar ENTER.
@@ -682,10 +877,14 @@ Depois disso ele irá perguntar se você deseja salvar uma senha adicional, gera
 ## Adicionar chave SSH
 
 Digite no terminal para entrar no diretório das chaves salvas:
-```cd ~/.ssh/```
+```
+cd ~/.ssh/
+```
 
 O terminal irá mostrar o nome das chaves, a que interessa é a .pub, copie o nome dela. Pode usar o comando ```cat``` ou ```more```. Digite:
-```cat id_rsa.pub```
+```
+cat id_rsa.pub
+```
 
 Irá aparecer sua chave pública no terminal (um conjunto de caracteres com diversas linhas..copie.
 
@@ -695,24 +894,36 @@ Agora, vá no site do Github, clique em sua imagem de perfil (botão verde no ca
 
 1.  criar um repositório no Github e copiar o endereço SSH do repositório.
 2.  no terminal digitar:
-    ```git remote add origin endereço_ssh```. Este nome origin pode ser o nome que você quiser, mas é mais comumente utilizado o origin. Este comando serve para adicionar seu repositório local no Github.
+    ```
+    git remote add origin endereço_ssh
+    ```
+    Este nome origin pode ser o nome que você quiser, mas é mais comumente utilizado o origin. Este comando serve para adicionar seu repositório local no Github.
 3.  enviar arquivos para o Github. Digite no terminal:
-    ```git push origin master```
+    ```
+    git push origin master
+    ```
 4.  Da 1ª vez, irá pedir usuário e senha do Github, após informar, ele automaticamente irá fazer o push dos seus arquivos.
 
 ## Verificar se está conectado
 
-```git remote```
+```
+git remote
+```
+
 Deve aparecer: origin, ou o nome que você tenha usado.
 
 ## Verificar detalhes do repositório no Github
 
-```git remote -v```
+```
+git remote -v
+```
 
 # push: sincronizar alterações locais para o repositório do Github
 
 Sempre que quiser atualizar os commits locais também no Github fazer:
-```git push origin master```
+```
+git push origin master
+```
 
 # clone: trazer repositório remoto para o arquivo local
 
@@ -720,12 +931,18 @@ Este é o inverso. Quando você cria o repositório no Github e deseja trazer pa
 Será necessário clonar o repositório remoto utilizando o comando clone
 
 Não esqueça de estar com o local que deseja salvar o repositório configurado no terminal
-```git clone endereço_do_repositorio```
+```
+git clone endereço_do_repositorio
+```
+
 você deverá encontrar o endereço SSH do repositório na página do repositório do Github. Fica localizado em um botão verde do lado direito da tela. Você pode clonar tantos seus próprios repositório, quanto em repositórios criados por outras pessoas com quem irá trabalhar no projeto em questão.
 
 # pull: sincronizar alterações do repositótio remoto para o local
 
-```git pull origin master```
+```
+git pull origin master
+```
+
 origin, ou o nome que você tenha usado..
 
 # Trabalhando com repositórios de outras pessoas
@@ -766,11 +983,15 @@ Outra exemplificação seria, quando uma equipe deseja ramificar o trabalho de c
 
 ## Criar uma nova branch
 
-```git branch nome_da_nova_branch```
+```
+git branch nome_da_nova_branch
+```
 
 \>>> ATALHO <<<
 É possível também criar uma branche e já ir para ela automaticamente sem a necessidade do comando git branch e depois git checkout, para isso:
-```git checkout -b nome_da_nova_branch```
+```
+git checkout -b nome_da_nova_branch
+```
 
 ## Efetivar branch através do commit
 
@@ -782,7 +1003,9 @@ Não se esqueça de commitar com o terminal ajustado na branch como explicado no
 
 Quando criamos uma branch no repositório local, será necessário criar a mesma branch no repositório remoto.
 Isso pode ser feito pelo próprio site do Github ou pelo terminal:
-```git branch master:nome_da_nova_branch```
+```
+git branch master:nome_da_nova_branch
+```
 
 Lembrando que, quando trabalhamos em equipe, geralmente criamos ramificações somente no nosso repositório local, e ao final fazemos push somente do que é necessário no repositório remoto. Tudo isso vai depender de cada caso.
 
@@ -790,21 +1013,29 @@ No tópico a seguir veremos um atalho para Criar branch já trackeada ao reposit
 
 ## Criar branch já trackeada ao repositório remoto
 
-```git branch nome_da_nova_branch origin/nome_da_nova_branch```
+```
+git branch nome_da_nova_branch origin/nome_da_nova_branch
+```
 
 ## Visualizar Branchs
 
 ### Visualizar todas as braches (LOCAIS e REMOTAS)
 
-```git branch -a```
+```
+git branch -a
+```
 
 ### Visualizar braches LOCAIS
 
-```git branch```
+```
+git branch
+```
 
 ### Visualizar braches REMOTAS
 
-```git branch -r```
+```
+git branch -r
+```
 
 Em qual branch estou?
 com o comando git branch, o terminal mostrará todas as branchs existentes no repositório, e a branch em que você está irá aparecer em verde com \* (asterísco)
@@ -813,32 +1044,46 @@ com o comando git branch, o terminal mostrará todas as branchs existentes no re
 ### Último commit foi commitado em qual branch?
 
 
-```git log --oneline```
+```
+git log --oneline
+```
 
 O terminal irá mostrar todos os commits realizados e na 1ª linha, podemos verificar através de HEAD em qual branch está o último commit.
 
 ## Mudar de branch, commitar entre branchs
 
 Quando quiser mudar de branch para commitar, basta digitar no terminal:
-```git branch checkout nome_da_branch```
+```
+git branch checkout nome_da_branch
+```
 
 ## Deletar uma branch local
 
 Para deletar uma branch, é necessário que você não esteja nela. Então certifique-se de que está na branch master antes de execultar o código.
-```git branch -d nome_da_branch_deletar```
+```
+git branch -d nome_da_branch_deletar
+```
 
 Pode acontecer de o Git acusar que a branch não foi completamente mesclada. Você pode mesclar corretamente e excluir. Ou, caso queira excluir e não mesclar, não salvando assim o commit, basta trocar o -d por -D:
-```git branch -D nome_da_branch_deletar```
+```
+git branch -D nome_da_branch_deletar
+```
 
 ## Deletar uma branch remota
 
-```git push --delete```
+```
+git push --delete
+```
 
 # Mesclar branches: merge e rebase
 
 Supondo que naquele exemplo anterior, você terminou suas alterações em paralelo no css e deseja que a brach "teste", seja mesclada com a master para prosseguir com o projeto em completo.
 
-1º certifique-se que você esteja na branch "master" (se não estiver, use: ```branch checkout master```)
+1º certifique-se que você esteja na branch "master", se não estiver, use:
+ ```
+branch checkout master
+```
+
 
 A diferença entre mesclar branches com merge e com rebase:
 
@@ -850,10 +1095,14 @@ No momento em que você cria a ramificação, o Git guarda o estado dos determin
 ## :::merge::: para Mesclar branches
 
 Use o comando merge para mesclar:
-```git merge nome_da_branch_que _deseja_mesclar -m "mensagem sobre o commit"```
+```
+git merge nome_da_branch_que _deseja_mesclar -m "mensagem sobre o commit"
+```
 
 No caso do exemplo:
-```git merge testar```
+```
+git merge testar
+```
 
 Ou seja, uma vez, que já estamos em "master", informamos ao git para "trazer"/"mesclar" a branch testar com master.
 
@@ -867,7 +1116,9 @@ Feito o merge certinho, podemos deletar a branch adicional, caso não seja mais 
 
 ## :::rebase::: para Mesclar branches
 
-```git rebase nome_da_branch_que_deseja_mesclar```
+```
+git rebase nome_da_branch_que_deseja_mesclar
+```
 
 Cuidado, sempre é aconselhavel somente fazer rebase em branchs locais, uma vez que fazer isso em branches compartilhadas com outras pessoas pode gerar conflitos.
 
@@ -889,24 +1140,32 @@ Por isso, para resolver esse tipo de conflito, é necessário ver qual linha do 
 ### Conflitos e abortar merge
 
 Antes de finalizar o processo de rebase, para corrigir conflitos, etc, é possível cancelar a operação com:
-```git merge --abort```
+```
+git merge --abort
+```
 
 Algumas vezes podem ocorrer problemas de conflitos entre os commits, neste caso você deverá corrigir os conflitos e abortar o merge ou para continuar depois de corrigir basta fazer o merge novamente.
 
 ### Conflitos e abortar rebase
 
 Antes de finalizar o processo de rebase, para corrigir conflitos, etc, é possível cancelar a operação com:
-```git rebase --abort```
+```
+git rebase --abort
+```
 
 Algumas vezes podem ocorrer problemas de conflitos entre os commits, neste caso você deverá corrigir os conflitos e abortar o rebase ou para continuar depois de corrigir, não é necessário começar a operação novamente como ocorre com o merge, aqui podemos continuar de onde paramos com:
-```git rebase --continue```
+```
+git rebase --continue
+```
 
 # Tracking: rastreando branchs entre repositório local e remoto
 
 Pode acontecer durante os commits locais, de estar desatualizado no repositório remoto, para resolver isso:
 
 
-```git push -u origin master```
+```
+git push -u origin master
+```
 
 Neste exemplo, na hora de fazer o push, acrescenta-se -u para atualizar e igualar a branch master nos repositórios. Lembrando que usamos "origin" como exemplo (conforme explicado é um nome que se dá), e usou-se a branch master, mas pode ser feito para qualquer outra branch que se deseja atualizar a posição.
 
@@ -918,8 +1177,12 @@ Quando fazemos um ```git push origin master``` para enviar as atualizações de 
 
 # Editar url remota
 
-```git remote set-url origin https://github.com/USERNAME/REPOSITORY.git```
+```
+git remote set-url origin https://github.com/USERNAME/REPOSITORY.git
+```
 
-# Verificar url remota
+Para conferir se a url foi editada com sucesso, basta digitar o comando abaixo e verificar o endereço correspondente:
 
-```git remote -v```
+```
+git remote -v
+```

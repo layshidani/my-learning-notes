@@ -1,5 +1,7 @@
 # Notas de aprendizado
 
+<!-- TODO add Linux, node, angular -->
+
 ## Linha de comando
 * [Linha de Comando](https://github.com/layshidani/my-learning-notes/blob/master/command-line/command-line.md)
 * [ZSH](https://github.com/layshidani/my-learning-notes/blob/master/command-line/zsh.md)

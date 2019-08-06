@@ -8,8 +8,8 @@
 * [VSCode](https://github.com/layshidani/my-learning-notes/blob/master/vscode.md)
 
 ## GitHub
-* [Git e GitHub](https://layshidani.github.io/learning-front-end/projects/Git-GitHub-MyNotebook/)
-  * [GitHub Badges](https://github.com/layshidani/my-learning-notes/blob/master/github-badges.md)
+* [Git e GitHub](https://github.com/layshidani/my-learning-notes/blob/master/git-github/git.md)
+* [GitHub Badges](https://github.com/layshidani/my-learning-notes/blob/master/git-github/github-badges.md)
 
 ## ReactJS
 * [ReactJS: Create React App](https://github.com/layshidani/my-learning-notes/blob/master/react/create-react-app.md)

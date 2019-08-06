@@ -1,7 +1,7 @@
 # Notas de aprendizado
 
 ## Linha de comando
-* [Linha de Comando](https://github.com/layshidani/my-learning-notes/blob/master/linha-de-comando/linha-de-comando.md)
+* [Linha de Comando](https://github.com/layshidani/my-learning-notes/blob/master/command-line/command-line.md)
 
 ## VSCode
 * [VSCode](https://github.com/layshidani/my-learning-notes/blob/master/vscode.md)

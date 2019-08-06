@@ -12,7 +12,7 @@
 * [GitHub Badges](https://github.com/layshidani/my-learning-notes/blob/master/git-github/github-badges.md)
 
 ## ReactJS
-* [ReactJS: Create React App](https://github.com/layshidani/my-learning-notes/blob/master/react/create-react-app.md)
+* [Ambiente de Desenvolvimento ReactJS com Create React App](https://github.com/layshidani/my-learning-notes/blob/master/react/create-react-app.md)
   * [Exemplo de Componente](https://github.com/layshidani/my-learning-notes/blob/master/react/component.md)
   * [Exemplo de página](https://github.com/layshidani/my-learning-notes/blob/master/react/page.md)
   * [Exemplo de rota](https://github.com/layshidani/my-learning-notes/blob/master/react/rota.md)

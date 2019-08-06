@@ -1,3 +1,5 @@
+# Ambiente de Desenvolvimento com Create React App
+
 [Reactjs](https://pt-br.reactjs.org/docs/create-a-new-react-app.html)
 
 * No local onde deseja criar
@@ -49,7 +51,7 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-export default 
+export default
 
 import firebase from './firebaseConfig';
 
@@ -73,7 +75,7 @@ handleClick = () => {
 import ReactDOM from 'react-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCoffee } from '@fortawesome/free-solid-svg-icons'
- 
+
 const element = <FontAwesomeIcon icon={faCoffee} />
 ```
 ---
@@ -117,7 +119,7 @@ mude a configuração no arquivo `firebase.json` para que ele abra o **hosting**
     "source": "functions"
   },
   "hosting": {
-    "public": "build", // mudar aqui 
+    "public": "build", // mudar aqui
     "ignore": [
       "firebase.json",
       "**/.*",

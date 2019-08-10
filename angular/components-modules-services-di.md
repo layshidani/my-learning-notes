@@ -165,12 +165,42 @@ Inserindo o componente para exibição, o resultado será:
 ### Diretivas
 
 Exemplo:
+**no arquivo nomes.component.ts:**
+```ts
+import { Component, OnInit } from '@angular/core';
 
-```html
-  <li *ngFor="let num of nums"> {{ num }}</li>
+@Component({
+  selector: 'app-numbers',
+  templateUrl: './numbers.component.html',
+  styleUrls: ['./numbers.component.sass']
+})
+export class NumbersComponent implements OnInit {
+  numbers: string[] = ['1', '2', '3'];
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}
 ```
 
+**no arquivo nomes.component.html:**
+```html
+  <ul>
+    <li *ngFor="let num of nums"> {{ num }}</li>
+  </ul>
+```
+
+O resultado será:
+
+* 1
+* 2
+* 3
+
+
 ---
+# Modules
 O angular-cli cria automaticamente um arquivo **app.modules.ts**:
 
 (esse é o módulo raiz do projeto)
@@ -305,5 +335,4 @@ Também é possível fazer uso de componentes privados, não incluindo-os no imp
 ---
 
 # Services e Injeção de Dependência
-
 

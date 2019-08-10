@@ -336,3 +336,85 @@ Também é possível fazer uso de componentes privados, não incluindo-os no imp
 
 # Services e Injeção de Dependência
 
+Para criar na raiz do projeto (dir app):
+
+```$
+ng g s service-name
+```
+
+Para criar em um diretório de componente já existente:
+
+```$
+ng g s dir-name/service-name
+```
+
+Este comando irá criar dois arquivos:
+* service-name.service.spec.ts
+* service-name.service.ts
+
+!Boas práticas fazer o uso de services para injetar dados, ao invés de fazer direto por diretiva.
+
+Utilizando o mesmo exemplo das diretivas:
+
+Seguimos 3 passos:
+
+1. no arquivo **numbers.service.ts**:
+```ts
+import { Injectable } from '@angular/core';
+
+// @injectable é um decorator
+@Injectable({
+  providedIn: 'root'
+})
+export class NumbersService {
+
+  constructor() { }
+
+  getNumbers() {
+    // adiciona um return com os valores a serem injetados:
+    return ['1', '2', '3'];
+  }
+}
+```
+
+2. no arquivo **numbers.component.ts**:
+```ts
+import { Component, OnInit } from '@angular/core';
+
+// importar a classe NumbersService
+import { NumbersService } from './numbers.service';
+
+@Component({
+  selector: 'app-numbers',
+  templateUrl: './numbers.component.html',
+  styleUrls: ['./numbers.component.sass']
+})
+export class NumbersComponent implements OnInit {
+  // retirar o array daqui e inserir no arquivo de service:
+  // numbers: string[] = ['1', '2', '3'];
+  numbers: string[];
+
+  // Instanciar via construtor (pode ser private ou public)
+  constructor(private numbersService: NumbersService) {
+    this.numbers = this.numbersService.getNumbers();
+  }
+
+  ngOnInit() {
+  }
+
+}
+```
+
+3. no arquivo **numbers.component.html**:
+```html
+  <ul>
+    <li *ngFor="let num of nums"> {{ num }}</li>
+  </ul>
+```
+
+Por fim,
+O resultado será:
+
+* 1
+* 2
+* 3

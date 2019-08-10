@@ -20,6 +20,9 @@
   * [Exemplo de rota](https://github.com/layshidani/my-learning-notes/blob/master/react/rota.md)
   * [Arquivo gitignore](https://github.com/layshidani/my-learning-notes/blob/master/react/gitignore-react.md)
 
+## Angular2
+* [Angular2](https://github.com/layshidani/my-learning-notes/blob/master/angular/angular2.md)
+
 ## Módulos
 * [Módulos - WebPack](https://github.com/layshidani/my-learning-notes/tree/master/modules-webpack/)
 

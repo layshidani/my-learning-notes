@@ -1,6 +1,24 @@
 # Angular v2
 > Angular é uma plataforma de aplicações web de código-fonte aberto e front-end baseado em TypeScript liderado pela Equipe Angular do Google e por uma comunidade de indivíduos e corporações. Angular é uma reescrita completa do AngularJS, feito pela mesma equipe que o construiu. [--Wiki](https://g.co/kgs/guUR7X)
 
+## Table of Contents
+- [Preparando o ambiente de desenvolvimento com Angular cli](#preparando-o-ambiente-de-desenvolvimento-com-angular-cli)
+  * [Iniciar um novo projeto com o Angular cli](#iniciar-um-novo-projeto-com-o-angular-cli)
+  * [Rodando a aplicação](#rodando-a-aplicação)
+- [Componentes](#componentes)
+  * [Criar componente utilizando o angular cli](#criar-componente-utilizando-o-angular-cli)
+  * [Criar o primeiro componente manualmente](#criar-o-primeiro-componente-manualmente)
+  * [Usar o component manualmente](#usar-o-component-manualmente)
+- [Templates](#templates)
+  * [Interpolação e Diretivas](#interpolação-e-diretivas)
+    * [Interpolação](#interpolação)
+    * [Diretivas](#diretivas)
+- [Modules](#modules)
+  * [Criar módulo](#criar-módulo)
+  * [Adicionar componentes ao módulo](#adicionar-componentes-ao-módulo)
+- [Services e Injeção de Dependência](#services-e-injeção-de-dependência)
+---
+
 # Preparando o ambiente de desenvolvimento com Angular cli
 
 [Angular cli reference](https://angular.io/cli)
@@ -288,7 +306,7 @@ import { Componente2Component } from './componente2/componente2.component';
 export class AppModule { }
 ```
 
-## Criar módulo no terminal (angular-cli)
+## Criar módulo
 (esse é um módulo de funcionalidade do projeto)
 
 Na pasta do projeto, digite no terminal:

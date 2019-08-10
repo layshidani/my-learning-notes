@@ -1,4 +1,50 @@
+# Angular v2
+> Angular é uma plataforma de aplicações web de código-fonte aberto e front-end baseado em TypeScript liderado pela Equipe Angular do Google e por uma comunidade de indivíduos e corporações. Angular é uma reescrita completa do AngularJS, feito pela mesma equipe que o construiu. [--Wiki](https://g.co/kgs/guUR7X)
+
+# Preparando o ambiente de desenvolvimento com Angular cli
+
+[Angular cli reference](https://angular.io/cli)
+
+Pre-requisitos:
+* NodeJS instalado
+
+
+```$
+sudo npm i -g @angular/cli
+```
+
+```$
+sudo npm i -g typescript
+```
+
+## Iniciar um novo projeto com o Angular cli
+```$
+ng new app-name
+```
+
+Entre no diretório do projeto para começar a trabalhar nele:
+```$
+cd app-name
+```
+
+## Rodando a aplicação
+O comando abaixo irá fazer o build da aplicação e rodar no [http://localhost:4200/](http://localhost:4200/), você poderá acompanhar pelo browser o efeito das alterações do projeto.
+
+```$
+ng serve
+```
+
+ou abreviado:
+
+```$
+ng s
+```
+
+
+---
 # Componentes
+> Angular 2 é orientado a componentes, isso significa que você vai escrever diversos componentes minúsculos que juntos constituirão uma aplicação inteira. Um Component é a combinação de um template HTML com uma classe que controla parte da tela. [--Matera](http://www.matera.com/blog/post/comecando-com-angular-2)
+
 
 É possível criar os componentes manualmente ou de forma mais simplificada, utilizando o `angular-cli`.
 
@@ -201,6 +247,10 @@ O resultado será:
 
 ---
 # Modules
+> Em Angular, um módulo é um mecanismo para agrupar componentes, diretivas, canais e serviços relacionados, de forma que possam ser combinados com outros módulos para criar uma aplicação. Uma aplicação Angular pode ser vista como um quebra-cabeça onde cada peça (ou cada módulo) é necessária para poder ver a imagem completa.
+> Outra analogia para entender os módulos angulares são as classes. Em uma classe, podemos definir **métodos públicos ou privados**. Os métodos públicos são a API que outras partes do nosso código podem usar para interagir com ela, enquanto os métodos privados são detalhes de implementação ocultos. Da mesma forma, um módulo pode exportar ou ocultar componentes, diretivas, tubulações e serviços. Os elementos exportados devem ser usados ​​por outros módulos, enquanto os que não são exportados (ocultos) são usados ​​apenas dentro do próprio módulo e não podem ser acessados ​​diretamente por outros módulos de nosso aplicativo. [--Angular 2 training book](https://angular-2-training-book.rangle.io/modules/introduction)
+
+
 O angular-cli cria automaticamente um arquivo **app.modules.ts**:
 
 (esse é o módulo raiz do projeto)
@@ -335,6 +385,9 @@ Também é possível fazer uso de componentes privados, não incluindo-os no imp
 ---
 
 # Services e Injeção de Dependência
+> O serviço é simplesmente uma função javascript, juntamente com suas propriedades e métodos associados, que podem ser incluídos (via injeção de dependência) nos componentes do Angular 2. Eles permitem desenvolver código para tarefas específicas que podem ser usadas nesses componentes. [--Coursetro](https://coursetro.com/posts/code/20/Angular-2-Services-Tutorial---Understanding-&-Creating-Them)
+> Angular distingue componentes de serviços para aumentar a modularidade e a reutilização. Ao separar a funcionalidade relacionada à visualização de um componente de outros tipos de processamento, você pode tornar suas classes de componentes simples e eficientes. [--Angular.io](https://angular.io/guide/architecture-services)
+
 
 Para criar na raiz do projeto (dir app):
 

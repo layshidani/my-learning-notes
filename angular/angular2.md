@@ -2,21 +2,26 @@
 > Angular é uma plataforma de aplicações web de código-fonte aberto e front-end baseado em TypeScript liderado pela Equipe Angular do Google e por uma comunidade de indivíduos e corporações. Angular é uma reescrita completa do AngularJS, feito pela mesma equipe que o construiu. [--Wiki](https://g.co/kgs/guUR7X)
 
 ## Table of Contents
+- [Angular v2](#angular-v2)
+  - [Table of Contents](#table-of-contents)
+  - [- componente ---> template](#componente-----template)
 - [Preparando o ambiente de desenvolvimento com Angular cli](#preparando-o-ambiente-de-desenvolvimento-com-angular-cli)
-  * [Iniciar um novo projeto com o Angular cli](#iniciar-um-novo-projeto-com-o-angular-cli)
-  * [Rodando a aplicação](#rodando-a-aplicação)
+  - [Iniciar um novo projeto com o Angular cli](#iniciar-um-novo-projeto-com-o-angular-cli)
+  - [Rodando a aplicação](#rodando-a-aplica%c3%a7%c3%a3o)
 - [Componentes](#componentes)
-  * [Criar componente utilizando o angular cli](#criar-componente-utilizando-o-angular-cli)
-  * [Criar o primeiro componente manualmente](#criar-o-primeiro-componente-manualmente)
-  * [Usar o component manualmente](#usar-o-component-manualmente)
+  - [Criar componente utilizando o angular cli](#criar-componente-utilizando-o-angular-cli)
+  - [Criar o primeiro componente manualmente](#criar-o-primeiro-componente-manualmente)
+  - [Usar o component manualmente](#usar-o-component-manualmente)
 - [Templates](#templates)
-  * [Interpolação e Diretivas](#interpolação-e-diretivas)
-    * [Interpolação](#interpolação)
-    * [Diretivas](#diretivas)
+  - [Interpolação e Diretivas](#interpola%c3%a7%c3%a3o-e-diretivas)
+    - [Interpolação](#interpola%c3%a7%c3%a3o)
+    - [Diretivas](#diretivas)
 - [Modules](#modules)
-  * [Criar módulo](#criar-módulo)
-  * [Adicionar componentes ao módulo](#adicionar-componentes-ao-módulo)
-- [Services e Injeção de Dependência](#services-e-injeção-de-dependência)
+  - [Criar módulo](#criar-m%c3%b3dulo)
+  - [Adicionar componentes ao módulo](#adicionar-componentes-ao-m%c3%b3dulo)
+- [Services e Injeção de Dependência](#services-e-inje%c3%a7%c3%a3o-de-depend%c3%aancia)
+- [Data binding](#data-binding)
+  - [componente ---> template](#componente-----template)
 ---
 
 # Preparando o ambiente de desenvolvimento com Angular cli
@@ -489,3 +494,94 @@ O resultado será:
 * 1
 * 2
 * 3
+
+---
+# Data binding
+
+Associação de informações que estão no componente para o template e vice-e-versa.
+
+**componente  <----info----> template**
+
+componente ---> template
+* interpolação: `{{x}}`
+* property binding: `[propriedade]='x'`
+
+template ---> component:
+* evento: `(event)='handler'`
+
+componente <---> template:
+* Two-way data binding: `[(ngModel)='property']`
+
+> Two-way data binding:  a sincronização entre o model e a view. Quando os dados no model são alterados, a view reflete a alteração e, quando os dados da view mudam, o model também é atualizado. [--w3schools](https://www.w3schools.com/angular/angular_databinding.asp)
+
+## componente ---> template
+Exemplos:
+Dado o arquivo:
+**example.components.ts**
+```ts
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-example',
+  templateUrl: './example.component.html',
+  styleUrls: ['./example.component.css']
+})
+export class DataBindingComponent implements OnInit {
+
+  url: string = 'https://github.com/layshidani/my-learning-notes/';
+  aprender: boolean = true;
+  urlImagem: string = 'http://lorempixel.com/400/200/animals/';
+
+  getValor() {
+    return 'Hello';
+  }
+
+  praticar() {
+    return true;
+  }
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}
+```
+
+* interpolação: `{{x}}`
+**example.component.html**:
+```html
+<section>
+  <h3>Interpolation</h3>
+  <p>string rendereizada com interpolação: {{ url }}</p>
+  <p>Interpolação com expressões: 1 + 1 = {{ 1 + 1 }}</p>
+  <p>Interpolação com getValor: {{ getValor() }}</p>
+  <p>Com expressão bool: {{ aprender && praticar() }}</p>
+  <img src="{{urlImagem}}">
+</section>
+```
+
+O resultado do código acima será:
+![Resultado interpolação](imgs/interpolation.png)
+
+* property binding: `[propriedade]='x'`
+Considerando o mesmo arquivo **example.components.ts**...
+
+No html:
+```html
+  <section>
+    <h3>Property Binding</h3>
+    <p>Property-biding (<code>[src]="urlImagem"</code>):</p>
+    <img [src]="urlImagem" />
+    <!-- Os métodos são equivalentes -->
+    <p>Que é o mesmo que (<code>bind-src="urlImagem"</code>):</p>
+    <img bind-src="urlImagem" />
+  </section>
+```
+O resultado do código acima será:
+![Resultado Property Binding](imgs/property-binding.png)
+
+**!Quando não houver uma property no elemento para ser utilizado no property-binding (como o src da img), pode-se utilizar como property:**
+```html
+[attr.colspan]="valor"
+```

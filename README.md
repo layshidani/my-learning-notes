@@ -1,6 +1,12 @@
 # Notas de aprendizado
 
-<!-- TODO add Linux, node, angular -->
+<!-- gerador de table of contents:
+  https://magnetikonline.github.io/markdown-toc-generate/
+
+  https://ecotrust-canada.github.io/markdown-toc/
+ -->
+
+<!-- TODO add Linux, node-->
 
 ## Linha de comando
 * [Linha de Comando](https://github.com/layshidani/my-learning-notes/blob/master/command-line/command-line.md)

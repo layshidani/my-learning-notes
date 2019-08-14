@@ -704,13 +704,13 @@ Alguns exemplos retirados do [Guia](https://angular.io/guide/template-syntax):
 ## Style Binding
 > A sintaxe do Style binding se parece com a  de Property Binding. Em vez de uma propriedade de elemento entre colchetes, comece com o estilo de prefixo, seguido por um ponto (.) E o nome de uma propriedade de estilo CSS: `[style.style-property]`. --[Guia](https://angular.io/guide/template-syntax)
 
-Alguns exemplos do [Guia](https://angular.io/guide/template-syntax):
+Alguns exemplos:
 ```html
-<button [style.color]="isSpecial ? 'red': 'green'">Red</button>
-<button [style.background-color]="canSave ? 'cyan': 'grey'" >Save</button>
+<button [style.color]="error ? 'red': 'green'">Red</button>
 ```
 
 ```html
-<button [style.font-size.em]="isSpecial ? 3 : 1" >Big</button>
-<button [style.font-size.%]="!isSpecial ? 150 : 50" >Small</button>
+<div class="alert alert-danger" role="alert" [style.display]="classe.value == 'alert-danger' ? 'block' : 'none'">
+  Cuidado ERRO Selecionado
+</div>
 ```

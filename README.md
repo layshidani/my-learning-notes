@@ -12,6 +12,9 @@
 * [Linha de Comando](https://github.com/layshidani/my-learning-notes/blob/master/command-line/command-line.md)
 * [ZSH](https://github.com/layshidani/my-learning-notes/blob/master/command-line/zsh.md)
 
+## Node
+* [Node instalação](https://github.com/layshidani/my-learning-notes/blob/master/node/node.md)
+
 ## VSCode
 * [VSCode](https://github.com/layshidani/my-learning-notes/blob/master/vscode.md)
 

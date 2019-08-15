@@ -54,7 +54,7 @@
 
 ## CSS
 * [CSS - Dicas, Arquitetura, SASS, Design Responsivo](https://github.com/layshidani/my-learning-notes/tree/master/learning-css/)
-  * [Dicas](dicas-css.md)
-  * [Arquitetura CSS: CSSOO, SMACSS, BEM](arq-css.md)
-  * [Sass](sass.md)
-  * [Design Responsivo - CookBook](design-reponsivo-receita.md)
+  * [Dicas](https://github.com/layshidani/my-learning-notes/blob/master/learning-css/dicas-css.md)
+  * [Arquitetura CSS: CSSOO, SMACSS, BEM](https://github.com/layshidani/my-learning-notes/blob/master/learning-css/arq-css.md)
+  * [Sass](https://github.com/layshidani/my-learning-notes/blob/master/learning-css/sass.md)
+  <!-- * [Design Responsivo - CookBook](https://github.com/layshidani/my-learning-notes/blob/master/learning-css/design-reponsivo-receita.md) -->

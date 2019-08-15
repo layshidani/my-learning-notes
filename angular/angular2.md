@@ -200,11 +200,7 @@ adicione o componente onde desejar:
 Podemos usar a interpolação para atribuir valores em um componente.
 
 ```ts
-{
-  {
-    x;
-  }
-}
+{{ x }}
 ```
 
 Por exemplo:
@@ -713,4 +709,14 @@ Alguns exemplos:
 <div class="alert alert-danger" role="alert" [style.display]="classe.value == 'alert-danger' ? 'block' : 'none'">
   Cuidado ERRO Selecionado
 </div>
+```
+
+## Event Binding
+```html
+<tag (target event name)="templateStatment()">Text</tag>
+```
+
+exemplo:
+```html
+<button (click)="onSave($event)">Save</button>
 ```

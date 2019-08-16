@@ -200,7 +200,11 @@ adicione o componente onde desejar:
 Podemos usar a interpolação para atribuir valores em um componente.
 
 ```ts
-{{ x }}
+{
+  {
+    x;
+  }
+}
 ```
 
 Por exemplo:
@@ -368,6 +372,8 @@ import { BtnComponent } from "./btn.component";
 export class BtnModule {}
 ```
 
+_!Dica: Importar módulo -> Sempre que estiver trabalhando com mais módulo além do módulo **app.module.ts**, será necessário **exportar** este módulo em seu arquivo e **importar** no arquivo raíz._
+
 Depois disso será necessário importar o módulo de funcionalidade dentro do módulo raíz (app.module.ts).
 
 Exemplo:
@@ -496,7 +502,8 @@ O resultado será:
 ---
 
 # Data binding
-* [Ótima Documentação](https://angular.io/guide/template-syntax)
+
+- [Ótima Documentação](https://angular.io/guide/template-syntax)
 
 Associação de informações que estão no componente para o template e vice-e-versa.
 
@@ -646,44 +653,57 @@ import { AlertModule } from 'ngx-bootstrap';
 ---
 
 ## Class Binding
+
 > Adicione e remova nomes de classe CSS do atributo de classe de um elemento com uma vinculação de classe.
 > Class Binding se parece com Property Biding, mas em vez de uma propriedade de elemento entre colchetes, começa com a classe de prefixo, opcionalmente seguida por um ponto (.) Eo nome de uma classe CSS: `[class.class-name]`. --[Angular guide](https://angular.io/guide/template-syntax)
 
 Exemplo:
 
 ```html
-  <section>
-    <article>
-        <h3>Selecione uma classe:</h3>
-      <!-- #var = variável local do template para que seja possível acessar esse select l (template reference variable) -->
-      <select #classe (change)="0">
-        <option value="alert-success">Sucesso</option>
-        <option value="alert-danger">Erro</option>
-      </select>
-    </article>
+<section>
+  <article>
+    <h3>Selecione uma classe:</h3>
+    <!-- #var = variável local do template para que seja possível acessar esse select l (template reference variable) -->
+    <select #classe (change)="0">
+      <option value="alert-success">Sucesso</option>
+      <option value="alert-danger">Erro</option>
+    </select>
+  </article>
 
-    <article>
-      <!-- [class.className]="validation" -->
-      <div class="alert" role="alert" [class.alert-success]="classe.value == 'alert-success'">
-        A simple primary alert—check it out!
-      </div>
-      <div class="alert" role="alert" [class.alert-danger]="classe.value == 'alert-danger'">
-        A simple primary alert—check it out!
-      </div>
-    </article>
-  </section>
+  <article>
+    <!-- [class.className]="validation" -->
+    <div
+      class="alert"
+      role="alert"
+      [class.alert-success]="classe.value == 'alert-success'"
+    >
+      A simple primary alert—check it out!
+    </div>
+    <div
+      class="alert"
+      role="alert"
+      [class.alert-danger]="classe.value == 'alert-danger'"
+    >
+      A simple primary alert—check it out!
+    </div>
+  </article>
+</section>
 ```
 
 Alguns exemplos retirados do [Guia](https://angular.io/guide/template-syntax):
 
 ```html
 <h3>Substituir todas as class:</h3>
-<div class="item clearance special" [attr.class]="resetClasses">Reset all classes at once</div>
+<div class="item clearance special" [attr.class]="resetClasses">
+  Reset all classes at once
+</div>
 ```
 
 ```html
 <h3>Add a class:</h3>
-<div class="item clearance special" [class.item-clearance]="itemClearance">Add another class</div>
+<div class="item clearance special" [class.item-clearance]="itemClearance">
+  Add another class
+</div>
 ```
 
 ```html
@@ -691,32 +711,158 @@ Alguns exemplos retirados do [Guia](https://angular.io/guide/template-syntax):
 <div [class.special]="isSpecial">The class binding is special.</div>
 
 <h3>binding to class.special overrides the class attribute:</h3>
-<div class="special" [class.special]="!isSpecial">This one is not so special.</div>
+<div class="special" [class.special]="!isSpecial">
+  This one is not so special.
+</div>
 
 <h3>Using the bind- syntax:</h3>
 <div bind-class.special="isSpecial">This class binding is special too.</div>
 ```
 
 ## Style Binding
-> A sintaxe do Style binding se parece com a  de Property Binding. Em vez de uma propriedade de elemento entre colchetes, comece com o estilo de prefixo, seguido por um ponto (.) E o nome de uma propriedade de estilo CSS: `[style.style-property]`. --[Guia](https://angular.io/guide/template-syntax)
+
+> A sintaxe do Style binding se parece com a de Property Binding. Em vez de uma propriedade de elemento entre colchetes, comece com o estilo de prefixo, seguido por um ponto (.) E o nome de uma propriedade de estilo CSS: `[style.style-property]`. --[Guia](https://angular.io/guide/template-syntax)
 
 Alguns exemplos:
+
 ```html
 <button [style.color]="error ? 'red': 'green'">Red</button>
 ```
 
 ```html
-<div class="alert alert-danger" role="alert" [style.display]="classe.value == 'alert-danger' ? 'block' : 'none'">
+<div
+  class="alert alert-danger"
+  role="alert"
+  [style.display]="classe.value == 'alert-danger' ? 'block' : 'none'"
+>
   Cuidado ERRO Selecionado
 </div>
 ```
 
 ## Event Binding
+
+[MDN - lista de eventos](https://developer.mozilla.org/en-US/docs/Web/Events)
+
+Alguns exemplos de evento são:
+
+- (click)="myFunction()"
+- (submit)="myFunction()"
+- (blur)="myFunction()"
+- (focus)="myFunction()"
+- (scroll)="myFunction()"
+- (keyup)="myFunction()"
+- (keypress)="myFunction()"
+- (keydown)="myFunction()"
+- (input)="myFunction()"
+
 ```html
 <tag (target event name)="templateStatment()">Text</tag>
 ```
 
 exemplo:
+
 ```html
 <button (click)="onSave($event)">Save</button>
 ```
+
+Outro exemplo:
+no arquivo **event-example.component.html**:
+
+```html
+<h2
+  (mouseover)="onMouseOverOut()"
+  (mouseout)="onMouseOverOut()"
+  [class.highlight]="isMouseOver"
+>
+  Passe o mouse sobre este texto :)
+</h2>
+```
+
+no arquivo **event-example.component.ts**:
+
+```ts
+import { Component, OnInit } from "@angular/core";
+
+@Component({
+  selector: "app-event-example",
+  templateUrl: "./event-example.component.html",
+  styles: [
+    `
+      .highlight {
+        background-color: green;
+        font-weight: bold;
+      }
+    `
+  ]
+})
+export class EventExampleComponent implements OnInit {
+  isMouseOver: boolean = false;
+
+  onMouseOverOut() {
+    this.isMouseOver = !this.isMouseOver;
+  }
+  constructor() {}
+
+  ngOnInit() {}
+}
+```
+
+no arquivo **app.component.html**:
+
+```html
+<app-data-binding></app-data-binding>
+```
+
+## Two-way Data Binding
+
+Propriedade + evento
+
+```ts
+[()]="value"
+```
+
+_!Dica: Quando trabalhando com formulários, deverá importar o `@angular/forms` no arquivo de **module.ts**:_
+
+```ts
+// ...
+// importa o módulo
+import { FormsModule } from '@angular/forms'
+
+@NgModule({
+ // ...
+  imports: [
+    //...
+    // add no imports
+    FormsModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+// ...
+```
+
+Exemplo:
+
+Supondo um objeto chamado pet, que está no arquivo **component.ts**:
+
+```ts
+pet = {
+  name: 'Dexter',
+  age: 2
+}
+```
+
+No **component.html** teremos:
+
+```html
+<section>
+  <h3>Two-way Data Binding</h3>
+    <input type="text" [(ngModel)]="'Nome: ' + pet.name" />
+    <input type="text" [(ngModel)]="'Idade: ' + pet.age" />
+  <h4>Resultado:</h4>
+    <p>
+      Pet: Meu nome é {{ pet.name }} e tenho {{ pet.age }} ano(s) :)
+    </p>
+</section>
+```
+

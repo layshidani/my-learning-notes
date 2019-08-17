@@ -866,3 +866,115 @@ No **component.html** teremos:
 </section>
 ```
 
+## Input/Output Properties - Comunicação entre componentes
+[IT Next - input/output tutorial.](https://itnext.io/angular-input-output-f0418ab4cc91)
+
+Utilizar dados de um componente em outro.
+
+Considere um componente pai e um componente filho:
+* Input: de pai para filho (de fora para dentro)
+* Output: de filho para pai (de dentro para fora)
+
+### Input
+de pai para filho (de fora para dentro)
+
+No arquivo **filho.component.ts** importamos os dados do componente pai para que possam ser utilizados pelo componente filho:
+```ts
+@Input() originalName: type;
+
+// ou podemos usar um nome de variável diferente
+@Input('alias') originalName: type;
+```
+
+no componente pai (**pai.component.html**) ao utilizarmos o componente filho através de sua tag, devemos 'disponibilizar/repassar' a variável correspondente ao dado através dos properties:
+```html
+<app-filho [variable]='variable'></app-filho>
+
+<!-- ou em caso de nome diferente -->
+
+<app-filho [alias]='originalName'></app-filho>
+```
+
+Exemplo:
+<!-- rever exemplo (está funcionando, porém é a melhor aplicação?) -->
+
+**pai.component.ts**:
+```ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'input';
+
+  irmaosDoPai: object[];
+
+  constructor() {
+    this.irmaosDoPai = [
+      {nome: 'Carlos'},
+      {nome: 'Olga'},
+      {nome: 'Edson'}
+    ];
+  }
+}
+```
+
+**pai.component.html**
+```html
+<h1>Angular Input</h1>
+<h3>Pai</h3>
+<p>Irmãos do pai:</p>
+<ul>
+  <li *ngFor="let irmao of irmaosDoPai">{{ irmao.nome }}</li>
+</ul>
+
+<hr>
+
+<!-- Ao 'chamar o filho, passamos o dado que queremos compartilhar' -->
+<app-filho [irmaosDoPai]="irmaosDoPai"></app-filho>
+```
+
+**filho.component.ts**
+```ts
+import { Component, OnInit, Input } from '@angular/core';
+
+@Component({
+  selector: 'app-filho',
+  templateUrl: './filho.component.html',
+  styleUrls: ['./filho.component.css']
+})
+
+export class FilhoComponent implements OnInit {
+  // utilizamos o @Input para trazer dados do pai
+  @Input() irmaosDoPai;
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}
+```
+
+**filho.component.html**
+```html
+<h3>Filho</h3>
+<p>Irmãos do pai:</p>
+<ul>
+  <!-- Agora os dados do pai podem ser utilizados pelo filho -->
+  <li *ngFor="let tio of irmaosDoPai">{{tio.nome}}</li>
+</ul>
+```
+
+### Output
+> de filho para pai (de dentro para fora)
+
+```ts
+@Output() originalName: type
+
+// ou podemos usar um nome de variável diferente
+@Output('alias') originalName: type
+```

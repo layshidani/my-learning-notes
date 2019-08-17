@@ -196,8 +196,8 @@ ex4: para mover um arquivo teste1.txt que está no desktop para a pasta atual, u
 `rm <nome-do-arquivo.extensão>`
 
 
-## Remove diretório e todos os arquivos dentro dele
-`rm -rf <nome-do-arquivo.extensão>`
+## Remover diretório e todos os arquivos dentro dele
+`rm -rf <nome-do-diretorio>/`
 
 ## Verificar tipo de arquivo (file)
 `file <nome-do-arquivo.extensão>`

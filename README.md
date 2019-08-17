@@ -12,14 +12,9 @@
 * [Linha de Comando](https://github.com/layshidani/my-learning-notes/blob/master/command-line/command-line.md)
 * [ZSH](https://github.com/layshidani/my-learning-notes/blob/master/command-line/zsh.md)
 
-## Node
-* [Node instalação](https://github.com/layshidani/my-learning-notes/blob/master/node/node.md)
-
-## VSCode
-* [VSCode](https://github.com/layshidani/my-learning-notes/blob/master/vscode.md)
-
 ## GitHub
 * [Git e GitHub](https://github.com/layshidani/my-learning-notes/blob/master/git-github/git.md)
+* [Git alias](https://github.com/layshidani/my-learning-notes/blob/master/git-github/git-alias.md)
 * [GitHub Badges](https://github.com/layshidani/my-learning-notes/blob/master/git-github/github-badges.md)
 
 ## ReactJS
@@ -29,8 +24,11 @@
   * [Exemplo de rota](https://github.com/layshidani/my-learning-notes/blob/master/react/rota.md)
   * [Arquivo gitignore](https://github.com/layshidani/my-learning-notes/blob/master/react/gitignore-react.md)
 
-## Angular2
-* [Angular2](https://github.com/layshidani/my-learning-notes/blob/master/angular/angular2.md)
+## Angular
+* [Angular](https://github.com/layshidani/my-learning-notes/blob/master/angular/angular.md)
+
+## JavaScript
+* [JavaScript](https://github.com/layshidani/learning-front-end/tree/master/learning-js)
 
 ## Módulos
 * [Módulos - WebPack](https://github.com/layshidani/my-learning-notes/tree/master/modules-webpack/)
@@ -38,19 +36,19 @@
 ## Import e Export
 * [Import e Export - es6](https://github.com/layshidani/my-learning-notes/tree/master/import-export/)
 
-## JavaScript
-* [JavaScript](https://github.com/layshidani/learning-front-end/tree/master/learning-js)
-
 ## Node - Config Biblioteca NPM
 * [Biblioteca JS configuração: npm init, eslint, testes com mocha, nyc, chai, publicação no npm](https://github.com/layshidani/my-learning-notes/tree/master/lib-js-config)
-
-## Firebase
-* [Firebase Config](https://github.com/layshidani/my-learning-notes/blob/master/firebase/firebase-config.md)
 
 ## Testes
 * [Testes com mocha, chai e nyc](https://github.com/layshidani/my-learning-notes/tree/master/notes/tests-tdd/)
   * [Testes Instalações Pacotes necessários](https://github.com/layshidani/my-learning-notes/blob/master/tests-tdd/testes-instalacoes.md)
   * [Testes: Ferramentas - mocha, chai e nyc](https://github.com/layshidani/my-learning-notes/blob/master/tests-tdd/testes-ferramentas.md)
+
+## Node
+* [Node instalação](https://github.com/layshidani/my-learning-notes/blob/master/node/node.md)
+
+## Firebase
+* [Firebase Config](https://github.com/layshidani/my-learning-notes/blob/master/firebase/firebase-config.md)
 
 ## CSS
 * [CSS - Dicas, Arquitetura, SASS, Design Responsivo](https://github.com/layshidani/my-learning-notes/tree/master/learning-css/)
@@ -58,3 +56,6 @@
   * [Arquitetura CSS: CSSOO, SMACSS, BEM](https://github.com/layshidani/my-learning-notes/blob/master/learning-css/arq-css.md)
   * [Sass](https://github.com/layshidani/my-learning-notes/blob/master/learning-css/sass.md)
   <!-- * [Design Responsivo - CookBook](https://github.com/layshidani/my-learning-notes/blob/master/learning-css/design-reponsivo-receita.md) -->
+
+## VSCode
+* [VSCode](https://github.com/layshidani/my-learning-notes/blob/master/vscode.md)

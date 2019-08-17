@@ -1,12 +1,10 @@
-# Angular v2
+# Angular
 
 > Angular é uma plataforma de aplicações web de código-fonte aberto e front-end baseado em TypeScript liderado pela Equipe Angular do Google e por uma comunidade de indivíduos e corporações. Angular é uma reescrita completa do AngularJS, feito pela mesma equipe que o construiu. [--Wiki](https://g.co/kgs/guUR7X)
 
 ## Table of Contents
 
-- [Angular v2](#angular-v2)
-  - [Table of Contents](#table-of-contents)
-  - [- componente ---> template](#componente-----template)
+- [- componente ---> template](#componente-----template)
 - [Preparando o ambiente de desenvolvimento com Angular cli](#preparando-o-ambiente-de-desenvolvimento-com-angular-cli)
   - [Iniciar um novo projeto com o Angular cli](#iniciar-um-novo-projeto-com-o-angular-cli)
   - [Rodando a aplicação](#rodando-a-aplica%c3%a7%c3%a3o)

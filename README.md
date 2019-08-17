@@ -15,7 +15,7 @@
 ## GitHub
 * [Git e GitHub](https://github.com/layshidani/my-learning-notes/blob/master/git-github/git.md)
 * [Git alias](https://github.com/layshidani/my-learning-notes/blob/master/git-github/git-alias.md)
-* [GitHub Badges](https://github.com/layshidani/my-learning-notes/blob/master/git-github/github-badges.md)
+* [GitHub Badges + Travis + Coveralls](https://github.com/layshidani/my-learning-notes/blob/master/git-github/github-badges.md)
 
 ## ReactJS
 * [Ambiente de Desenvolvimento ReactJS com Create React App](https://github.com/layshidani/my-learning-notes/blob/master/react/create-react-app.md)

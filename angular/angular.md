@@ -845,9 +845,9 @@ Supondo um objeto chamado pet, que está no arquivo **component.ts**:
 
 ```ts
 pet = {
-  name: 'Dexter',
+  name: "Dexter",
   age: 2
-}
+};
 ```
 
 No **component.html** teremos:
@@ -855,30 +855,36 @@ No **component.html** teremos:
 ```html
 <section>
   <h3>Two-way Data Binding</h3>
-    <input type="text" [(ngModel)]="'Nome: ' + pet.name" />
-    <input type="text" [(ngModel)]="'Idade: ' + pet.age" />
+  <input type="text" [(ngModel)]="'Nome: ' + pet.name" />
+  <input type="text" [(ngModel)]="'Idade: ' + pet.age" />
   <h4>Resultado:</h4>
-    <p>
-      Pet: Meu nome é {{ pet.name }} e tenho {{ pet.age }} ano(s) :)
-    </p>
+  <p>
+    Pet: Meu nome é {{ pet.name }} e tenho {{ pet.age }} ano(s) :)
+  </p>
 </section>
 ```
 
 ## Input/Output Properties - Comunicação entre componentes
+
 [IT Next - input/output tutorial.](https://itnext.io/angular-input-output-f0418ab4cc91)
 
 Utilizar dados de um componente em outro.
 
 Considere um componente pai e um componente filho:
-* Input: de pai para filho (de fora para dentro)
-* Output: de filho para pai (de dentro para fora)
+
+- Input: de pai para filho (de fora para dentro)
+- Output: de filho para pai (de dentro para fora)
 
 ### Input
-de pai para filho (de fora para dentro)
+
+> de pai para filho (de fora para dentro)
+
+Por padrão, as propriedades de um componente só estão disponíveis para ele mesmo, se quisermos expo-las para outro componente, devemos utilizar o input.
 
 No arquivo **filho.component.ts** importamos os dados do componente pai para que possam ser utilizados pelo componente filho:
+
 ```ts
-// não esquecer de acrescentar o Input do @angular/core
+// não esquecer de importar a classe Input do @angular/core
 import { Component, OnInit, Input } from '@angular/core';
 
 // ...
@@ -890,72 +896,77 @@ import { Component, OnInit, Input } from '@angular/core';
 ```
 
 no componente pai (**pai.component.html**) ao utilizarmos o componente filho através de sua tag, devemos 'disponibilizar/repassar' a variável correspondente ao dado através dos properties:
+
 ```html
-<app-filho [variable]='variable'></app-filho>
+<app-filho [variable]="variable"></app-filho>
+
+<!-- ou para uso de hardCoded, valor cravado, não precisa de [] -->
+<app-filho variable="10"></app-filho>
 
 <!-- ou em caso de nome diferente -->
-
-<app-filho [alias]='originalName'></app-filho>
+<app-filho [alias]="originalName"></app-filho>
 ```
 
 Exemplo:
 
 **pai.component.ts**:
+
 ```ts
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.css"]
 })
 export class AppComponent {
-  title = 'input';
+  title = "input";
 
   esposa: string;
 
   constructor() {
-    this.esposa = 'Juliane'
+    this.esposa = "Juliane";
   }
 }
 ```
 
 **pai.component.html**
+
 ```html
 <h1>Angular @Input()</h1>
 <h2>Pai</h2>
 <h3>Esposa do pai (* Valor original do pai):</h3>
 <p>{{ esposa }}</p>
 
-<hr>
+<hr />
 
 <!-- Aqui, estamos passando utilizando um alias (esposaDoPai) para passar ao filho o valor de esposa que vem do pai -->
 <app-filho [esposaDoPai]="esposa"></app-filho>
 ```
 
 **filho.component.ts**
+
 ```ts
 // import do Input no @angular/core
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input } from "@angular/core";
 
 @Component({
-  selector: 'app-filho',
-  templateUrl: './filho.component.html',
-  styleUrls: ['./filho.component.css']
+  selector: "app-filho",
+  templateUrl: "./filho.component.html",
+  styleUrls: ["./filho.component.css"]
 })
-
 export class FilhoComponent implements OnInit {
   // Pega o Input do pai (esposaDoPai) e utiliza no filho como mãe
-  @Input('esposaDoPai') mae;
+  @Input("esposaDoPai") mae;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 }
 ```
 
 **filho.component.html**
+
 ```html
 <h2>Filho</h2>
 <h3>Mãe do filho (Input vindo do pai):</h3>
@@ -966,12 +977,65 @@ Resultado:
 ![Exemplo Input](imgs/ex-input.png)
 
 ### Output
-<!-- TODO escrever sobre -->
+
+---
+
+TODO escrever sobre:
+
+- Output
+- EventEmitter()
+- ViewChild()
+- ContentChild()
+
+---
+
 > de filho para pai (de dentro para fora)
 
 ```ts
+// importar a classe Output do @angular/core
+import { Component, OnInit, Output } from '@angular/core';
+
+// utilizar o decorator @Output
 @Output() originalName: type
 
 // ou podemos usar um nome de variável diferente
 @Output('alias') originalName: type
+```
+
+## Local reference
+
+Pode ser utilizado em qualquer elemento HTML.
+
+```html
+<input #localReferenceName />
+```
+
+Exemplo:
+
+```html
+<!-- guardamos a referência local do select em #num -->
+<!-- na mudança de opção ele passa o valor para a função  selectedValue -->
+<select #num (change)='selectedValue(num)'>
+  <option value="1">1</option>
+  <option value="2">2</option>
+</select>
+
+<!-- mostramos o valor selecionado com interpolação -->
+<p>O valor selecionado é {{ selectedNum }}</p>
+```
+
+```ts
+// ...
+export class AppComponent {
+  // declaramos um valor inicial/padrão do selectedNum,porque ele sempre vai começar com o primeiro option pré selecionado
+  selectedNum = '1';
+
+  // agora passamos para a função selectedValue o num que será do tipo HTMLInputElement
+  selectedValue(num: HTMLInputElement) {
+    // mudamos o valor do selectedNum pelo valor selecionado com num.value
+    this.selectedNum = num.value;
+  }
+  // ...
+}
+
 ```

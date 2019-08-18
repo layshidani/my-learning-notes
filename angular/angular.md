@@ -1039,3 +1039,47 @@ export class AppComponent {
 }
 
 ```
+
+
+---
+# Alguns Comandos angular-cli
+[Documentação](https://angular.io/cli)
+
+## Build
+```$
+ng build
+```
+
+* default dev : sem minificação
+* `--prod`: minificado
+
+irá gerar o folder *dist* com os arquivos do **build**.
+
+!dica: lib npm **http-server** para rodar a aplicação.
+
+## Verificar lint
+```$
+ng lint
+```
+
+## Teste unitário
+```$
+ng test
+```
+
+### Teste end-to-end com Protractor
+```$
+ng e2e
+```
+
+## Modificar estilo de um projeto existente
+**!Modifica apenas os próximos componentes, os já existentes continuarão com as extensões selecionadas anteriormente. Para modificar, será necessário mudar as extensões manualmente nos arquivos.**
+
+```$
+ng set defaults.styleExt <estilo>
+```
+
+Estilo:
+* `scss` para sass
+* `less` para less
+* `styl` para stylus

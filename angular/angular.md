@@ -878,10 +878,15 @@ de pai para filho (de fora para dentro)
 
 No arquivo **filho.component.ts** importamos os dados do componente pai para que possam ser utilizados pelo componente filho:
 ```ts
+// não esquecer de acrescentar o Input do @angular/core
+import { Component, OnInit, Input } from '@angular/core';
+
+// ...
+
 @Input() originalName: type;
 
 // ou podemos usar um nome de variável diferente
-@Input('alias') originalName: type;
+@Input('originalName') alias: type;
 ```
 
 no componente pai (**pai.component.html**) ao utilizarmos o componente filho através de sua tag, devemos 'disponibilizar/repassar' a variável correspondente ao dado através dos properties:
@@ -894,7 +899,6 @@ no componente pai (**pai.component.html**) ao utilizarmos o componente filho atr
 ```
 
 Exemplo:
-<!-- rever exemplo (está funcionando, porém é a melhor aplicação?) -->
 
 **pai.component.ts**:
 ```ts
@@ -908,35 +912,30 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'input';
 
-  irmaosDoPai: object[];
+  esposa: string;
 
   constructor() {
-    this.irmaosDoPai = [
-      {nome: 'Carlos'},
-      {nome: 'Olga'},
-      {nome: 'Edson'}
-    ];
+    this.esposa = 'Juliane'
   }
 }
 ```
 
 **pai.component.html**
 ```html
-<h1>Angular Input</h1>
-<h3>Pai</h3>
-<p>Irmãos do pai:</p>
-<ul>
-  <li *ngFor="let irmao of irmaosDoPai">{{ irmao.nome }}</li>
-</ul>
+<h1>Angular @Input()</h1>
+<h2>Pai</h2>
+<h3>Esposa do pai (* Valor original do pai):</h3>
+<p>{{ esposa }}</p>
 
 <hr>
 
-<!-- Ao 'chamar o filho, passamos o dado que queremos compartilhar' -->
-<app-filho [irmaosDoPai]="irmaosDoPai"></app-filho>
+<!-- Aqui, estamos passando utilizando um alias (esposaDoPai) para passar ao filho o valor de esposa que vem do pai -->
+<app-filho [esposaDoPai]="esposa"></app-filho>
 ```
 
 **filho.component.ts**
 ```ts
+// import do Input no @angular/core
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -946,28 +945,28 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 
 export class FilhoComponent implements OnInit {
-  // utilizamos o @Input para trazer dados do pai
-  @Input() irmaosDoPai;
+  // Pega o Input do pai (esposaDoPai) e utiliza no filho como mãe
+  @Input('esposaDoPai') mae;
 
   constructor() { }
 
   ngOnInit() {
   }
-
 }
 ```
 
 **filho.component.html**
 ```html
-<h3>Filho</h3>
-<p>Irmãos do pai:</p>
-<ul>
-  <!-- Agora os dados do pai podem ser utilizados pelo filho -->
-  <li *ngFor="let tio of irmaosDoPai">{{tio.nome}}</li>
-</ul>
+<h2>Filho</h2>
+<h3>Mãe do filho (Input vindo do pai):</h3>
+<p>{{ mae }}</p>
 ```
 
+Resultado:
+![Exemplo Input](imgs/ex-input.png)
+
 ### Output
+<!-- TODO escrever sobre -->
 > de filho para pai (de dentro para fora)
 
 ```ts

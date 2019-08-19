@@ -186,6 +186,7 @@ adicione o componente onde desejar:
 ```
 
 ## ng Content
+
 TODO
 
 Projeção de conteúdo:
@@ -195,8 +196,6 @@ Projeção de conteúdo:
   <ng-content></ng-content>
 </app-example>
 ```
-
-
 
 # Templates
 
@@ -1028,7 +1027,7 @@ Exemplo:
 ```html
 <!-- guardamos a referência local do select em #num -->
 <!-- na mudança de opção ele passa o valor para a função  selectedValue -->
-<select #num (change)='selectedValue(num)'>
+<select #num (change)="selectedValue(num)">
   <option value="1">1</option>
   <option value="2">2</option>
 </select>
@@ -1041,7 +1040,7 @@ Exemplo:
 // ...
 export class AppComponent {
   // declaramos um valor inicial/padrão do selectedNum,porque ele sempre vai começar com o primeiro option pré selecionado
-  selectedNum = '1';
+  selectedNum = "1";
 
   // agora passamos para a função selectedValue o num que será do tipo HTMLInputElement
   selectedValue(num: HTMLInputElement) {
@@ -1050,42 +1049,47 @@ export class AppComponent {
   }
   // ...
 }
-
 ```
 
-
 ---
+
 # Alguns Comandos angular-cli
+
 [Documentação](https://angular.io/cli)
 
 ## Build
+
 ```$
 ng build
 ```
 
-* default dev : sem minificação
-* `--prod`: minificado
+- default dev : sem minificação
+- `--prod`: minificado
 
-irá gerar o folder *dist* com os arquivos do **build**.
+irá gerar o folder _dist_ com os arquivos do **build**.
 
 !dica: lib npm **http-server** para rodar a aplicação.
 
 ## Verificar lint
+
 ```$
 ng lint
 ```
 
 ## Teste unitário
+
 ```$
 ng test
 ```
 
 ### Teste end-to-end com Protractor
+
 ```$
 ng e2e
 ```
 
 ## Modificar estilo de um projeto existente
+
 **!Modifica apenas os próximos componentes, os já existentes continuarão com as extensões selecionadas anteriormente. Para modificar, será necessário mudar as extensões manualmente nos arquivos.**
 
 ```$
@@ -1093,22 +1097,28 @@ ng set defaults.styleExt <estilo>
 ```
 
 Estilo:
-* `scss` para sass
-* `less` para less
-* `styl` para stylus
+
+- `scss` para sass
+- `less` para less
+- `styl` para stylus
 
 ---
+
 # Diretivas
+
 > Angular 2 categoriza diretivas em 3 partes:
+>
 > 1. Diretivas com modelos conhecidos como Componentes
 > 2. Diretivas que criam e destroem elementos DOM conhecidos como Diretivas Estruturais
 > 3. Diretivas que manipulam o DOM alterando o comportamento e a aparência conhecidas como Diretivas de Atributo
-> --[codementor.io](https://www.codementor.io/christiannwamba/build-custom-directives-in-angular-2-jlqrk7dpw)
+>    --[codementor.io](https://www.codementor.io/christiannwamba/build-custom-directives-in-angular-2-jlqrk7dpw)
 
 ## Diretivas Estruturais
+
 > Diretivas estruturais são responsáveis pelo layout HTML. Eles moldam ou reformulam a estrutura do DOM, geralmente adicionando, removendo ou manipulando elementos. --[Angular Guide](https://angular.io/guide/structural-directives#what-are-structural-directives)
 
 ### ngFor
+
 ```
 *ngFor="expression"
 ```
@@ -1126,20 +1136,22 @@ Considere um array de números declarados no arquivo **example.component.ts**,
 Neste caso, será gerado um `<li>` para cada número do array.
 
 Resultado:
-* 1
-* 2
-* 3
+
+- 1
+- 2
+- 3
 
 ### ngIf
+
 ```
 *ngIf="expression"
 ```
 
 Exemplo:
-Considere este select de  **example.component.html**:
+Considere este select de **example.component.html**:
 
 ```html
-<select #num (change)='selectedValue(num)'>
+<select #num (change)="selectedValue(num)">
   <option value="1">1</option>
   <option value="2">2</option>
   <option value="3">3</option>
@@ -1155,8 +1167,9 @@ Neste caso, será feita a validação da expressão: `selectedNum <= '2'` e a ta
 O ngSwitch funciona como o switch que utilizamos no js comum.
 
 Só para relembrarmos como é o switch no js:
+
 ```js
-switch(expression) {
+switch (expression) {
   case x:
     // code block
     break;
@@ -1164,19 +1177,28 @@ switch(expression) {
     // code block
     break;
   default:
-    // code block
+  // code block
 }
 ```
 
 Exemplo:
 
 ao clicarmos nos botões abaixo queremos exibir uma mensagem de acordo com o botão
+
 ```html
 <!-- ao clicarmos atribuimos o valor a variavel msg -->
-<button type="button" class="btn btn-primary" (click)="msg = 'warning'">ok</button>
-<button type="button" class="btn btn-success" (click)="msg = 'success'">Success</button>
-<button type="button" class="btn btn-danger" (click)="msg = 'danger'">Danger</button>
-<button type="button" class="btn btn-warning" (click)="msg = 'warning'">Warning</button>
+<button type="button" class="btn btn-primary" (click)="msg = 'warning'">
+  ok
+</button>
+<button type="button" class="btn btn-success" (click)="msg = 'success'">
+  Success
+</button>
+<button type="button" class="btn btn-danger" (click)="msg = 'danger'">
+  Danger
+</button>
+<button type="button" class="btn btn-warning" (click)="msg = 'warning'">
+  Warning
+</button>
 
 <!-- aqui estão as mensagens. Fazemos a verificação: -->
 <!-- [ngSwitch]="msg"  -->
@@ -1195,7 +1217,8 @@ ao clicarmos nos botões abaixo queremos exibir uma mensagem de acordo com o bot
 ## Diretivas de atributo
 
 ### ngClass
->  É usado para adicionar e remover classes CSS em um elemento HTML. Podemos vincular várias classes CSS ao NgClass simultaneamente, que podem ser adicionadas ou removidas. Existem diferentes maneiras de vincular classes CSS a NgClass que estão usando string, array e objeto. --[Concrete Page](https://www.concretepage.com/angular-2/angular-2-ngclass-example)
+
+> É usado para adicionar e remover classes CSS em um elemento HTML. Podemos vincular várias classes CSS ao NgClass simultaneamente, que podem ser adicionadas ou removidas. Existem diferentes maneiras de vincular classes CSS a NgClass que estão usando string, array e objeto. --[Concrete Page](https://www.concretepage.com/angular-2/angular-2-ngclass-example)
 
 Aplica uma classe CSS.
 Ao utilizar '-' deve-se estar entre aspas simples (ex: 'background-color') ou utilizar CamelCase (ex: **backgroundColor**)
@@ -1204,32 +1227,34 @@ Ao utilizar '-' deve-se estar entre aspas simples (ex: 'background-color') ou ut
 [ngClass]="{'classe-css': expression}"
 
 <!-- varias -->
-[ngClass]="{
-  'classe-css': expression,
-  'classe-css': expression,
-  'classe-css': expression
-  }"
-
+[ngClass]="{ 'classe-css': expression, 'classe-css': expression, 'classe-css':
+expression }"
 ```
 
 Exemplo:
+
 ```html
 <ul *ngFor="let fruit of fruits">
-  <li [ngClass]="{
+  <li
+    [ngClass]="{
     'text-red': fruit.name === 'apple',
     'text-yellow': fruit.name === 'banana',
     'text-orange': fruit.name === 'orange'
-  }">{{ fruit.name }}
+  }"
+  >
+    {{ fruit.name }}
   </li>
 </ul>
 ```
 
 #### Sintaxe alternativa para ngClass
+
 ```html
 [class.prop]="value"
 ```
 
 ### ngStyle
+
 Aplica uma propriedade CSS.
 Ao utilizar '-' deve-se estar entre aspas simples (ex: 'background-color') ou utilizar CamelCase (ex: **backgroundColor**)
 
@@ -1255,15 +1280,19 @@ Exemplos:
 ```
 
 #### Sintaxe alternativa ngStyle
+
 ```html
-[style.<property>]=""
+[style.<property
+  >]=""
 
-<!-- em casos que se usam unidades: -->
+  <!-- em casos que se usam unidades: -->
 
-[style.<property>.<unit>]=""
+  [style.<property>.<unit>]=""</unit></property></property
+>
 ```
 
 Exemplo:
+
 ```
 [style.color]="green"
 
@@ -1272,13 +1301,61 @@ Exemplo:
 ```
 
 ## Diretivas customizadas
-
 TODO
+```$
+ng g d dir/directive-name
+```
+
+geralmente criamos no dir **shared**.
+
+Será gerado um arquivo **directive-name.directive.ts**
+```ts
+// importar o ElementRef e o Renderer
+import { Directive, ElementRef, Renderer } from '@angular/core';
+
+@Directive({
+  // este nome do seletor deverá ser utilizado na tag html que receberá a diretiva
+  selector: '[appDiretivaExample]'
+
+  // para restringir a tag a que esse diretiva poder ser aplicada, basta adicionar o nome da tag 'nome-da-tag[nomeDiretiva]', inclusive para tag componentes
+  // selector: 'button[appDiretivaExample]'
+})
+export class DiretivaExampleDirective {
+
+  constructor(
+    private _elementRef: ElementRef,
+    private _renderer: Renderer
+    ) {
+    // aplicamos as modificações
+    this._renderer.setElementStyle(
+      this._elementRef.nativeElement,
+      'background-color',
+      'red'
+      )
+
+    // este console.log mostra os atributos que podem ser modificados
+    // console.log(this._elementRef);
+
+    // Boas práticas: o uso do ElementRef, para modificação direta do DOM, não é recomendado por questoes de vulnerabilidade da aplicação. Assim, é recomendado utilizar o Renderer
+    // this._elementRef.nativeElement.style.backgroundColor = 'green';
+   }
+
+}
+```
+
+para aplicar a diretiva customizada na tag:
+
+```html
+<h1>Diretiva Customizada</h1>
+<button appDiretivaExample>Exemplo</button>
+```
 
 ---
 
 # Operador Elvis (?)
+
 Exemplo:
+
 ```html
 <!-- elvis -->
 <h1>{{ person?.name }}</h1>
@@ -1286,3 +1363,6 @@ Exemplo:
 <!-- é o mesmo que  -->
 <h1>{{ person != null ? person.name : '' }}</h1>
 ```
+
+# Model
+TODO

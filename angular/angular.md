@@ -1084,10 +1084,18 @@ Estilo:
 * `less` para less
 * `styl` para stylus
 
-# Diretivas Estruturais
+---
+# Diretivas
+> Angular 2 categoriza diretivas em 3 partes:
+> 1. Diretivas com modelos conhecidos como Componentes
+> 2. Diretivas que criam e destroem elementos DOM conhecidos como Diretivas Estruturais
+> 3. Diretivas que manipulam o DOM alterando o comportamento e a aparência conhecidas como Diretivas de Atributo
+> --[codementor.io](https://www.codementor.io/christiannwamba/build-custom-directives-in-angular-2-jlqrk7dpw)
+
+## Diretivas Estruturais
 > Diretivas estruturais são responsáveis pelo layout HTML. Eles moldam ou reformulam a estrutura do DOM, geralmente adicionando, removendo ou manipulando elementos. --[Angular Guide](https://angular.io/guide/structural-directives#what-are-structural-directives)
 
-## ngFor
+### ngFor
 ```
 *ngFor="expression"
 ```
@@ -1109,7 +1117,7 @@ Resultado:
 * 2
 * 3
 
-## ngIf
+### ngIf
 ```
 *ngIf="expression"
 ```
@@ -1129,9 +1137,51 @@ Considere este select de  **example.component.html**:
 
 Neste caso, será feita a validação da expressão: `selectedNum <= '2'` e a tag `<p>` só será exibida caso a validação seja positiva (1 e 2).
 
-# Diretivas de estilo
+### ngSwitchCase
 
-## ngClass
+O ngSwitchCase funciona como o switch que utilizamos no js comum.
+
+Só para relembrarmos como é o switch no js:
+```js
+switch(expression) {
+  case x:
+    // code block
+    break;
+  case y:
+    // code block
+    break;
+  default:
+    // code block
+}
+```
+
+Exemplo:
+
+ao clicarmos nos botões abaixo queremos exibir uma mensagem de acordo com o botão
+```html
+<!-- ao clicarmos atribuimos o valor a variavel msg -->
+<button type="button" class="btn btn-primary" (click)="msg = 'warning'">ok</button>
+<button type="button" class="btn btn-success" (click)="msg = 'success'">Success</button>
+<button type="button" class="btn btn-danger" (click)="msg = 'danger'">Danger</button>
+<button type="button" class="btn btn-warning" (click)="msg = 'warning'">Warning</button>
+
+<!-- aqui estão as mensagens. Fazemos a verificação: -->
+<!-- [ngSwitch]="msg"  -->
+<div class="container" [ngSwitch]="msg">
+  <!-- ngSwitchDefault: msg padrão -->
+  <p *ngSwitchDefault>Clique em um botão</p>
+  <!-- caso a msg = ok exibimos esse parágrafo -->
+  <p *ngSwitchCase="'ok'">OK! :D</p>
+  <!-- caso a msg = success exibimos esse parágrafo, etc -->
+  <p *ngSwitchCase="'success'">Sucesso! :)</p>
+  <p *ngSwitchCase="'danger'">Perigo! :z</p>
+  <p *ngSwitchCase="'warning'">Atenção! 8/</p>
+</div>
+```
+
+## Diretivas de atributo
+
+### ngClass
 >  É usado para adicionar e remover classes CSS em um elemento HTML. Podemos vincular várias classes CSS ao NgClass simultaneamente, que podem ser adicionadas ou removidas. Existem diferentes maneiras de vincular classes CSS a NgClass que estão usando string, array e objeto. --[Concrete Page](https://www.concretepage.com/angular-2/angular-2-ngclass-example)
 
 Aplica uma classe CSS.
@@ -1161,12 +1211,12 @@ Exemplo:
 </ul>
 ```
 
-### Sintaxe alternativa para ngClass
+#### Sintaxe alternativa para ngClass
 ```html
 [class.prop]="value"
 ```
 
-## ngStyle
+### ngStyle
 Aplica uma propriedade CSS.
 Ao utilizar '-' deve-se estar entre aspas simples (ex: 'background-color') ou utilizar CamelCase (ex: **backgroundColor**)
 
@@ -1191,7 +1241,7 @@ Exemplos:
 <p [ngStyle]="{ 'fontSize.em': 2.5}">{{ person.age }}}</p>
 ```
 
-### Sintaxe alternativa ngStyle
+#### Sintaxe alternativa ngStyle
 ```html
 [style.<property>]=""
 
@@ -1208,3 +1258,6 @@ Exemplo:
 [style.font-size.px]="16"
 ```
 
+## Diretivas customizadas
+
+TODO

@@ -1261,3 +1261,15 @@ Exemplo:
 ## Diretivas customizadas
 
 TODO
+
+---
+
+# Operador Elvis (?)
+Exemplo:
+```html
+<!-- elvis -->
+<h1>{{ person?.name }}</h1>
+
+<!-- é o mesmo que  -->
+<h1>{{ person != null ? person.name : '' }}</h1>
+```

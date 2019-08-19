@@ -185,6 +185,19 @@ adicione o componente onde desejar:
 <meu-primeiro-component></meu-primeiro-component>
 ```
 
+## ng Content
+TODO
+
+Projeção de conteúdo:
+
+```html
+<app-example>
+  <ng-content></ng-content>
+</app-example>
+```
+
+
+
 # Templates
 
 **html = template**
@@ -1137,9 +1150,9 @@ Considere este select de  **example.component.html**:
 
 Neste caso, será feita a validação da expressão: `selectedNum <= '2'` e a tag `<p>` só será exibida caso a validação seja positiva (1 e 2).
 
-### ngSwitchCase
+### ngSwitch
 
-O ngSwitchCase funciona como o switch que utilizamos no js comum.
+O ngSwitch funciona como o switch que utilizamos no js comum.
 
 Só para relembrarmos como é o switch no js:
 ```js

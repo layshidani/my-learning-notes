@@ -669,7 +669,7 @@ Exemplo:
   </article>
 
   <article>
-    <!-- [class.className]="validation" -->
+    <!-- [class.className]="expression" -->
     <div
       class="alert"
       role="alert"
@@ -1083,3 +1083,128 @@ Estilo:
 * `scss` para sass
 * `less` para less
 * `styl` para stylus
+
+# Diretivas Estruturais
+> Diretivas estruturais são responsáveis pelo layout HTML. Eles moldam ou reformulam a estrutura do DOM, geralmente adicionando, removendo ou manipulando elementos. --[Angular Guide](https://angular.io/guide/structural-directives#what-are-structural-directives)
+
+## ngFor
+```
+*ngFor="expression"
+```
+
+Exemplo:
+Considere um array de números declarados no arquivo **example.component.ts**,
+`arr = [1, 2, 3];`:
+
+```html
+<ul>
+  <li *ngFor="let num of arr">{{ num }}</li></li>
+</ul>
+```
+
+Neste caso, será gerado um `<li>` para cada número do array.
+
+Resultado:
+* 1
+* 2
+* 3
+
+## ngIf
+```
+*ngIf="expression"
+```
+
+Exemplo:
+Considere este select de  **example.component.html**:
+
+```html
+<select #num (change)='selectedValue(num)'>
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+</select>
+
+<p *ngIf="selectedNum <= '2'">O valor selecionado é {{ selectedNum }}</p>
+```
+
+Neste caso, será feita a validação da expressão: `selectedNum <= '2'` e a tag `<p>` só será exibida caso a validação seja positiva (1 e 2).
+
+# Diretivas de estilo
+
+## ngClass
+>  É usado para adicionar e remover classes CSS em um elemento HTML. Podemos vincular várias classes CSS ao NgClass simultaneamente, que podem ser adicionadas ou removidas. Existem diferentes maneiras de vincular classes CSS a NgClass que estão usando string, array e objeto. --[Concrete Page](https://www.concretepage.com/angular-2/angular-2-ngclass-example)
+
+Aplica uma classe CSS.
+Ao utilizar '-' deve-se estar entre aspas simples (ex: 'background-color') ou utilizar CamelCase (ex: **backgroundColor**)
+
+```html
+[ngClass]="{'classe-css': expression}"
+
+<!-- varias -->
+[ngClass]="{
+  'classe-css': expression,
+  'classe-css': expression,
+  'classe-css': expression
+  }"
+
+```
+
+Exemplo:
+```html
+<ul *ngFor="let fruit of fruits">
+  <li [ngClass]="{
+    'text-red': fruit.name === 'apple',
+    'text-yellow': fruit.name === 'banana',
+    'text-orange': fruit.name === 'orange'
+  }">{{ fruit.name }}
+  </li>
+</ul>
+```
+
+### Sintaxe alternativa para ngClass
+```html
+[class.prop]="value"
+```
+
+## ngStyle
+Aplica uma propriedade CSS.
+Ao utilizar '-' deve-se estar entre aspas simples (ex: 'background-color') ou utilizar CamelCase (ex: **backgroundColor**)
+
+```
+[ngStyle]="{propCSS: expression}"
+
+<!-- em casos que se usam unidades: -->
+[ngStyle]={'propCSS.unit': value}
+```
+
+Exemplos:
+
+```html
+<!-- simples, atribui a cor azul ao background-color deste elemento -->
+<p [ngStyle]="{ backgroundColor: 'blue' }">{{ person.age }}</p>
+
+<!-- com expressão -->
+<p [ngStyle]="{ backgroundColor: person.age > 18 ? 'green' : 'yellow' }"></p>
+
+<!-- com unidade em -->
+
+<p [ngStyle]="{ 'fontSize.em': 2.5}">{{ person.age }}}</p>
+```
+
+### Sintaxe alternativa ngStyle
+```html
+[style.<property>]=""
+
+<!-- em casos que se usam unidades: -->
+
+[style.<property>.<unit>]=""
+```
+
+Exemplo:
+```
+[style.color]="green"
+
+<!-- para aplicar uma font-size de 16px -->
+[style.font-size.px]="16"
+```
+

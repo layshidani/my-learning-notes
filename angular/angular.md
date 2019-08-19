@@ -1322,6 +1322,7 @@ import { Directive, ElementRef, Renderer } from '@angular/core';
 })
 export class DiretivaExampleDirective {
 
+  // geralmente utilizamos a inicial _ na nomeação para indicar que é uma variável privada
   constructor(
     private _elementRef: ElementRef,
     private _renderer: Renderer
@@ -1348,6 +1349,95 @@ para aplicar a diretiva customizada na tag:
 ```html
 <h1>Diretiva Customizada</h1>
 <button appDiretivaExample>Exemplo</button>
+```
+
+## HostListener
+Permite ouvir eventos no elemento ou componente hospedeiro (host).
+
+Neste exemplo, mudamos o tamanho da fonte quando passamos o mouse sobre o texto
+
+```ts
+// importa HostListener
+import { Directive, ElementRef, Renderer, HostListener } from '@angular/core';
+
+@Directive({
+  // este nome do seletor deverá ser utilizado na tag html que receberá a diretiva
+  selector: '[appHighlightMouse]'
+})
+
+export class HighlightMouseDirective {
+  // @HostListener('nomedoevento') função() {}
+  @HostListener('mouseenter') onMouseEnter() {
+    this._renderer.setElementStyle(
+      this._elementRef.nativeElement,
+      'font-size',
+      '2em'
+    )
+  }
+
+  @HostListener('mouseleave') onMouseLeave() {
+    this._renderer.setElementStyle(
+      this._elementRef.nativeElement,
+      'font-size',
+      '1em'
+    )
+  }
+
+  constructor(
+    private _elementRef: ElementRef,
+    private _renderer: Renderer
+  ) { }
+
+}
+```
+
+## HostBinding
+Permite definir propriedades no elemento ou componente hospedeiro (host) da diretiva por meio de uma variável.
+
+Este exemplo faz o mesmo que o demonstrado em HostListener, porém de uma maneira otimizada utilizando o HostBinding.
+
+HostingListener + HostBinding:
+```ts
+// importa HostBinding
+import { Directive, ElementRef, Renderer, HostListener, HostBinding } from '@angular/core';
+
+@Directive({
+  selector: '[appHighlightMouse]'
+})
+export class HighlightMouseDirective {
+  @HostListener('mouseenter') onMouseEnter() {
+    // utilizando HostBinding
+    this.changeSize = '2em';
+
+    // método anterior
+    // this._renderer.setElementStyle(
+    //   this._elementRef.nativeElement,
+    //   'font-size',
+    //   '2em'
+    // )
+  }
+
+  @HostListener('mouseleave') onMouseLeave() {
+    // utilizando HostBinding
+    this.changeSize = '1em';
+
+    // método anterior
+    // this._renderer.setElementStyle(
+    //   this._elementRef.nativeElement,
+    //   'font-size',
+    //   '1em'
+    // )
+  }
+
+  // @HostBinding('style.cssAtributeName') varName: type;
+  @HostBinding('style.fontSize') changeSize: string;
+
+  constructor(
+    // private _elementRef: ElementRef,
+    // private _renderer: Renderer
+  ) { }
+
+}
 ```
 
 ---

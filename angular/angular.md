@@ -357,6 +357,8 @@ export class MyModuleModule {}
 
 ver como [criar componentes](https://github.com/layshidani/my-learning-notes/blob/master/angular/components.md)
 
+O **angular-cli** cuida dos imports dos componentes que são criados e das declarações, acrescentando-os no **app.module.ts**.
+
 Se você tiver a extensão [Auto Import](https://marketplace.visualstudio.com/items?itemName=steoates.autoimport), ela irá acrescentar os imports necessários dos componentes no arquivo de módulo, porém é necessário acrescentar o trecho de **export** para indicar o que deve ser efetivamente exportado e exibido.
 
 ```ts
@@ -1161,6 +1163,9 @@ Considere este select de **example.component.html**:
 ```
 
 Neste caso, será feita a validação da expressão: `selectedNum <= '2'` e a tag `<p>` só será exibida caso a validação seja positiva (1 e 2).
+
+### ngElse
+TODO
 
 ### ngSwitch
 

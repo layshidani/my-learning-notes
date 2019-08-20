@@ -1111,16 +1111,14 @@ Estilo:
 > Angular 2 categoriza diretivas em 3 partes:
 >
 > 1. Diretivas com modelos conhecidos como Componentes
-> 2. Diretivas que criam e destroem elementos DOM conhecidos como Diretivas Estruturais
-> 3. Diretivas que manipulam o DOM alterando o comportamento e a aparência conhecidas como Diretivas de Atributo
+> 2. Diretivas que criam e destroem elementos DOM conhecidos como **Diretivas Estruturais**
+> 3. Diretivas que manipulam o DOM alterando o comportamento e a aparência conhecidas como **Diretivas de Atributo**
 >    --[codementor.io](https://www.codementor.io/christiannwamba/build-custom-directives-in-angular-2-jlqrk7dpw)
 
 ## Diretivas Estruturais
-
 > Diretivas estruturais são responsáveis pelo layout HTML. Eles moldam ou reformulam a estrutura do DOM, geralmente adicionando, removendo ou manipulando elementos. --[Angular Guide](https://angular.io/guide/structural-directives#what-are-structural-directives)
 
 ### ngFor
-
 ```
 *ngFor="expression"
 ```
@@ -1460,4 +1458,37 @@ Exemplo:
 ```
 
 # Model
+TODO
+
+---
+
+# Services
+> *Service* é uma categoria abrangente que inclui qualquer valor, função ou recurso de que um aplicativo precisa. Um serviço é tipicamente uma classe com um propósito estreito e bem definido. Deve fazer algo específico e fazê-lo bem.
+
+> Angular distingue componentes de serviços para aumentar a modularidade e a reutilização.
+
+> Ao separar a funcionalidade relacionada à visualização de um componente de outros tipos de processamento, você pode tornar suas classes de componentes simples e eficientes.
+
+> Idealmente, o trabalho de um componente é permitir a experiência do usuário e nada mais. Um componente deve apresentar propriedades e métodos para vinculação de dados, a fim de mediar entre a visualização (renderizada pelo modelo) e a lógica do aplicativo (que geralmente inclui alguma noção de um modelo).
+
+> Um componente pode delegar determinadas tarefas aos serviços, como buscar dados do servidor, validar a entrada do usuário ou registrar-se diretamente no console. Ao definir essas tarefas de processamento em uma classe de serviço injetável, você torna essas tarefas disponíveis para qualquer componente. Você também pode tornar seu aplicativo mais adaptável injetando diferentes provedores do mesmo tipo de serviço, conforme apropriado em diferentes circunstâncias. --[angular.io](https://angular.io/guide/architecture-services)
+
+```$
+ng g service <name>
+```
+
+* DRY
+* Manutenção
+* Facilidade para migrar para outras tecnologias
+
+Os *services* geralmente são classes que reunem os métodos para serem utilizados pelos componentes.
+
+Assim:
+-> Componente: interação usuário
+-> Serviço: cérebro, lógica do negócio, classes utilitárias.
+
+Exemplo:
+TODO
+
+## Injeção de dependências
 TODO

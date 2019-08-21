@@ -619,13 +619,21 @@ Para adicionar o Bootstrap ao projeto, você pode optar por inserir o link CDN n
 
 **Add ngx-bootstrap em um projeto que utiliza angular-cli**
 
-- Instalar o ngx-bootstrap:
+- Instalar o ngx-bootstrap (se não tiver instalado):
 
 ```$
 npm install ngx-bootstrap bootstrap --save
 ```
 
-- No arquivo **app.module.ts** importar o módulo que será utilizado. Exemplo:
+- Adicionar o bootstrap ao projeto
+```$
+ng add ngx-bootstrap
+```
+
+ou manualmente, após instalado:
+- No arquivo **app.module.ts** importar o módulo que será utilizado.
+
+  Exemplo:
 
 ```ts
 // importa Alert do ngx-bootstrap
@@ -1491,4 +1499,176 @@ Exemplo:
 TODO
 
 ## Injeção de dependências
+TODO
+
+---
+# Rotas
+TODO
+
+app-routing.module.ts
+```ts
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+
+// importar componentes
+import { TemplateFormComponent } from './template-form/template-form.component';
+import { DataFormComponent } from "./data-form/data-form.component";
+
+// add path e o nome dos componentes
+const routes: Routes = [
+  { path: 'templateForm', component: TemplateFormComponent },
+  { path: 'dataForm', component: DataFormComponent },
+  { path: '', pathMatch: 'full', redirectTo: 'templateForm' }
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+```
+
+---
+# Forms: Template Driven e Data Driven
+**!não esquecer de importar o FormsModule no módulo**:
+```ts
+import { FormsModule } from '@angular/forms';
+```
+
+- Template Driven:
+  * **orientado a template**
+  * criação, configuração e validação no HTML (template)
+  * FormGroup criado pelo Angular do HTML
+  * form submetido através do `ngSubmit`
+
+- Data Driven (Reativos)
+  * **orientado a dados**
+  * criação, configuração e validação no componente
+  * FormGroup no componente
+  * não é necessário ngSubmit
+
+## Template Driven
+
+TODO ex msg de erro
+TODO serValue
+TODO patch value
+TODO HTTP Post
+
+Exemplo:
+no arquivo **template-drive.component.html**
+```html
+<!-- criar var (ex #myForm) para referenciar o formulário -->
+<!-- ngForm: angular passa a ajudar a gerenciar -->
+<form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+  <div class="form-group">
+    <label for="nome">Nome</label>
+    <!-- acrescentar ngModel e um name para associação -->
+    <input
+    type="text"
+    class="form-control"
+    id="nome"
+    name="nome"
+    placeholder="Nome"
+    ngModel>
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input
+    type="email"
+    class="form-control"
+    id="email"
+    name="email"
+    placeholder="nome@email.com"
+    ngModel>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+```
+
+no arquivo **template-drive.component.ts**
+```ts
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-template-form',
+  templateUrl: './template-form.component.html',
+  styleUrls: ['./template-form.component.css']
+})
+export class TemplateFormComponent implements OnInit {
+  user: any = {
+    name: 'Lays',
+    email: 'lays@lays.com'
+  };
+
+  onSubmit(form) {
+    // retorna os valores associados através da referência name e ngModel
+    console.log(form.value);
+    // ou
+    console.log(this.user);
+  }
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}
+```
+
+## Data Driven: Formulários reativos
+arquivo **app.module.ts** (ou no módulo que for utilizar):
+
+```ts
+// ...
+// importar FormsModule e ReactiveFormsModule
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+// ...
+
+@NgModule({
+  // ...
+  imports: [
+    // ...
+    // add nos imports
+    FormsModule,
+    ReactiveFormsModule
+  ],
+  //...
+})
+export class AppModule { }
+```
+
+
+**reactive-form.component.ts**:
+```ts
+import { Component, OnInit } from '@angular/core';
+// importar FormGroup
+import { FormGroup } from '@angular/forms';
+
+@Component({
+  selector: 'app-data-form',
+  templateUrl: './data-form.component.html',
+  styleUrls: ['./data-form.component.css']
+})
+export class DataFormComponent implements OnInit {
+  // declarar uma variável do tipo FormGroup
+  form: FormGroup;
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}
+```
+
+
+## Forms validation
+[Validation Angular.io](https://angular.io/guide/form-validation)
+
+---
+
+# Pipes
 TODO

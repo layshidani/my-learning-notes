@@ -1645,7 +1645,7 @@ export class AppModule { }
 ```ts
 import { Component, OnInit } from '@angular/core';
 // importar FormGroup
-import { FormGroup } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-data-form',
@@ -1656,13 +1656,42 @@ export class DataFormComponent implements OnInit {
   // declarar uma variável do tipo FormGroup
   form: FormGroup;
 
-  constructor() { }
+  //  maneira com FormBuilder
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.form = this.formBuilder.group({
+      name: ['Valor inicial nome'],
+      email: ['Valor inicial email']
+    });
   }
+
+  // ou
+  // com new FormControl
+  // constructor() { }
+  // ngOnInit() {
+  //   this.form = new FormGroup({
+  //     name: new FormControl('Valor Nome Inicial'),
+  //     email: new FormControl('Valor Email Inicial'),
+  //   });
+  // }
 
 }
 ```
+
+no html:
+
+```html
+<!-- add a diretiva [formGroup]="variable name" para linkar com a variável que está no componente -->
+<form [formGroup]="form">
+<!-- ... -->
+<!-- add formControlName para linkar e atualizar o valor das variáveis do formBuilder de acordo com o input -->
+<input formControlName="email">
+<!-- ... -->
+</form>
+```
+
+### Data form: submit
 
 
 ## Forms validation

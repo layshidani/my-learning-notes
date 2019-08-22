@@ -49,12 +49,18 @@ Você poderá optar por instalar globalmente e local, ou somente local:
 * local: `npm i nome-do-pacote --save-dev  // ou --save`
 
   Onde:
-  * `--save-dev`: é usado para salvar o pacote para fins de desenvolvimento. Exemplo: testes unitários,minificação
-  * `--save`: é usado para salvar o pacote necessário para o aplicativo ser executado.
+  * `--save-dev` ou `D`: é usado para salvar o pacote para fins de desenvolvimento. Exemplo: testes unitários,minificação
+  * `--save` ou `S`: é usado para salvar o pacote necessário para o aplicativo ser executado.
 
 ***No caso de incluir `--save-dev` ou `--save`, as regras dos pacotes já serão automaticamente adicionadas no arquivo package.json em devDependencies (--save-dev) e Dependencies (--save).***
 
 *salvar global (pc)/local(no próprio projeto)*
+
+**Lista de shortcuts de instalação**:
+* `install` = `i`
+* `global` = `g`
+* `--save` = `-S`
+* `--save-dev` = `-D`
 
 ### Instalar versão específica de um pacote
 ```$
@@ -65,7 +71,7 @@ npm i <package-name>@<version>
 
 ## Instalar pacote via repo do GitHub
 ```$
-npm install <end>
+npm i <github:user/repo>
 ```
 
 ex:
@@ -85,6 +91,17 @@ npm i git://github.com/user-name/package-name.git#v0.1.0
   npm uninstall -g <package-name>
   ```
 
+## Listar todos os pacotes instalados
+* todos:
+  ```$
+  npm ls --depth 0
+  ```
+
+* globalmente:
+  ```$
+  npm ls -g --depth 0
+  ```
+
 ## Verificar se pacote está instalado ou versão instalada
 ```$
 npm -v nome-do-pacote
@@ -96,16 +113,22 @@ npm outdated
 ```
 
 ## Atualizar todos os pacotes
-Todos os listados no *package.json*:
-```$
-npm update
-```
-
-ou utilizados no --save e --save-dev:
-
-```$
-npm update --save/--save-dev
-```
+* Todos os listados no *package.json*:
+  ```$
+  npm update
+  ```
+* global:
+  ```$
+  npm update -g
+  ```
+* dev:
+  ```$
+  npm update --dev
+  ```
+* --save e --save-dev:
+  ```$
+  npm update --save/--save-dev
+  ```
 
 ## Atualizar todos os pacotes para versão mais recente
 ***!arriscado***
@@ -169,3 +192,14 @@ Instalar somente os pacotes de **Dependencies** e não os de **DevDependencies**
 ```$
 npm install --only=production
 ```
+
+---
+# ShortCuts
+
+**Lista de shortcuts de instalação**:
+* `install` = `i`
+* `global` = `g`
+* `--save` = `-S`
+* `--save-dev` = `-D`
+
+* `npm teste` = `npm t`

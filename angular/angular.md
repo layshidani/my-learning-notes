@@ -209,12 +209,8 @@ Projeção de conteúdo:
 
 Podemos usar a interpolação para atribuir valores em um componente.
 
-```ts
-{
-  {
-    x;
-  }
-}
+```
+{{ x }}
 ```
 
 Por exemplo:
@@ -252,10 +248,10 @@ Inserindo o componente para exibição, o resultado será:
 
 **Olá, meu nome é Lays**
 
-### Diretivas
+<!-- ### Diretivas
 
 Exemplo:
-**no arquivo nomes.component.ts:**
+**no arquivo numbers.component.ts:**
 
 ```ts
 import { Component, OnInit } from "@angular/core";
@@ -274,7 +270,7 @@ export class NumbersComponent implements OnInit {
 }
 ```
 
-**no arquivo nomes.component.html:**
+**no arquivo numbers.component.html:**
 
 ```html
 <ul>
@@ -286,7 +282,7 @@ O resultado será:
 
 - 1
 - 2
-- 3
+- 3 -->
 
 ---
 
@@ -613,7 +609,7 @@ O resultado do código acima será:
 
 ---
 
-## Bootstrap
+## Adicionar Bootstrap ao Projeto
 
 Para adicionar o Bootstrap ao projeto, você pode optar por inserir o link CDN no arquivo principal (**app.component.html**) ou utilizar o **[ngx bootstrap](https://github.com/valor-software/ngx-bootstrap/blob/development/docs/getting-started/ng-cli.md)**:
 
@@ -626,11 +622,13 @@ npm install ngx-bootstrap bootstrap --save
 ```
 
 - Adicionar o bootstrap ao projeto
+
 ```$
 ng add ngx-bootstrap
 ```
 
 ou manualmente, após instalado:
+
 - No arquivo **app.module.ts** importar o módulo que será utilizado.
 
   Exemplo:
@@ -1124,9 +1122,11 @@ Estilo:
 >    --[codementor.io](https://www.codementor.io/christiannwamba/build-custom-directives-in-angular-2-jlqrk7dpw)
 
 ## Diretivas Estruturais
+
 > Diretivas estruturais são responsáveis pelo layout HTML. Eles moldam ou reformulam a estrutura do DOM, geralmente adicionando, removendo ou manipulando elementos. --[Angular Guide](https://angular.io/guide/structural-directives#what-are-structural-directives)
 
 ### ngFor
+
 ```
 *ngFor="expression"
 ```
@@ -1171,6 +1171,7 @@ Considere este select de **example.component.html**:
 Neste caso, será feita a validação da expressão: `selectedNum <= '2'` e a tag `<p>` só será exibida caso a validação seja positiva (1 e 2).
 
 ### ngElse
+
 TODO
 
 ### ngSwitch
@@ -1312,7 +1313,9 @@ Exemplo:
 ```
 
 ## Diretivas customizadas
+
 TODO
+
 ```$
 ng g d dir/directive-name
 ```
@@ -1320,38 +1323,34 @@ ng g d dir/directive-name
 geralmente criamos no dir **shared**.
 
 Será gerado um arquivo **directive-name.directive.ts**
+
 ```ts
 // importar o ElementRef e o Renderer
-import { Directive, ElementRef, Renderer } from '@angular/core';
+import { Directive, ElementRef, Renderer } from "@angular/core";
 
 @Directive({
   // este nome do seletor deverá ser utilizado na tag html que receberá a diretiva
-  selector: '[appDiretivaExample]'
+  selector: "[appDiretivaExample]"
 
   // para restringir a tag a que esse diretiva poder ser aplicada, basta adicionar o nome da tag 'nome-da-tag[nomeDiretiva]', inclusive para tag componentes
   // selector: 'button[appDiretivaExample]'
 })
 export class DiretivaExampleDirective {
-
   // geralmente utilizamos a inicial _ na nomeação para indicar que é uma variável privada
-  constructor(
-    private _elementRef: ElementRef,
-    private _renderer: Renderer
-    ) {
+  constructor(private _elementRef: ElementRef, private _renderer: Renderer) {
     // aplicamos as modificações
     this._renderer.setElementStyle(
       this._elementRef.nativeElement,
-      'background-color',
-      'red'
-      )
+      "background-color",
+      "red"
+    );
 
     // este console.log mostra os atributos que podem ser modificados
     // console.log(this._elementRef);
 
     // Boas práticas: o uso do ElementRef, para modificação direta do DOM, não é recomendado por questoes de vulnerabilidade da aplicação. Assim, é recomendado utilizar o Renderer
     // this._elementRef.nativeElement.style.backgroundColor = 'green';
-   }
-
+  }
 }
 ```
 
@@ -1363,62 +1362,66 @@ para aplicar a diretiva customizada na tag:
 ```
 
 ## HostListener
+
 Permite ouvir eventos no elemento ou componente hospedeiro (host).
 
 Neste exemplo, mudamos o tamanho da fonte quando passamos o mouse sobre o texto
 
 ```ts
 // importa HostListener
-import { Directive, ElementRef, Renderer, HostListener } from '@angular/core';
+import { Directive, ElementRef, Renderer, HostListener } from "@angular/core";
 
 @Directive({
   // este nome do seletor deverá ser utilizado na tag html que receberá a diretiva
-  selector: '[appHighlightMouse]'
+  selector: "[appHighlightMouse]"
 })
-
 export class HighlightMouseDirective {
   // @HostListener('nomedoevento') função() {}
-  @HostListener('mouseenter') onMouseEnter() {
+  @HostListener("mouseenter") onMouseEnter() {
     this._renderer.setElementStyle(
       this._elementRef.nativeElement,
-      'font-size',
-      '2em'
-    )
+      "font-size",
+      "2em"
+    );
   }
 
-  @HostListener('mouseleave') onMouseLeave() {
+  @HostListener("mouseleave") onMouseLeave() {
     this._renderer.setElementStyle(
       this._elementRef.nativeElement,
-      'font-size',
-      '1em'
-    )
+      "font-size",
+      "1em"
+    );
   }
 
-  constructor(
-    private _elementRef: ElementRef,
-    private _renderer: Renderer
-  ) { }
-
+  constructor(private _elementRef: ElementRef, private _renderer: Renderer) {}
 }
 ```
 
 ## HostBinding
+
 Permite definir propriedades no elemento ou componente hospedeiro (host) da diretiva por meio de uma variável.
 
 Este exemplo faz o mesmo que o demonstrado em HostListener, porém de uma maneira otimizada utilizando o HostBinding.
 
 HostingListener + HostBinding:
+
 ```ts
 // importa HostBinding
-import { Directive, ElementRef, Renderer, HostListener, HostBinding } from '@angular/core';
+import {
+  Directive,
+  ElementRef,
+  Renderer,
+  HostListener,
+  HostBinding
+} from "@angular/core";
 
 @Directive({
-  selector: '[appHighlightMouse]'
+  selector: "[appHighlightMouse]"
 })
 export class HighlightMouseDirective {
-  @HostListener('mouseenter') onMouseEnter() {
+  @HostListener("mouseenter") onMouseEnter() {
     // utilizando HostBinding
-    this.changeSize = '2em';
+    this.changeSize = "2em";
 
     // método anterior
     // this._renderer.setElementStyle(
@@ -1428,9 +1431,9 @@ export class HighlightMouseDirective {
     // )
   }
 
-  @HostListener('mouseleave') onMouseLeave() {
+  @HostListener("mouseleave") onMouseLeave() {
     // utilizando HostBinding
-    this.changeSize = '1em';
+    this.changeSize = "1em";
 
     // método anterior
     // this._renderer.setElementStyle(
@@ -1441,13 +1444,11 @@ export class HighlightMouseDirective {
   }
 
   // @HostBinding('style.cssAtributeName') varName: type;
-  @HostBinding('style.fontSize') changeSize: string;
+  @HostBinding("style.fontSize") changeSize: string;
 
-  constructor(
-    // private _elementRef: ElementRef,
-    // private _renderer: Renderer
-  ) { }
-
+  constructor() // private _elementRef: ElementRef,
+  // private _renderer: Renderer
+  {}
 }
 ```
 
@@ -1466,12 +1467,14 @@ Exemplo:
 ```
 
 # Model
+
 TODO
 
 ---
 
 # Services
-> *Service* é uma categoria abrangente que inclui qualquer valor, função ou recurso de que um aplicativo precisa. Um serviço é tipicamente uma classe com um propósito estreito e bem definido. Deve fazer algo específico e fazê-lo bem.
+
+> _Service_ é uma categoria abrangente que inclui qualquer valor, função ou recurso de que um aplicativo precisa. Um serviço é tipicamente uma classe com um propósito estreito e bem definido. Deve fazer algo específico e fazê-lo bem.
 
 > Angular distingue componentes de serviços para aumentar a modularidade e a reutilização.
 
@@ -1485,11 +1488,11 @@ TODO
 ng g service <name>
 ```
 
-* DRY
-* Manutenção
-* Facilidade para migrar para outras tecnologias
+- DRY
+- Manutenção
+- Facilidade para migrar para outras tecnologias
 
-Os *services* geralmente são classes que reunem os métodos para serem utilizados pelos componentes.
+Os _services_ geralmente são classes que reunem os métodos para serem utilizados pelos componentes.
 
 Assim:
 -> Componente: interação usuário
@@ -1499,53 +1502,61 @@ Exemplo:
 TODO
 
 ## Injeção de dependências
+
 TODO
 
 ---
+
 # Rotas
+
 TODO
 
 app-routing.module.ts
+
 ```ts
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
 
 // importar componentes
-import { TemplateFormComponent } from './template-form/template-form.component';
+import { TemplateFormComponent } from "./template-form/template-form.component";
 import { DataFormComponent } from "./data-form/data-form.component";
 
 // add path e o nome dos componentes
 const routes: Routes = [
-  { path: 'templateForm', component: TemplateFormComponent },
-  { path: 'dataForm', component: DataFormComponent },
-  { path: '', pathMatch: 'full', redirectTo: 'templateForm' }
+  { path: "templateForm", component: TemplateFormComponent },
+  { path: "dataForm", component: DataFormComponent },
+  { path: "", pathMatch: "full", redirectTo: "templateForm" }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
 ```
 
 ---
+
 # Forms: Template Driven e Data Driven
+
 **!não esquecer de importar o FormsModule no módulo**:
+
 ```ts
-import { FormsModule } from '@angular/forms';
+import { FormsModule } from "@angular/forms";
 ```
 
 - Template Driven:
-  * **orientado a template**
-  * criação, configuração e validação no HTML (template)
-  * FormGroup criado pelo Angular do HTML
-  * form submetido através do `ngSubmit`
+
+  - **orientado a template**
+  - criação, configuração e validação no HTML (template)
+  - FormGroup criado pelo Angular do HTML
+  - form submetido através do `ngSubmit`
 
 - Data Driven (Reativos)
-  * **orientado a dados**
-  * criação, configuração e validação no componente
-  * FormGroup no componente
-  * não é necessário ngSubmit
+  - **orientado a dados**
+  - criação, configuração e validação no componente
+  - FormGroup no componente
+  - não é necessário ngSubmit
 
 ## Template Driven
 
@@ -1556,6 +1567,7 @@ TODO HTTP Post
 
 Exemplo:
 no arquivo **template-drive.component.html**
+
 ```html
 <!-- criar var (ex #myForm) para referenciar o formulário -->
 <!-- ngForm: angular passa a ajudar a gerenciar -->
@@ -1564,23 +1576,25 @@ no arquivo **template-drive.component.html**
     <label for="nome">Nome</label>
     <!-- acrescentar ngModel e um name para associação -->
     <input
-    type="text"
-    class="form-control"
-    id="nome"
-    name="nome"
-    placeholder="Nome"
-    ngModel>
+      type="text"
+      class="form-control"
+      id="nome"
+      name="nome"
+      placeholder="Nome"
+      ngModel
+    />
   </div>
 
   <div class="form-group">
     <label for="email">Email</label>
     <input
-    type="email"
-    class="form-control"
-    id="email"
-    name="email"
-    placeholder="nome@email.com"
-    ngModel>
+      type="email"
+      class="form-control"
+      id="email"
+      name="email"
+      placeholder="nome@email.com"
+      ngModel
+    />
   </div>
 
   <button type="submit" class="btn btn-primary">Submit</button>
@@ -1588,18 +1602,19 @@ no arquivo **template-drive.component.html**
 ```
 
 no arquivo **template-drive.component.ts**
+
 ```ts
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-template-form',
-  templateUrl: './template-form.component.html',
-  styleUrls: ['./template-form.component.css']
+  selector: "app-template-form",
+  templateUrl: "./template-form.component.html",
+  styleUrls: ["./template-form.component.css"]
 })
 export class TemplateFormComponent implements OnInit {
   user: any = {
-    name: 'Lays',
-    email: 'lays@lays.com'
+    name: "Lays",
+    email: "lays@lays.com"
   };
 
   onSubmit(form) {
@@ -1609,21 +1624,20 @@ export class TemplateFormComponent implements OnInit {
     console.log(this.user);
   }
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }
 ```
 
 ## Data Driven: Formulários reativos
+
 arquivo **app.module.ts** (ou no módulo que for utilizar):
 
 ```ts
 // ...
 // importar FormsModule e ReactiveFormsModule
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 // ...
 
@@ -1634,35 +1648,35 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     // add nos imports
     FormsModule,
     ReactiveFormsModule
-  ],
+  ]
   //...
 })
-export class AppModule { }
+export class AppModule {}
 ```
 
-
 **reactive-form.component.ts**:
+
 ```ts
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 // importar FormGroup
-import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder } from "@angular/forms";
 
 @Component({
-  selector: 'app-data-form',
-  templateUrl: './data-form.component.html',
-  styleUrls: ['./data-form.component.css']
+  selector: "app-data-form",
+  templateUrl: "./data-form.component.html",
+  styleUrls: ["./data-form.component.css"]
 })
 export class DataFormComponent implements OnInit {
   // declarar uma variável do tipo FormGroup
   form: FormGroup;
 
   //  maneira com FormBuilder
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit() {
     this.form = this.formBuilder.group({
-      name: ['Valor inicial nome'],
-      email: ['Valor inicial email']
+      name: ["Valor inicial nome"],
+      email: ["Valor inicial email"]
     });
   }
 
@@ -1675,7 +1689,6 @@ export class DataFormComponent implements OnInit {
   //     email: new FormControl('Valor Email Inicial'),
   //   });
   // }
-
 }
 ```
 
@@ -1684,20 +1697,21 @@ no html:
 ```html
 <!-- add a diretiva [formGroup]="variable name" para linkar com a variável que está no componente -->
 <form [formGroup]="form">
-<!-- ... -->
-<!-- add formControlName para linkar e atualizar o valor das variáveis do formBuilder de acordo com o input -->
-<input formControlName="email">
-<!-- ... -->
+  <!-- ... -->
+  <!-- add formControlName para linkar e atualizar o valor das variáveis do formBuilder de acordo com o input -->
+  <input formControlName="email" />
+  <!-- ... -->
 </form>
 ```
 
 ### Data form: submit
 
-
 ## Forms validation
+
 [Validation Angular.io](https://angular.io/guide/form-validation)
 
 ---
 
 # Pipes
+
 TODO

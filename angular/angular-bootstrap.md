@@ -55,7 +55,6 @@ import { AlertModule } from 'ngx-bootstrap';
 
 ```
 
-
 - Adicionar a tag no html. Exemplo:
 
 ```html
@@ -92,41 +91,46 @@ npm install --save ngx-materialize
 
 No final, confira se tudo foi adicionado corretamente aos arquivos:
 **angular.json**:
+
 ```json
 // ...
 "styles": [
-  "src/styles.scss",
-// Add this:
- "node_modules/materialize-css/dist/css/materialize.min.css"
+  "src/styles.css",
+  "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
+  "node_modules/materialize-css/dist/css/materialize.min.css"
 ],
 "scripts": [
-// Add this:
- "node_modules/jquery/dist/jquery.min.js",
- "../node_modules/hammerjs/hammer.js",
- "node_modules/materialize-css/dist/js/materialize.min.js"
-],
+  "node_modules/jquery/dist/jquery.min.js",
+  "node_modules/hammerjs/hammer.js",
+  "node_modules/materialize-css/dist/js/materialize.min.js"
+]
 ```
 
 no arquivo **tsconfig.app.json**:
+
 ```json
 // ...
 "types": [
   // add :
   "jquery",
   "materialize-css"
-    ]
+]
 ```
 
 em **app.module.ts**:
+
 ```ts
-import { MaterializeModule } from 'angular2-materialize';
+import { MaterializeModule } from "angular2-materialize";
 ```
 
 em **index.html**:
+
 ```html
 <header>
   // ...
-  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link
+    href="http://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet"
+  />
 </header>
 ```
-

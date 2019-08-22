@@ -37,6 +37,8 @@
 * [Import e Export - es6](https://github.com/layshidani/my-learning-notes/tree/master/import-export/)
 
 ## Node - Config Biblioteca NPM
+* [Node](https://github.com/layshidani/my-learning-notes/blob/master/node/node.md)
+* [npm](https://github.com/layshidani/my-learning-notes/blob/master/node/npm.md)
 * [Biblioteca JS configuração: npm init, eslint, testes com mocha, nyc, chai, publicação no npm](https://github.com/layshidani/my-learning-notes/tree/master/lib-js-config)
 
 ## Testes

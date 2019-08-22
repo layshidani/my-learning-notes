@@ -1,4 +1,5 @@
 # Angular
+*trabalhando com angular-cli*
 
 > Angular é uma plataforma de aplicações web de código-fonte aberto e front-end baseado em TypeScript liderado pela Equipe Angular do Google e por uma comunidade de indivíduos e corporações. Angular é uma reescrita completa do AngularJS, feito pela mesma equipe que o construiu. [--Wiki](https://g.co/kgs/guUR7X)
 
@@ -24,6 +25,12 @@
   - [componente ---> template](#componente-----template)
 
 ---
+## Anexos:
+
+- [Adicionar Libs ao projeto: Bootstrap, Materialize]()
+<!-- TODO - [Typescrip]() -->
+
+---
 
 # Preparando o ambiente de desenvolvimento com Angular cli
 
@@ -33,23 +40,23 @@ Pre-requisitos:
 
 - NodeJS instalado
 
-```$
+```bash
 sudo npm i -g @angular/cli
 ```
 
-```$
+```bash
 sudo npm i -g typescript
 ```
 
 ## Iniciar um novo projeto com o Angular cli
 
-```$
+```bash
 ng new app-name
 ```
 
 Entre no diretório do projeto para começar a trabalhar nele:
 
-```$
+```bash
 cd app-name
 ```
 
@@ -57,13 +64,13 @@ cd app-name
 
 O comando abaixo irá fazer o build da aplicação e rodar no [http://localhost:4200/](http://localhost:4200/), você poderá acompanhar pelo browser o efeito das alterações do projeto.
 
-```$
+```bash
 ng serve
 ```
 
 ou abreviado:
 
-```$
+```bash
 ng s
 ```
 
@@ -83,13 +90,13 @@ Os arquivos de componentes estão em:
 
 Basta digitar no terminal:
 
-```$
+```bash
 ng g c nome-do-componente
 ```
 
 ou se já existir o diretório:
 
-```$
+```bash
 ng g c diretorio/nome-do-componente
 ```
 
@@ -326,13 +333,13 @@ export class AppModule {}
 
 Na pasta do projeto, digite no terminal:
 
-```$
+```bash
 ng g m nome-do-modulo
 ```
 
 Ex:
 
-```$
+```bash
 ng g m my-module
 ```
 
@@ -425,13 +432,13 @@ Também é possível fazer uso de componentes privados, não incluindo-os no imp
 
 Para criar na raiz do projeto (dir app):
 
-```$
+```bash
 ng g s service-name
 ```
 
 Para criar em um diretório de componente já existente:
 
-```$
+```bash
 ng g s dir-name/service-name
 ```
 
@@ -606,68 +613,6 @@ O resultado do código acima será:
 ```html
 [attr.colspan]="valor"
 ```
-
----
-
-## Adicionar Bootstrap ao Projeto
-
-Para adicionar o Bootstrap ao projeto, você pode optar por inserir o link CDN no arquivo principal (**app.component.html**) ou utilizar o **[ngx bootstrap](https://github.com/valor-software/ngx-bootstrap/blob/development/docs/getting-started/ng-cli.md)**:
-
-**Add ngx-bootstrap em um projeto que utiliza angular-cli**
-
-- Instalar o ngx-bootstrap (se não tiver instalado):
-
-```$
-npm install ngx-bootstrap bootstrap --save
-```
-
-- Adicionar o bootstrap ao projeto
-
-```$
-ng add ngx-bootstrap
-```
-
-ou manualmente, após instalado:
-
-- No arquivo **app.module.ts** importar o módulo que será utilizado.
-
-  Exemplo:
-
-```ts
-// importa Alert do ngx-bootstrap
-import { AlertModule } from 'ngx-bootstrap';
-
-// ...
-
-@NgModule({
-   //...
-   // em imports, add o AlertModule, juntamente com os outros imports
-   imports: [AlertModule.forRoot(), ... ],
-   // ...
-})
-
-```
-
-- No arquivo **angular.json**, adicionar aos estilos:
-
-```json
-// ...
-"styles": [
-         "./node_modules/bootstrap/dist/css/bootstrap.min.css",
-        "styles.css",
-      ],
-// ...
-
-```
-
-- Adicionar a tag no html. Exemplo:
-
-```html
-<alert type="success"
-  >Sucesso! Você está aprendendo a utilizar Bootstrap no angular!</alert
->
-```
-
 ---
 
 ## Class Binding
@@ -1067,7 +1012,7 @@ export class AppComponent {
 
 ## Build
 
-```$
+```bash
 ng build
 ```
 
@@ -1080,19 +1025,19 @@ irá gerar o folder _dist_ com os arquivos do **build**.
 
 ## Verificar lint
 
-```$
+```bash
 ng lint
 ```
 
 ## Teste unitário
 
-```$
+```bash
 ng test
 ```
 
 ### Teste end-to-end com Protractor
 
-```$
+```bash
 ng e2e
 ```
 
@@ -1100,7 +1045,7 @@ ng e2e
 
 **!Modifica apenas os próximos componentes, os já existentes continuarão com as extensões selecionadas anteriormente. Para modificar, será necessário mudar as extensões manualmente nos arquivos.**
 
-```$
+```bash
 ng set defaults.styleExt <estilo>
 ```
 
@@ -1316,7 +1261,7 @@ Exemplo:
 
 TODO
 
-```$
+```bash
 ng g d dir/directive-name
 ```
 
@@ -1484,7 +1429,7 @@ TODO
 
 > Um componente pode delegar determinadas tarefas aos serviços, como buscar dados do servidor, validar a entrada do usuário ou registrar-se diretamente no console. Ao definir essas tarefas de processamento em uma classe de serviço injetável, você torna essas tarefas disponíveis para qualquer componente. Você também pode tornar seu aplicativo mais adaptável injetando diferentes provedores do mesmo tipo de serviço, conforme apropriado em diferentes circunstâncias. --[angular.io](https://angular.io/guide/architecture-services)
 
-```$
+```bash
 ng g service <name>
 ```
 
@@ -1508,31 +1453,65 @@ TODO
 ---
 
 # Rotas
-
 TODO
 
-app-routing.module.ts
+**app.component.html**:
+add a tag router-outlet onde será renderizado o componente de rota
+```html
+<router-outlet></router-outlet>
+```
 
+**app-routing.module.ts**:
 ```ts
 import { NgModule } from "@angular/core";
+// importar Routes e RoutersModule
 import { Routes, RouterModule } from "@angular/router";
+// importar ModuleWithProviders
+import { ModuleWithProviders } from '@angular/core';
 
 // importar componentes
-import { TemplateFormComponent } from "./template-form/template-form.component";
-import { DataFormComponent } from "./data-form/data-form.component";
+import { LoginComponent } from "./login/login.component";
+import { HomeComponent } from "./home/home.component";
 
 // add path e o nome dos componentes
+// que seriam o caminho/endereço e o componente que deverá ser renderizado para esse caminho
 const routes: Routes = [
-  { path: "templateForm", component: TemplateFormComponent },
-  { path: "dataForm", component: DataFormComponent },
-  { path: "", pathMatch: "full", redirectTo: "templateForm" }
+  // um caminho default
+  { path: "", pathMatch: "full", redirectTo: "login" }
+  // outras rotas
+  { path: "login", component: LoginComponent },
+  { path: "home", component: HomeComponent }
 ];
+
+// para rotas principais
+export const routing: ModuleWithProviders = RouterModule.forRoot(APP_ROUTES);
+
+// rotas de funcionalidade usar forChild (ex: recipes-detail)
+// export const routing: ModuleWithProviders = RouterModule.forChild(APP_ROUTES);
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
+```
+
+no arquivo **app.module.ts**:
+```ts
+// importar o arquivo de rotas
+import { routing } from './app.routing';
+
+// ...
+// add aos imports
+@NgModule({
+  // ...
+  imports: [
+    // ...
+    routing
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
 ```
 
 ---
@@ -1631,6 +1610,7 @@ export class TemplateFormComponent implements OnInit {
 ```
 
 ## Data Driven: Formulários reativos
+<!-- TODO add content, verify examples -->
 
 arquivo **app.module.ts** (ou no módulo que for utilizar):
 
@@ -1696,7 +1676,10 @@ no html:
 
 ```html
 <!-- add a diretiva [formGroup]="variable name" para linkar com a variável que está no componente -->
-<form [formGroup]="form">
+<!-- add (ngSubmit)="onSubmit() vinculado ao component.ts -->
+<form
+[formGroup]="form"
+(ngSubmit)="onSubmit()>
   <!-- ... -->
   <!-- add formControlName para linkar e atualizar o valor das variáveis do formBuilder de acordo com o input -->
   <input formControlName="email" />
@@ -1712,6 +1695,90 @@ no html:
 
 ---
 
-# Pipes
+# Pipes (filtros)
+<!-- TODO improvements -->
 
-TODO
+```html
+<!-- {{ ... | pipe }} -->
+<tag> {{ data | pipe }} </tag>
+
+<!-- {{ ... | pipe:adicionais }} -->
+<tag>{{ data | pipe: }}</tag>
+```
+
+* [Guia Pipes](https://angular.io/guide/pipes)
+* [Pipes list](https://angular.io/api?query=pipe)
+* [Pipe Lib](https://github.com/fknop/angular-pipes)
+
+Os pipes são utilizados para transformar/filtrar valores no template.
+
+- pura: não observa modificações no objeto
+- impura: observa modificações no objeto
+
+
+Suponha um objeto product. Exemplo:
+```html
+<!-- exibe o nome do produto em Uppercase (capitalizado) -->
+<h1>{{ product.name | uppercase }}</h1>
+<ul>
+  <!-- exibe a quantidade no formato 00.00  -->
+  <!-- onde (numero de casas antes da vírgula.minimoCasas-MaxCasas depois da vírgula -->
+  <li>Quantidade: {{ product.amount | number: '2.2-2'}}</li>
+  <!-- exibe o preço do produto no formato R$ 00.00 -->
+  <li>Preço: {{ product.price | currency: 'BRL':true }}</li>
+  <!-- exibe a data no formato dia-mes-ano -->
+  <li>Validade: {{ product.date | date:'dd-MMM-yyyy' }}</li>
+  <!-- exibe a composição do produto em formato JSON -->
+  <li>Composição: {{ product.comp | JSON }}</li>
+</ul>
+
+```
+
+## Criar pipe customizado
+```bash
+ng g pipe
+
+# ou
+
+ng g p
+```
+
+**!não esquecer de importar no módulo a pipe criada e adicionar nas *declarations*.**
+
+!o padrão é pure, para modificar este comportamento, é necessário modificar no arquivo de **pipe.ts**:
+```ts
+// ...
+@Pipe({
+  // add este metadado pure: false
+  pure: false
+})
+```
+
+### Formato Local
+Para modificar as configurações do projeto quanto a exibição de alguns dados filtrados pelo pipe:
+
+exemplo, para exibição no formato brasileiro (ao invés de 1.99 ser 1,99):
+
+no module.ts:
+```ts
+providers: [
+  {
+    provide: LOCALE_ID,
+    useValue: 'pt-BR',
+    // useClass: '',
+    // useFactory: ''
+  }
+]
+```
+
+---
+# Style Guide
+<!-- TODO add content research -->
+
+## Imports
+```ts
+imports do angular
+
+// pula uma linha
+outros imports (componentes, etc)
+```

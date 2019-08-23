@@ -1,5 +1,6 @@
 # Angular
-*trabalhando com angular-cli*
+
+_trabalhando com angular-cli_
 
 > Angular é uma plataforma de aplicações web de código-fonte aberto e front-end baseado em TypeScript liderado pela Equipe Angular do Google e por uma comunidade de indivíduos e corporações. Angular é uma reescrita completa do AngularJS, feito pela mesma equipe que o construiu. [--Wiki](https://g.co/kgs/guUR7X)
 
@@ -25,10 +26,11 @@
   - [componente ---> template](#componente-----template)
 
 ---
+
 ## Anexos:
 
 - [Adicionar Libs ao projeto: Bootstrap, Materialize]()
-<!-- TODO - [Typescrip]() -->
+  <!-- TODO - [Typescrip]() -->
 
 ---
 
@@ -613,6 +615,7 @@ O resultado do código acima será:
 ```html
 [attr.colspan]="valor"
 ```
+
 ---
 
 ## Class Binding
@@ -1453,15 +1456,18 @@ TODO
 ---
 
 # Rotas
+
 TODO
 
 **app.component.html**:
 add a tag router-outlet onde será renderizado o componente de rota
+
 ```html
 <router-outlet></router-outlet>
 ```
 
 **app-routing.module.ts**:
+
 ```ts
 import { NgModule } from "@angular/core";
 // importar Routes e RoutersModule
@@ -1497,6 +1503,7 @@ export class AppRoutingModule {}
 ```
 
 no arquivo **app.module.ts**:
+
 ```ts
 // importar o arquivo de rotas
 import { routing } from './app.routing';
@@ -1514,7 +1521,134 @@ import { routing } from './app.routing';
 })
 ```
 
+## Adicionar link de rota (routerLink)
+
+adicionar o `routerLink` com o caminho que foi criado no arquivo de rotas.
+
+```html
+<a routerLink="/path">path</a>
+
+<!-- exemplo -->
+<a routerLink="/login">Login</a>
+```
+
 ---
+
+## Rota com parâmetros
+
+- obter o parâmetro
+- subscribe
+- unsubscribe
+
+o que vai mudar de um caso para o outro é o conteúdo de exemplo do arquivo **welcome-page.component.ts**.
+
+**app-routing.module.ts**:
+
+```ts
+// ...
+import { WelcomeComponent } from "./welcome/welcome.component";
+
+// ...
+  // rota com parâmetro rota/:parametro
+  { path: "home/:welcome", component: WelcomeComponent }
+
+// ...
+```
+
+no **home.component.html**:
+
+```html
+<!-- exemplo -->
+<input #name />
+
+<a [routerLink]="['welcome', name.value]">Boas vindas</a>
+```
+
+Para exibir um valor na tela, supondo que temos um input onde o usuário digita seu nome na página home (**home.component.html**):
+
+**welcome-page.component.html:**
+
+```html
+<h2>Olá, {{ name }}, seja bem vinda (o)!</h2>
+```
+
+### Obter parâmetro
+
+**welcome-page.component.ts:**
+
+```ts
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
+@Component({
+  selector: 'app-welcome-page',
+  templateUrl: './welcome-page.component.html',
+  styleUrls: ['./welcome-page.component.css']
+})
+export class WelcomePage implements OnInit {
+
+  name: string;
+
+  constructor(private route: ActivatedRoute) {
+    console.log(this.route.snapshot.params['name]);
+    this.id = this.route.snapshot.params['name];
+   }
+
+  ngOnInit() {
+  }
+
+}
+```
+
+### Subscribe e unsubscribe
+
+**welcome-page.component.ts:**
+
+```ts
+import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
+// add import do Subscription
+import { Subscription } from "rxjs";
+
+@Component({
+  selector: "app-welcome-page",
+  templateUrl: "./welcome-page.component.html",
+  styleUrls: ["./welcome-page.component.css"]
+})
+export class WelcomePage implements OnInit {
+  name: string;
+  // add uma variável do tipo Subscription
+  subscription: Subscription;
+
+  constructor(private route: ActivatedRoute) {}
+
+  // subscribe
+  ngOnInit() {
+    this.subscription = this.route.params.subscribe((params: any) => {
+      this.name = params["name"];
+    });
+  }
+
+  // unsubscribe
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
+}
+```
+
+# Rotas imperativas
+TODO
+
+```ts
+import { ActivatedRoute, Router } from '@angular/router';
+
+// exemplo, faz a validação do dado e redireciona para outra página
+if (this.name == null) {
+  this.router.navigate(['/error']);
+}
+```
+
+*!não esquecer que todos os caminhos devem estar declarados no aquivo de rotas.*
 
 # Forms: Template Driven e Data Driven
 
@@ -1610,6 +1744,7 @@ export class TemplateFormComponent implements OnInit {
 ```
 
 ## Data Driven: Formulários reativos
+
 <!-- TODO add content, verify examples -->
 
 arquivo **app.module.ts** (ou no módulo que for utilizar):
@@ -1696,6 +1831,7 @@ no html:
 ---
 
 # Pipes (filtros)
+
 <!-- TODO improvements -->
 
 ```html
@@ -1706,17 +1842,17 @@ no html:
 <tag>{{ data | pipe: }}</tag>
 ```
 
-* [Guia Pipes](https://angular.io/guide/pipes)
-* [Pipes list](https://angular.io/api?query=pipe)
-* [Pipe Lib](https://github.com/fknop/angular-pipes)
+- [Guia Pipes](https://angular.io/guide/pipes)
+- [Pipes list](https://angular.io/api?query=pipe)
+- [Pipe Lib](https://github.com/fknop/angular-pipes)
 
 Os pipes são utilizados para transformar/filtrar valores no template.
 
 - pura: não observa modificações no objeto
 - impura: observa modificações no objeto
 
-
 Suponha um objeto product. Exemplo:
+
 ```html
 <!-- exibe o nome do produto em Uppercase (capitalizado) -->
 <h1>{{ product.name | uppercase }}</h1>
@@ -1731,10 +1867,10 @@ Suponha um objeto product. Exemplo:
   <!-- exibe a composição do produto em formato JSON -->
   <li>Composição: {{ product.comp | JSON }}</li>
 </ul>
-
 ```
 
 ## Criar pipe customizado
+
 ```bash
 ng g pipe
 
@@ -1743,9 +1879,10 @@ ng g pipe
 ng g p
 ```
 
-**!não esquecer de importar no módulo a pipe criada e adicionar nas *declarations*.**
+**!não esquecer de importar no módulo a pipe criada e adicionar nas _declarations_.**
 
 !o padrão é pure, para modificar este comportamento, é necessário modificar no arquivo de **pipe.ts**:
+
 ```ts
 // ...
 @Pipe({
@@ -1755,24 +1892,28 @@ ng g p
 ```
 
 ### Formato Local
+
 Para modificar as configurações do projeto quanto a exibição de alguns dados filtrados pelo pipe:
 
 exemplo, para exibição no formato brasileiro (ao invés de 1.99 ser 1,99):
 
 no module.ts:
+
 ```ts
 providers: [
   {
     provide: LOCALE_ID,
-    useValue: 'pt-BR',
+    useValue: "pt-BR"
     // useClass: '',
     // useFactory: ''
   }
-]
+];
 ```
 
 ---
+
 # Style Guide
+
 <!-- TODO add content research -->
 
 ## Imports

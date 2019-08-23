@@ -34,7 +34,7 @@
 * [Módulos - WebPack](https://layshidani.github.io/my-learning-notes/tree/master/modules-webpack/)
 
 ## Import e Export
-* [Import e Export - es6](https://layshidani.github.io/my-learning-notes/tree/master/import-export/)
+* [Import e Export - es6](https://layshidani.github.io/my-learning-notes/tree/master/import-export/import-export)
 
 ## Node - Config Biblioteca NPM
 * [Node](https://layshidani.github.io/my-learning-notes/node/node)

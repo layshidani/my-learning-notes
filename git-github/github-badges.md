@@ -1,4 +1,4 @@
-# GitHub Badges
+# :bookmark: GitHub Badges
 
 ## Travis (testes)
 > O Travis CI é um serviço de integração contínua hospedado, usado para criar e testar projetos de software hospedados no GitHub. Projetos open source podem ser testados sem custo via travis-ci.org. Projetos privados podem ser testados em travis-ci.com com base em honorários.  --[Wikipedia](https://en.wikipedia.org/wiki/Travis_CI)

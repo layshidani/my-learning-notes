@@ -1,4 +1,4 @@
-# ZSH (Linux Mint)
+# :hammer_and_wrench: ZSH (Linux Mint)
 **Zsh: interpretador de comandos (Shell)**
 ## Instalar ZSH
 ```$
@@ -74,4 +74,8 @@ Exemplo:
 ZSH_THEME="fino"
 ```
 
-<!-- TODO escrever sobre alias -->
+~TODO escrever sobre alias
+
+---
+# ZSH + hyper terminal (Windows)
+~TODO

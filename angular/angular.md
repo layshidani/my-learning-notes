@@ -1,29 +1,11 @@
-# Angular
+# :gear: Angular
 
 _trabalhando com angular-cli_
 
 > Angular é uma plataforma de aplicações web de código-fonte aberto e front-end baseado em TypeScript liderado pela Equipe Angular do Google e por uma comunidade de indivíduos e corporações. Angular é uma reescrita completa do AngularJS, feito pela mesma equipe que o construiu. [--Wiki](https://g.co/kgs/guUR7X)
 
 ## Table of Contents
-
-- [- componente ---> template](#componente-----template)
-- [Preparando o ambiente de desenvolvimento com Angular cli](#preparando-o-ambiente-de-desenvolvimento-com-angular-cli)
-  - [Iniciar um novo projeto com o Angular cli](#iniciar-um-novo-projeto-com-o-angular-cli)
-  - [Rodando a aplicação](#rodando-a-aplica%c3%a7%c3%a3o)
-- [Componentes](#componentes)
-  - [Criar componente utilizando o angular cli](#criar-componente-utilizando-o-angular-cli)
-  - [Criar o primeiro componente manualmente](#criar-o-primeiro-componente-manualmente)
-  - [Usar o component manualmente](#usar-o-component-manualmente)
-- [Templates](#templates)
-  - [Interpolação e Diretivas](#interpola%c3%a7%c3%a3o-e-diretivas)
-    - [Interpolação](#interpola%c3%a7%c3%a3o)
-    - [Diretivas](#diretivas)
-- [Modules](#modules)
-  - [Criar módulo](#criar-m%c3%b3dulo)
-  - [Adicionar componentes ao módulo](#adicionar-componentes-ao-m%c3%b3dulo)
-- [Services e Injeção de Dependência](#services-e-inje%c3%a7%c3%a3o-de-depend%c3%aancia)
-- [Data binding](#data-binding)
-  - [componente ---> template](#componente-----template)
+TODO
 
 ---
 

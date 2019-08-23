@@ -1,4 +1,4 @@
-# Exemplo arquivo de configuração do Firebase
+# :gear: Exemplo arquivo de configuração do Firebase
 *Por questões de segurança, recomenda-se não subir o arquivo de firebase-config no GitHub. Portanto add no arquivo .gitignore do projeto*
 
 Criar o arquivo **firebase-config.js**

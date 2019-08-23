@@ -1,21 +1,21 @@
-# Import e Export es6
+# :arrow_up_down: Import e Export es6
 
-## Importar 
+## Importar
 **importar de biblioteca**
 `import method from 'lib'`
 
-ex: 
+ex:
 `import R from 'ramda'`
 
 **importar de arquivo do projeto**
 `import method from 'endereço/arquivo'`
 
-ex: 
+ex:
 `import hello from '../lib/index'`
 
 onde `index` é o nome do arquivo.
 
-### Importar tudo 
+### Importar tudo
 `import * from 'lib'`
 
 ex:
@@ -30,7 +30,7 @@ ex:
 ### Importar mais de um método
 `import {method as alias, method as alias, method as alias} from 'lib'`
 
-## Exportar 
+## Exportar
 
 ### Exportar método principal com default
 Quando há um método principal para exportar, só é permitido 1 por arquivo.
@@ -59,7 +59,7 @@ export function hello(name) {
 }
 ```
 
-*indireta* 
+*indireta*
 
 No final do arquivo adiciona o export:
 `export {nome-do-metodo, nome-do-metodo, nome-do-metodo}`

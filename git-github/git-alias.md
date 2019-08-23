@@ -1,4 +1,4 @@
-# Git Alias
+# :sparkle: Git Alias
 ## Criar alias git
 `git config --global alias.seu-alias comando-original`
 

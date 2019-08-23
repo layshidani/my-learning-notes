@@ -14,12 +14,12 @@ _comando entre `<>`: substituir pelo valor correto e excluir os símbolos `<>`.
 
 ---
 ## Table of Contents
-- [Acessar informações sobre comandos - Manual (man)](#acessar-informações-sobre-comandos---manual-(man))
-- [Break](#break)
-- [Limpar terminal](#limpar-terminal)
-- [AutoCompletar nome de arquivos e pastas](#autocompletar-nome-de-arquivos-e-pastas)
-- [Ativar programa em execuçao em segundo plano](#ativar-programa-em-execu-ao-em-segundo-plano)
-- [Sair](#sair)
+- [Acessar informações sobre comandos - Manual (man)](#acessar-informaes-sobre-comandos---manual-man-)
+- [Break](#break-)
+- [Limpar terminal](#limpar-terminal-)
+- [AutoCompletar nome de arquivos e pastas](#autocompletar-nome-de-arquivos-e-pastas-)
+- [Ativar programa em execuçao em segundo plano](#ativar-programa-em-execu-ao-em-segundo-plano-)
+- [Sair](#sair-)
 - [Interromper comando](#interromper-comando)
 - [Quit (q)](#quit--q-)
 - [Histórico de comandos (history)](#hist-rico-de-comandos--history-)
@@ -103,21 +103,21 @@ deu ruim, dá break para interromper o processo.
 
 ou atalho teclado: `ctrl + l`
 
-## AutoCompletar nome de arquivos e pastas
+## AutoCompletar nome de arquivos e pastas [:top:](#table-of-contents)
 
 `tab`
 
-## Ativar programa em execuçao em segundo plano
+## Ativar programa em execuçao em segundo plano [:top:](#table-of-contents)
 
 `ctrl + z`
 
-## Sair
+## Sair [:top:](#table-of-contents)
 
 `exit`
 
 shortcut: `ctrl + d`
 
-## Interromper comando
+## Interromper comando [:top:](#table-of-contents)
 
 `ctrl` + `c`
 

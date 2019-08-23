@@ -5,6 +5,7 @@ _trabalhando com angular-cli_
 > Angular é uma plataforma de aplicações web de código-fonte aberto e front-end baseado em TypeScript liderado pela Equipe Angular do Google e por uma comunidade de indivíduos e corporações. Angular é uma reescrita completa do AngularJS, feito pela mesma equipe que o construiu. [--Wiki](https://g.co/kgs/guUR7X)
 
 ## Table of Contents
+
 TODO
 
 ---
@@ -1619,34 +1620,38 @@ export class WelcomePage implements OnInit {
 ```
 
 # Rotas imperativas
+
 TODO
 
 ```ts
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router } from "@angular/router";
 
 // exemplo, faz a validação do dado e redireciona para outra página
 if (this.name == null) {
-  this.router.navigate(['/error']);
+  this.router.navigate(["/error"]);
 }
 ```
 
-*!não esquecer que todos os caminhos devem estar declarados no aquivo de rotas.*
+_!não esquecer que todos os caminhos devem estar declarados no aquivo de rotas._
 
 ## Definir parâmetro de url (query)
+
 Exemplo:
 
 ```html
 <!-- !nota: 'notebook' está entre aspas simples, porque é uma string -->
-<button routerLink="/produtos" [queryParams]="{prod:'notebook'}">Produtos</button>
+<button routerLink="/produtos" [queryParams]="{prod:'notebook'}">
+  Produtos
+</button>
 
 <button routerLink="/produtos" [queryParams]="{pagina:21}">Produtos</button>
 ```
 
-
 Assim, quando clicado neste botão, irá acrescentar os parâmetros solicitados na url da página:
-*http://localhost:4200/produtos?pagina=notebook*
+_http://localhost:4200/produtos?pagina=notebook_
 
 ## Extrair parâmetro da url
+
 Exemplo:
 
 Um botão que ao ser clicado muda para a próxima página.
@@ -1659,30 +1664,26 @@ em **produtos.components.ts**:
 
 ```ts
 // acrescentar os imports necessários
-import { Subscription } from 'rxjs';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from "rxjs";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
-  selector: 'app-produtos',
-  templateUrl: './produtos.component.html',
-  styleUrls: ['./produtos.component.css']
+  selector: "app-produtos",
+  templateUrl: "./produtos.component.html",
+  styleUrls: ["./produtos.component.css"]
 })
-
 export class produtosComponent implements OnInit {
   page: number;
   subscription: Subscription;
 
-  constructor(
-    private activatedRoute: ActivatedRoute,
-    private router: Router
-    ) { }
+  constructor(private activatedRoute: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
     this.subscription = this.activatedRoute.queryParams.subscribe(
       (queryParams: any) => {
-        this.page = queryParams['page'];
+        this.page = queryParams["page"];
       }
-    )
+    );
   }
 
   ngOnDestroy() {
@@ -1693,10 +1694,9 @@ export class produtosComponent implements OnInit {
     // a expressão abaixo muda a url para outro caminho utilizando a classe Router no @angular/router
     // e vai somando 1 à página a cada vez que o botão é clicado
     // http://localhost:4200/produtos?page=2
-    this.router.navigate(['/produtos'], {queryParams: {'page': ++this.page}});
+    this.router.navigate(["/produtos"], { queryParams: { page: ++this.page } });
   }
 }
-
 ```
 
 # Forms: Template Driven e Data Driven
@@ -1708,13 +1708,13 @@ import { FormsModule } from "@angular/forms";
 ```
 
 - Template Driven:
-
   - **orientado a template**
   - criação, configuração e validação no HTML (template)
   - FormGroup criado pelo Angular do HTML
   - form submetido através do `ngSubmit`
 - Data Driven (Reativos)
   - **orientado a dados**
+  - você programa o formulário e sincroniza com o DOM
   - criação, configuração e validação no componente
   - FormGroup no componente
   - não é necessário ngSubmit
@@ -1793,14 +1793,25 @@ export class TemplateFormComponent implements OnInit {
 
 ## Data Driven: Formulários reativos
 
+no _module.ts_:
+
+- importar o **ReactiveFormsModule**
+- adicionar aos imports
+
+no _component.ts_, importar a classe:
+
+- Importar as classes FormGroup e FormControl (ou FormBuilder)
+- criar uma variável do tipo FormGroup
+
 <!-- TODO add content, verify examples -->
 
 arquivo **app.module.ts** (ou no módulo que for utilizar):
 
 ```ts
-// ...
-// importar FormsModule e ReactiveFormsModule
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
+// importar ReactiveFormsModule
+import { ReactiveFormsModule } from "@angular/forms";
 
 // ...
 
@@ -1809,7 +1820,6 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
   imports: [
     // ...
     // add nos imports
-    FormsModule,
     ReactiveFormsModule
   ]
   //...
@@ -1821,8 +1831,8 @@ export class AppModule {}
 
 ```ts
 import { Component, OnInit } from "@angular/core";
-// importar FormGroup
-import { FormGroup, FormControl, FormBuilder } from "@angular/forms";
+// Importar a classe FormGroup e FormControl/FormBuilder
+import { FormGroup, FormControl } from "@angular/forms";
 
 @Component({
   selector: "app-data-form",
@@ -1860,9 +1870,7 @@ no html:
 ```html
 <!-- add a diretiva [formGroup]="variable name" para linkar com a variável que está no componente -->
 <!-- add (ngSubmit)="onSubmit() vinculado ao component.ts -->
-<form
-[formGroup]="form"
-(ngSubmit)="onSubmit()>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
   <!-- ... -->
   <!-- add formControlName para linkar e atualizar o valor das variáveis do formBuilder de acordo com o input -->
   <input formControlName="email" />
@@ -1870,12 +1878,90 @@ no html:
 </form>
 ```
 
-### Data form: submit
-
 ## Forms validation
-
 [Validation Angular.io](https://angular.io/guide/form-validation)
 
+Nessa abordagem de formulário reativo, controlamos os forms pelo componente e não pelo template (DOM), por isso ao invés de simplesmente colocar um atributo `required` na tag HTML, fazemos isto através de código no componente.
+
+Exemplo utilizando o Validators do @angular/forms:
+- importar a classe Validators
+- fazer as validações através do FormControl
+  * `new FormControl(defaultValueOfTheInput, Validators)`, se for mais de um tipo de validação, utilizar array: `new FormControl(null, [Validators.required, Validators.email])`
+
+*app.component.ts*:
+```ts
+// importar a classe Validators
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+
+// ...
+
+ngOnInit() {
+  // add validações ao FormGroup
+  this.signupForm = new FormGroup({
+    'username': new FormControl(null, Validators.required),
+    'email': new FormControl(null, [Validators.required, Validators.email]),
+    'gender': new FormControl('female')
+  });
+}
+```
+
+Podemos exibir mensagens adicionais no HTML para informar o usuário. Exemplo, um `input` de email:
+
+```html
+<div class="form-group">
+  <label for="email">email</label>
+  <input
+    type="text"
+    id="email"
+    class="form-control"
+    formControlName="email">
+    <!-- utilizando ngIf -->
+    <span
+    *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched"
+    class="help-block">Dado Inválido</span>
+</div>
+```
+
+### Custom Validation
+~TODO
+
+Suponha um input, onde o usuário digita o nome de um produto, e queremos validar, se este produto está na lista de produtos que acabaram.
+
+```ts
+import { Component, OnInit } from '@angular/core';
+// Importar as classes
+import { FormGroup, FormControl, Validators, FormArray, FormBuilder } from '@angular/forms';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+
+export class AppComponent implements OnInit {
+  invalidProducts = ['notebook', 'mouse'];
+
+  constructor(private formbuilder: FormBuilder) {}
+
+  ngOnInit() {
+    this.signupForm = new FormGroup({
+      'product': new FormControl(null, [Validators.required, this.invalidProducts.bind(this)]),
+    });
+  }
+
+  onSubmit() {
+  }
+
+  // custom validator
+  invalidProduct(control: FormControl): {[s: string]: boolean} {
+    if (this.invalidProducts.indexOf(control.value) != -1) {
+      return {'productIsInvalid': true};
+    }
+    return null;
+  }
+}
+
+```
 ---
 
 # Pipes (filtros)

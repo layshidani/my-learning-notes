@@ -30,21 +30,17 @@
 * [Angular](https://layshidani.github.io/my-learning-notes/angular/angular)
 
 ## JavaScript
-* [JavaScript](https://layshidani.github.io/learning-front-end/tree/master/learning-js)
-
-## Módulos
-* [Módulos - WebPack](https://layshidani.github.io/my-learning-notes/tree/master/modules-webpack/)
-
-## Import e Export
-* [Import e Export - es6](https://layshidani.github.io/my-learning-notes/tree/master/import-export/import-export)
+* [JavaScript](https://layshidani.github.io/learning-front-end/learning-js)
+  * [Módulos - WebPack](https://layshidani.github.io/my-learning-notes/modules-webpack/)
+  * [Import e Export - es6](https://layshidani.github.io/my-learning-notes/import-export/import-export)
 
 ## Node - Config Biblioteca NPM
 * [Node](https://layshidani.github.io/my-learning-notes/node/node)
 * [npm](https://layshidani.github.io/my-learning-notes/node/npm)
-* [Biblioteca JS configuração: npm init, eslint, testes com mocha, nyc, chai, publicação no npm](https://layshidani.github.io/my-learning-notes/tree/master/lib-js-config)
+* [Biblioteca JS configuração: npm init, eslint, testes com mocha, nyc, chai, publicação no npm](https://layshidani.github.io/my-learning-notes/lib-js-config)
 
 ## Testes
-* [Testes com mocha, chai e nyc](https://layshidani.github.io/my-learning-notes/tree/master/notes/tests-tdd/)
+* [Testes com mocha, chai e nyc](https://layshidani.github.io/my-learning-notes/tests-tdd/)
   * [Testes Instalações Pacotes necessários](https://layshidani.github.io/my-learning-notes/tests-tdd/testes-instalacoes)
   * [Testes: Ferramentas - mocha, chai e nyc](https://layshidani.github.io/my-learning-notes/tests-tdd/testes-ferramentas)
 
@@ -55,7 +51,7 @@
 * [Firebase Config](https://layshidani.github.io/my-learning-notes/firebase/firebase-config)
 
 ## CSS
-* [CSS - Dicas, Arquitetura, SASS, Design Responsivo](https://layshidani.github.io/my-learning-notes/tree/master/learning-css/)
+* [CSS - Dicas, Arquitetura, SASS, Design Responsivo](https://layshidani.github.io/my-learning-notes/learning-css/)
   * [Dicas](https://layshidani.github.io/my-learning-notes/learning-css/dicas-css)
   * [Arquitetura CSS: CSSOO, SMACSS, BEM](https://layshidani.github.io/my-learning-notes/learning-css/arq-css)
   * [Sass](https://layshidani.github.io/my-learning-notes/learning-css/sass)

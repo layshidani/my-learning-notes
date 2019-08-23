@@ -1,7 +1,7 @@
- <!-- [:arrow_heading_up: top](#table-of-contents) -->
+ <!-- [:top:](#linha-de-comando) -->
 _comando entre `<>`: substituir pelo valor correto e excluir os símbolos `<>`.
 
-# Linha de comando
+# :computer: Linha de comando
 
 - Digitar: comando
 - Teclar: _ENTER_
@@ -12,7 +12,7 @@ _comando entre `<>`: substituir pelo valor correto e excluir os símbolos `<>`.
 * digitar: cmd
 * teclar: *ENTER* -->
 
----
+<!-- ---
 ## Table of Contents
 - [Acessar informações sobre comandos - Manual (man)](#acessar-informaes-sobre-comandos---manual-man-)
 - [Break](#break-)
@@ -79,12 +79,12 @@ _comando entre `<>`: substituir pelo valor correto e excluir os símbolos `<>`.
   - [Abrir html pelo navegador (Criar Servidor HTTP)](#abrir-html-pelo-navegador--criar-servidor-http-)
   - [Verificar se o sistema é 32 ou 64 bits](#verificar-se-o-sistema---32-ou-64-bits)
 
----
+--- -->
 
 **Abrir Bash**
 `ctrl + alt + t`
 
-## Acessar informações sobre comandos - Manual (man) [:top:](#table-of-contents)
+## Acessar informações sobre comandos - Manual (man)
 
 `man <nome-do-comando>`
 
@@ -92,32 +92,32 @@ ou
 
 `<nome-do-comando> --help`
 
-## Break [:top:](#table-of-contents)
+## Break
 
 deu ruim, dá break para interromper o processo.
 `ctrl + c`
 
-## Limpar terminal [:top:](#table-of-contents)
+## Limpar terminal
 
 `clear`
 
 ou atalho teclado: `ctrl + l`
 
-## AutoCompletar nome de arquivos e pastas [:top:](#table-of-contents)
+## AutoCompletar nome de arquivos e pastas
 
 `tab`
 
-## Ativar programa em execuçao em segundo plano [:top:](#table-of-contents)
+## Ativar programa em execuçao em segundo plano
 
 `ctrl + z`
 
-## Sair [:top:](#table-of-contents)
+## Sair
 
 `exit`
 
 shortcut: `ctrl + d`
 
-## Interromper comando [:top:](#table-of-contents)
+## Interromper comando
 
 `ctrl` + `c`
 
@@ -136,8 +136,10 @@ shortcut: `ctrl + d`
 `.`
 
 ## Escrever (>)
+`>`
 
 ## Ler (<)
+`<`
 
 ---
 
@@ -423,7 +425,7 @@ quantidade de linhas | quantidade de palavras | tamanho do arquivo | nome do arq
 
 # Alias
 
-Ver [Git alias](https://github.com/layshidani/my-learning-notes/blob/master/git-github/git-alias.md)
+Ver [Git alias](https://layshidani.github.io/my-learning-notes/git-github/git-alias)
 
 ## Listar alias linux
 
@@ -463,3 +465,6 @@ python -m SimpleHTTPServer 8000
 ```bash
 uname -m
 ```
+
+
+[:top:](#linha-de-comando)

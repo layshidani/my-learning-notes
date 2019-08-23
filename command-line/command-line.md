@@ -84,7 +84,8 @@ _comando entre `<>`: substituir pelo valor correto e excluir os símbolos `<>`.
 **Abrir Bash**
 `ctrl + alt + t`
 
-## Acessar informações sobre comandos - Manual (man)  [:arrow_heading_up: top](#table-of-contents)
+## Acessar informações sobre comandos - Manual (man)
+[:arrow_heading_up:](#table-of-contents)
 
 `man <nome-do-comando>`
 
@@ -92,12 +93,16 @@ ou
 
 `<nome-do-comando> --help`
 
-## Break [:arrow_heading_up: top](#table-of-contents)
+[:arrow_heading_up:](#table-of-contents)
+
+## Break
 
 deu ruim, dá break para interromper o processo.
 `ctrl + c`
 
-## Limpar terminal [:arrow_heading_up: top](#table-of-contents)
+[:arrow_heading_up:](#table-of-contents)
+
+## Limpar terminal
 
 `clear`
 

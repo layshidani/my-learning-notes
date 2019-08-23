@@ -34,7 +34,7 @@ _trabalhando com angular-cli_
 
 ---
 
-# Preparando o ambiente de desenvolvimento com Angular cli
+# Preparando o ambiente de desenvolvimento com Angular cli [:arrow_heading_up:](#table-of-contents)
 
 [Angular cli reference](https://angular.io/cli)
 

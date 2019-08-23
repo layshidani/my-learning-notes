@@ -1,4 +1,4 @@
-# Notas de aprendizado
+# :books: Notas de aprendizado
 
 <!-- gerador de table of contents:
   https://magnetikonline.github.io/markdown-toc-generate/

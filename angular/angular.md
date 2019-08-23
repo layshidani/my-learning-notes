@@ -1,4 +1,4 @@
-# :gear: Angular
+# Angular
 
 _trabalhando com angular-cli_
 
@@ -1632,6 +1632,73 @@ if (this.name == null) {
 
 *!não esquecer que todos os caminhos devem estar declarados no aquivo de rotas.*
 
+## Definir parâmetro de url (query)
+Exemplo:
+
+```html
+<!-- !nota: 'notebook' está entre aspas simples, porque é uma string -->
+<button routerLink="/produtos" [queryParams]="{prod:'notebook'}">Produtos</button>
+
+<button routerLink="/produtos" [queryParams]="{pagina:21}">Produtos</button>
+```
+
+
+Assim, quando clicado neste botão, irá acrescentar os parâmetros solicitados na url da página:
+*http://localhost:4200/produtos?pagina=notebook*
+
+## Extrair parâmetro da url
+Exemplo:
+
+Um botão que ao ser clicado muda para a próxima página.
+
+```html
+<button (click)="nextPage()">Próxima página</button>
+```
+
+em **produtos.components.ts**:
+
+```ts
+// acrescentar os imports necessários
+import { Subscription } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
+
+@Component({
+  selector: 'app-produtos',
+  templateUrl: './produtos.component.html',
+  styleUrls: ['./produtos.component.css']
+})
+
+export class produtosComponent implements OnInit {
+  page: number;
+  subscription: Subscription;
+
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private router: Router
+    ) { }
+
+  ngOnInit() {
+    this.subscription = this.activatedRoute.queryParams.subscribe(
+      (queryParams: any) => {
+        this.page = queryParams['page'];
+      }
+    )
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
+
+  nextPg() {
+    // a expressão abaixo muda a url para outro caminho utilizando a classe Router no @angular/router
+    // e vai somando 1 à página a cada vez que o botão é clicado
+    // http://localhost:4200/produtos?page=2
+    this.router.navigate(['/produtos'], {queryParams: {'page': ++this.page}});
+  }
+}
+
+```
+
 # Forms: Template Driven e Data Driven
 
 **!não esquecer de importar o FormsModule no módulo**:
@@ -1646,7 +1713,6 @@ import { FormsModule } from "@angular/forms";
   - criação, configuração e validação no HTML (template)
   - FormGroup criado pelo Angular do HTML
   - form submetido através do `ngSubmit`
-
 - Data Driven (Reativos)
   - **orientado a dados**
   - criação, configuração e validação no componente

@@ -465,6 +465,3 @@ python -m SimpleHTTPServer 8000
 ```bash
 uname -m
 ```
-
-
-[:top:](#linha-de-comando)

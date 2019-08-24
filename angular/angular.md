@@ -1961,6 +1961,8 @@ export class AppComponent implements OnInit {
 ```
 
 ### Status Change
+!Nota: para saber mais sobre este e outros FormControls, acesse [angular.io](https://angular.io/api/forms/FormControl).
+
 
 ```ts
 this.signupForm.statusChanges.subscribe(
@@ -1979,7 +1981,7 @@ this.signupForm.valueChanges.subscribe(
 );
 ```
 
-## Reset Values
+### Reset Values
 Podemos limpar todos os dados digitados no campo de input após clicar em submit, por exemplo:
 
 ```ts
@@ -1988,7 +1990,16 @@ onSubmit() {
 }
 ```
 
-## SetValue
+Neste caso acima o método `reset()` irá apagar o valor de todos os campos. É configurar para apagar campos específicos,
+
+Exemplo, voltar o botão para o valor inicial de Enviar e desabilitado:
+
+```ts
+control.reset({ value: 'Enviar', disabled: true });
+```
+
+
+### SetValue
 É possível atribuir um valor padrão de preenchimento de um campo de input com `setValue`, por exemplo:
 
 ```ts
@@ -1999,7 +2010,7 @@ this.signupForm.setValue({
 
 Com isso, o campo de input já virá previamente preenchido com email **test@test.com**, ainda será possível editá-lo.
 
-## Modificar/corrigir valor de input com PatchValue
+### Modificar/corrigir valor de input com PatchValue
 
 Vamos supor que você queira modificar o input de email:
 

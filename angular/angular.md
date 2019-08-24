@@ -1714,7 +1714,7 @@ import { FormsModule } from "@angular/forms";
   - form submetido através do `ngSubmit`
 - Data Driven (Reativos)
   - **orientado a dados**
-  - você programa o formulário e sincroniza com o DOM
+  - você programa o formulário e sincroniza com o DOM. A manipulação é feita via código no component.
   - criação, configuração e validação no componente
   - FormGroup no componente
   - não é necessário ngSubmit
@@ -1923,8 +1923,6 @@ Podemos exibir mensagens adicionais no HTML para informar o usuário. Exemplo, u
 ```
 
 ### Custom Validation
-~TODO
-
 Suponha um input, onde o usuário digita o nome de um produto, e queremos validar, se este produto está na lista de produtos que acabaram.
 
 ```ts
@@ -1960,8 +1958,57 @@ export class AppComponent implements OnInit {
     return null;
   }
 }
-
 ```
+
+### Status Change
+
+```ts
+this.signupForm.statusChanges.subscribe(
+  (status) => console.log(status)
+);
+```
+
+* Pending
+* Valid
+* Invalid
+
+### Value Change
+```ts
+this.signupForm.valueChanges.subscribe(
+  (value) => console.log(value)
+);
+```
+
+## Reset Values
+Podemos limpar todos os dados digitados no campo de input após clicar em submit, por exemplo:
+
+```ts
+onSubmit() {
+  this.signupForm.reset();
+}
+```
+
+## SetValue
+É possível atribuir um valor padrão de preenchimento de um campo de input com `setValue`, por exemplo:
+
+```ts
+this.signupForm.setValue({
+  'email': 'test@test.com'
+});
+```
+
+Com isso, o campo de input já virá previamente preenchido com email **test@test.com**, ainda será possível editá-lo.
+
+## Modificar/corrigir valor de input com PatchValue
+
+Vamos supor que você queira modificar o input de email:
+
+```ts
+this.signupForm.patchValue({
+  'email': 'seu-email@test.com',
+});
+```
+
 ---
 
 # Pipes (filtros)

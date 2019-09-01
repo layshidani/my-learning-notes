@@ -1,23 +1,24 @@
 # Angular
 
-_trabalhando com angular-cli_
+Trabalhando com angular-cli.
 
-> Angular é uma plataforma de aplicações web de código-fonte aberto e front-end baseado em TypeScript liderado pela Equipe Angular do Google e por uma comunidade de indivíduos e corporações. Angular é uma reescrita completa do AngularJS, feito pela mesma equipe que o construiu. [--Wiki](https://g.co/kgs/guUR7X)
+> Angular é uma plataforma de aplicações web de código-fonte aberto e front-end baseado em TypeScript liderado pela Equipe Angular do Google e por uma comunidade de indivíduos e corporações. Angular é uma reescrita completa do AngularJS, feito pela mesma equipe que o construiu.
+> [--Wiki](https://g.co/kgs/guUR7X)
 
-## Table of Contents
+<!-- ## Table of Contents
 
-TODO
+TODO -->
 
 ---
 
-## Anexos:
+## Anexos
 
-- [Adicionar Libs ao projeto: Bootstrap, Materialize]()
+- [Adicionar Libs ao projeto: Bootstrap, Materialize](https://github.com/layshidani/my-learning-notes/blob/master/angular/angular-bootstrap.md)
   <!-- TODO - [Typescrip]() -->
 
 ---
 
-# Preparando o ambiente de desenvolvimento com Angular cli [:arrow_heading_up:](#table-of-contents)
+# Preparando o ambiente de desenvolvimento com Angular cli
 
 [Angular cli reference](https://angular.io/cli)
 
@@ -63,13 +64,12 @@ ng s
 
 # Componentes
 
-> Angular 2 é orientado a componentes, isso significa que você vai escrever diversos componentes minúsculos que juntos constituirão uma aplicação inteira. Um Component é a combinação de um template HTML com uma classe que controla parte da tela. [--Matera](http://www.matera.com/blog/post/comecando-com-angular-2)
+> Angular 2 é orientado a componentes, isso significa que você vai escrever diversos componentes minúsculos que juntos constituirão uma aplicação inteira. Um Component é a combinação de um template HTML com uma classe que controla parte da tela.
+> [--Matera](http://www.matera.com/blog/post/comecando-com-angular-2)
 
 É possível criar os componentes manualmente ou de forma mais simplificada, utilizando o `angular-cli`.
 
-Os arquivos de componentes estão em:
-
-**src >>> app**
+Os arquivos de componentes estão em: **src >>> app**
 
 ## Criar componente utilizando o angular cli
 
@@ -120,11 +120,13 @@ O seletor **app-btn**, poderá ser usado no html como:
 
 **!Nota: se o component estiver importado no app.module.ts que é o module raíz do projeto, você também poderá utilizar o component dentro dos arquivos html de outros components.**
 
-## Criar o primeiro componente manualmente
+**!Convenção: Criar nome das pastas e dos arquivos de componentes em Kebab Case (com letra minúscula e palavras separadas por "-")**
+
+**!Convenção: classes são escritas em Pascal Case (todas as primeiras letras em maiúsculo)**
+
+<!-- ## Criar o primeiro componente manualmente
 
 **> Arquivos**
-
-**!Convenção: Criar nome das pastas e dos arquivos de componentes em Kebab Case (com letra minúscula e palavras separadas por "-")**
 
 1. Cria a pasta nome
 2. Cria o arquivo nome-component.ts
@@ -143,11 +145,9 @@ import { Component } from "@angular/core";
 export class MeuPrimeiroComponent {}
 ```
 
-**!Convenção: classes são escritas em Pascal Case (todas as primeiras letras em maiúsculo)**
+## Usar o component manualmente -->
 
-## Usar o component manualmente
-
-Vá até o arquivo _.module.ts_.
+<!-- Vá até o arquivo _.module.ts_.
 
 Por exemplo, para usar no módulo raíz:
 **app.module.ts**
@@ -175,11 +175,9 @@ adicione o componente onde desejar:
 
 ```html
 <meu-primeiro-component></meu-primeiro-component>
-```
+``` -->
 
 ## ng Content
-
-TODO
 
 Projeção de conteúdo:
 
@@ -188,6 +186,8 @@ Projeção de conteúdo:
   <ng-content></ng-content>
 </app-example>
 ```
+
+---
 
 # Templates
 
@@ -281,6 +281,7 @@ O resultado será:
 # Modules
 
 > Em Angular, um módulo é um mecanismo para agrupar componentes, diretivas, canais e serviços relacionados, de forma que possam ser combinados com outros módulos para criar uma aplicação. Uma aplicação Angular pode ser vista como um quebra-cabeça onde cada peça (ou cada módulo) é necessária para poder ver a imagem completa.
+
 > Outra analogia para entender os módulos angulares são as classes. Em uma classe, podemos definir **métodos públicos ou privados**. Os métodos públicos são a API que outras partes do nosso código podem usar para interagir com ela, enquanto os métodos privados são detalhes de implementação ocultos. Da mesma forma, um módulo pode exportar ou ocultar componentes, diretivas, tubulações e serviços. Os elementos exportados devem ser usados ​​por outros módulos, enquanto os que não são exportados (ocultos) são usados ​​apenas dentro do próprio módulo e não podem ser acessados ​​diretamente por outros módulos de nosso aplicativo. [--Angular 2 training book](https://angular-2-training-book.rangle.io/modules/introduction)
 
 O angular-cli cria automaticamente um arquivo **app.modules.ts**:
@@ -313,7 +314,6 @@ export class AppModule {}
 ```
 
 ## Criar módulo
-
 (esse é um módulo de funcionalidade do projeto)
 
 Na pasta do projeto, digite no terminal:
@@ -1560,26 +1560,23 @@ Para exibir um valor na tela, supondo que temos um input onde o usuário digita 
 **welcome-page.component.ts:**
 
 ```ts
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
-  selector: 'app-welcome-page',
-  templateUrl: './welcome-page.component.html',
-  styleUrls: ['./welcome-page.component.css']
+  selector: "app-welcome-page",
+  templateUrl: "./welcome-page.component.html",
+  styleUrls: ["./welcome-page.component.css"]
 })
 export class WelcomePage implements OnInit {
-
   name: string;
 
   constructor(private route: ActivatedRoute) {
-    console.log(this.route.snapshot.params['name]);
-    this.id = this.route.snapshot.params['name];
-   }
-
-  ngOnInit() {
+    console.log(this.route.snapshot.params["name"]);
+    this.id = this.route.snapshot.params["name"];
   }
 
+  ngOnInit() {}
 }
 ```
 
@@ -1879,16 +1876,19 @@ no html:
 ```
 
 ## Forms validation
+
 [Validation Angular.io](https://angular.io/guide/form-validation)
 
 Nessa abordagem de formulário reativo, controlamos os forms pelo componente e não pelo template (DOM), por isso ao invés de simplesmente colocar um atributo `required` na tag HTML, fazemos isto através de código no componente.
 
 Exemplo utilizando o Validators do @angular/forms:
+
 - importar a classe Validators
 - fazer as validações através do FormControl
-  * `new FormControl(defaultValueOfTheInput, Validators)`, se for mais de um tipo de validação, utilizar array: `new FormControl(null, [Validators.required, Validators.email])`
+  - `new FormControl(defaultValueOfTheInput, Validators)`, se for mais de um tipo de validação, utilizar array: `new FormControl(null, [Validators.required, Validators.email])`
 
-*app.component.ts*:
+_app.component.ts_:
+
 ```ts
 // importar a classe Validators
 import { FormGroup, FormControl, Validators } from '@angular/forms';
@@ -1910,50 +1910,56 @@ Podemos exibir mensagens adicionais no HTML para informar o usuário. Exemplo, u
 ```html
 <div class="form-group">
   <label for="email">email</label>
-  <input
-    type="text"
-    id="email"
-    class="form-control"
-    formControlName="email">
-    <!-- utilizando ngIf -->
-    <span
+  <input type="text" id="email" class="form-control" formControlName="email" />
+  <!-- utilizando ngIf -->
+  <span
     *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched"
-    class="help-block">Dado Inválido</span>
+    class="help-block"
+    >Dado Inválido</span
+  >
 </div>
 ```
 
 ### Custom Validation
+
 Suponha um input, onde o usuário digita o nome de um produto, e queremos validar, se este produto está na lista de produtos que acabaram.
 
 ```ts
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 // Importar as classes
-import { FormGroup, FormControl, Validators, FormArray, FormBuilder } from '@angular/forms';
+import {
+  FormGroup,
+  FormControl,
+  Validators,
+  FormArray,
+  FormBuilder
+} from "@angular/forms";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.css"]
 })
-
 export class AppComponent implements OnInit {
-  invalidProducts = ['notebook', 'mouse'];
+  invalidProducts = ["notebook", "mouse"];
 
   constructor(private formbuilder: FormBuilder) {}
 
   ngOnInit() {
     this.signupForm = new FormGroup({
-      'product': new FormControl(null, [Validators.required, this.invalidProducts.bind(this)]),
+      product: new FormControl(null, [
+        Validators.required,
+        this.invalidProducts.bind(this)
+      ])
     });
   }
 
-  onSubmit() {
-  }
+  onSubmit() {}
 
   // custom validator
-  invalidProduct(control: FormControl): {[s: string]: boolean} {
+  invalidProduct(control: FormControl): { [s: string]: boolean } {
     if (this.invalidProducts.indexOf(control.value) != -1) {
-      return {'productIsInvalid': true};
+      return { productIsInvalid: true };
     }
     return null;
   }
@@ -1961,27 +1967,25 @@ export class AppComponent implements OnInit {
 ```
 
 ### Status Change
+
 !Nota: para saber mais sobre este e outros FormControls, acesse [angular.io](https://angular.io/api/forms/FormControl).
 
-
 ```ts
-this.signupForm.statusChanges.subscribe(
-  (status) => console.log(status)
-);
+this.signupForm.statusChanges.subscribe(status => console.log(status));
 ```
 
-* Pending
-* Valid
-* Invalid
+- Pending
+- Valid
+- Invalid
 
 ### Value Change
+
 ```ts
-this.signupForm.valueChanges.subscribe(
-  (value) => console.log(value)
-);
+this.signupForm.valueChanges.subscribe(value => console.log(value));
 ```
 
 ### Reset Values
+
 Podemos limpar todos os dados digitados no campo de input após clicar em submit, por exemplo:
 
 ```ts
@@ -1995,16 +1999,16 @@ Neste caso acima o método `reset()` irá apagar o valor de todos os campos. É 
 Exemplo, voltar o botão para o valor inicial de Enviar e desabilitado:
 
 ```ts
-control.reset({ value: 'Enviar', disabled: true });
+control.reset({ value: "Enviar", disabled: true });
 ```
 
-
 ### SetValue
+
 É possível atribuir um valor padrão de preenchimento de um campo de input com `setValue`, por exemplo:
 
 ```ts
 this.signupForm.setValue({
-  'email': 'test@test.com'
+  email: "test@test.com"
 });
 ```
 
@@ -2016,7 +2020,7 @@ Vamos supor que você queira modificar o input de email:
 
 ```ts
 this.signupForm.patchValue({
-  'email': 'seu-email@test.com',
+  email: "seu-email@test.com"
 });
 ```
 

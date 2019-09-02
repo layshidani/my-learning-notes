@@ -2120,3 +2120,25 @@ imports do angular
 // pula uma linha
 outros imports (componentes, etc)
 ```
+
+
+---
+
+## Importar JSON
+
+1. Criar arquivo **json-typings.d.ts** na pasta *app* e adicionar o código:
+    ```ts
+    declare module "*.json" {
+    const value: any;
+    export default value;
+    }
+    ```
+2. No arquivo **component.ts** importar o JSON, exemplo:
+    ```ts
+    import * as data from './data.json';
+    ```
+    !Nota: data, irá importar o módulo todo. Para acessar os dados do json em si, será necessário acessar o *default* do módulo: `data.default`.
+3. Atribuir valor a uma variável para utilizar no código, exemplo:
+    ```ts
+    users = data.default;
+    ```

@@ -13,7 +13,7 @@ TODO -->
 
 ## Anexos
 
-- [Adicionar Libs ao projeto: Bootstrap, Materialize](https://github.com/layshidani/my-learning-notes/blob/master/angular/angular-bootstrap.md)
+- [Adicionar Libs de estilo ao projeto: Bootstrap, Materialize](https://github.com/layshidani/my-learning-notes/blob/master/angular/angular-bootstrap.md)
   <!-- TODO - [Typescrip]() -->
 
 ---
@@ -2129,8 +2129,8 @@ outros imports (componentes, etc)
 1. Criar arquivo **json-typings.d.ts** na pasta *app* e adicionar o código:
     ```ts
     declare module "*.json" {
-    const value: any;
-    export default value;
+      const value: any;
+      export default value;
     }
     ```
 2. No arquivo **component.ts** importar o JSON, exemplo:

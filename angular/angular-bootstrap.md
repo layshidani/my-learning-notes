@@ -1,4 +1,4 @@
-# :small_blue_diamond: Libs no projeto
+# Adicionando libs de estilo
 
 ## Adicionar Bootstrap ao projeto
 
@@ -45,17 +45,23 @@ import { AlertModule } from 'ngx-bootstrap';
 - No arquivo **angular.json**, adicionar aos estilos e o scripts:
 
 ```json
-// ...
-"styles": [
-  "./node_modules/bootstrap/dist/css/bootstrap.min.css",
-  "styles.css",
-      ],
-// ...
-
+  // ...
+  "styles": [
+    "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+    "styles.css",
+  ],
+  "scripts": [
+    "node_modules/jquery/dist/jquery.js",
+    "node_modules/popper.js/dist/umd/popper.js",
+    "node_modules/bootstrap/dist/js/bootstrap.js"
+  ]
+  // ...
 
 ```
 
-- Adicionar a tag no html. Exemplo:
+EXEMPLO:
+
+- Adicionar a tag ou classes no html.
 
 ```html
 <alert type="success"

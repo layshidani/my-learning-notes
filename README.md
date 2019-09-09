@@ -42,7 +42,7 @@
 
 ## Angular
 * [Angular](https://github.com/layshidani/my-learning-notes/blob/master/angular/angular.md)
-
+  * [Adicionar Libs de estilo ao projeto: Bootstrap, Materialize](https://github.com/layshidani/my-learning-notes/blob/master/angular/angular-bootstrap.md)
 <!-- * [Angular](https://layshidani.github.io/my-learning-notes/angular/angular) -->
 
 ## JavaScript

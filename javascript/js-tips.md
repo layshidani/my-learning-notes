@@ -20,3 +20,25 @@ sum(1, 2)
 ```
 
 ## Destructuring
+
+- arrays:
+  ```js
+  // dado o array:
+  const arr = [1, 2, 3, 4, 5];
+
+  // aqui estamos atribuindo a variável um ao primeiro item do array, e dois ao segundo item, como se estivéssemos fazendo:
+  // const um = arr[0];
+  // const dois = arr[1];
+  const [um, dois] = arr;
+
+  // resultado:
+  console.log(um);
+  // 1
+
+  console.log(dois);
+  // 2
+  ```
+- objetos:
+  ```js
+
+  ```

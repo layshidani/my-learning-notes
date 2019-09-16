@@ -43,6 +43,16 @@ ou
 git commit --amend --no-edit
 ```
 
+## Desfazer o último commit
+
+```bash
+# mantendo as alterações do commit que você deseja desfazer:
+git reset --soft HEAD^
+
+# deletando todas as alterações do commit que você deseja desfazer:
+git reset --hard HEAD^
+```
+
 ## Procurar commits com uma mensagem/palavra
 
 ```bash
@@ -59,9 +69,14 @@ git log --since='JAN 01 2019' --until='DEC 25 2019'
 
 ## Desfazer todas as alterações (untracked)
 
-```bash
-git clean -f -d
-```
+- visualizar arquivos que estão fora da *working tree*:
+  ```bash
+  git clean -n -d
+  ```
+- deletar arquivos:
+  ```bash
+  git clean -f -d
+  ```
 
 ## Desfazer todas as alterações (tracked)
 
@@ -76,17 +91,24 @@ git checkout <hash> <file-name.extension>
 ```
 
 ## Renomear branch
+- local:
+  ```bash
+  git branch -m <new-name>
+  ```
 
-```bash
-git branch -m <old-name> <new-name>
-```
+- remota, seguir os passos adicionais:
+  ```bash
+  git push origin :<old-name> <new-name>
 
-**Caso, também queira renomear uma branch remota, seguir os passos adicionais:**
+  # ou
+  git push origin --delete <old-name>
+  git push origin <new-name>
+  ```
 
-```bash
-git push origin --delete <old-name>
-git push origin <new-name>
-```
+- Resetar a branch *upstream* para o novo nome da branch:
+  ```bash
+  git push origin -u <new-name>
+  ```
 
 ## Remover arquivo adicionado acidentalmente
 
@@ -108,6 +130,28 @@ rm </path/file-name.extension>
 git commit
 ```
 
+## Desfazer merge e manter o histórico de commits
+
+```bash
+# ir para a master
+git checkout master
+
+# git log para verificar a hash correta
+git log --oneline
+
+# fazer a reversão utilizando a hash do merge correspondente
+git revert -m 1 <merge-commit-hash>
+```
+
+## Remover tag de uma branch
+- remota:
+  ```bash
+  git push origin :refs/tags/<tag-name>
+  ```
+- local:
+  ```bash
+  git tag -d <tag-name>
+  ```
 
 ## Cherry Pick
 
@@ -208,7 +252,6 @@ git stash show
 # ou, para visualização completa (-p = --patch):
 
 git stash show -p
-
 ```
 
 ### Criar branch a partir de *stash*
@@ -216,6 +259,3 @@ git stash show -p
 ```bash
 git stash branch <branch-name> stash@{<index>}
 ```
-
-
-

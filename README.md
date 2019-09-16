@@ -21,7 +21,7 @@
 ## GitHub
 * [Git e GitHub](https://github.com/layshidani/my-learning-notes/blob/master/git-github/git.md)
 * [Git alias](https://github.com/layshidani/my-learning-notes/blob/master/git-github/git-alias.md)
-* [Git dicas](https://github.com/layshidani/my-learning-notes/blob/master/git-github/git-dicas.md)
+* [Git dicas](https://github.com/layshidani/my-learning-notes/blob/master/git-github/git-tips.md)
 * [GitHub Badges + Travis + Coveralls](https://github.com/layshidani/my-learning-notes/blob/master/git-github/github-badges.md)
 
 <!-- * [Git e GitHub](https://layshidani.github.io/my-learning-notes/git-github/git)
@@ -50,6 +50,7 @@
 * [JavaScript](https://github.com/layshidani/learning-front-end/tree/master/learning-js)
   * [Módulos - WebPack](https://github.com/layshidani/my-learning-notes/tree/master/modules-webpack/)
   * [Import e Export - es6](https://github.com/layshidani/my-learning-notes/blob/master/import-export/import-export.md)
+  * [JavaScript dicas](https://github.com/layshidani/my-learning-notes/blob/master/javascript/js-tips.md)
 
 ## Node - Config Biblioteca NPM
 * [Node](https://github.com/layshidani/my-learning-notes/blob/master/node/node.md)

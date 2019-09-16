@@ -42,3 +42,35 @@ sum(1, 2)
   ```js
 
   ```
+
+## Spread operator
+
+> A sintaxe de propagação (Spread) permite que um objeto iterável, como um array ou string, seja expandida em locais onde zero ou mais argumentos (para chamadas de função) ou elementos (para literais de array) sejam esperados ou uma expressão de objeto seja expandida em locais onde zero ou mais pares de chave-valor (para literais de objeto) são esperados. [MDN](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Spread_operator)
+
+Pode ser utilizado para **arrays**, **strings** e **objetos**.
+
+Exemplo:
+
+```js
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 6];
+
+const newArr = [...arr1, ...arr2];
+
+console.log(newArr);
+// [1, 2, 3, 4, 5, 6]
+```
+
+## Rest operator
+Pode ser utilizado para **arrays** e **objetos**.
+
+Exemplo:
+
+```js
+const arr = [1, 2, 3, 4, 5, 6];
+
+const [um, dois, ...rest] = arr;
+
+console.log(rest);
+// [3, 4, 5, 6]
+```

@@ -143,6 +143,7 @@ git log -1
 > O git stash armazena temporariamente as alterações que você fez na sua cópia de trabalho para poder trabalhar em outra coisa e depois voltar e reaplicá-las posteriormente.
 > [Atlassian](https://www.atlassian.com/git/tutorials/saving-changes/git-stash)
 
+Opções de Git stash ([Atlassian](https://www.atlassian.com/git/tutorials/saving-changes/git-stash)):
 ![Git stash options](./img/git-stash-options.svg)
 
 - stash **tracked files**:

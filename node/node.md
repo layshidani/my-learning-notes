@@ -23,11 +23,6 @@ sudo apt install npm
 
 Utilizar o gereciador [n](https://www.npmjs.com/package/n)
 
-Para instalar:
-```
-npm i -g n
-```
-
 Limpar o cachê do npm:
 
 ```$

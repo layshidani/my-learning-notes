@@ -19,6 +19,8 @@ sudo apt install nodejs
 sudo apt install npm
 ```
 
+Ver como [Instalar versão específica do node](#Instalar-versão-específica-do-node)
+
 ## Atualizar
 
 Utilizar o gereciador [n](https://www.npmjs.com/package/n)
@@ -32,6 +34,18 @@ sudo npm cache clean -f
 Baixar lib **n** que gerencia NodeJS:
 ```$
 sudo npm install -g n
+```
+
+## Instalar versão específica do node 
+
+Instalar versão:
+```$
+sudo n <versao>
+```
+
+ex: 
+```$
+sudo n 12.8.1
 ```
 
 Instalar versão estável:

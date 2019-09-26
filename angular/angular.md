@@ -2106,6 +2106,17 @@ providers: [
 ];
 ```
 
+## Observables
+
+= Data source (user imput, http requests, etc)
+
+Transferência de dados assíncrona.
+
+Observer:
+- Handle Data
+- Handle Errors
+- Handle Competition
+
 ---
 
 # Style Guide
@@ -2142,3 +2153,4 @@ outros imports (componentes, etc)
     ```ts
     users = data.default;
     ```
+

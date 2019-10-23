@@ -26,11 +26,14 @@
 > Uma classe é uma forma de definir um tipo de dado em uma **linguagem orientada a objeto**. Ela é formada por dados e comportamentos.
 > Para definir os dados são utilizados os atributos, e para definir o comportamento são utilizados métodos. Depois que uma classe é definida podem ser criados diferentes objetos que utilizam a classe.
 > [DevMedia]([https://www.devmedia.com.br/principais-conceitos-da-programacao-orientada-a-objetos/32285](https://www.devmedia.com.br/principais-conceitos-da-programacao-orientada-a-objetos/32285))
+
 - **objetos**: instâncias de classes
 > Em ciência da computação, **objeto** é uma referência a um local da memória que possui um valor. Um objeto pode ser uma variável, função, ou estrutura de dados.
-Em programação orientada a objetos, a palavra _objeto_ refere-se a uma instância de uma classe.E
+Em programação orientada a objetos, a palavra _objeto_ refere-se a uma instância de uma classe.
+
 > Em programação orientada a objetos, um objeto passa a existir a partir de um "molde" (classe); a classe define o comportamento do objeto, usando atributos, propriedades e métodos.
 > [Wiki]([https://pt.m.wikipedia.org/wiki/Objeto_(ci%C3%AAncia_da_computa%C3%A7%C3%A3o](https://pt.m.wikipedia.org/wiki/Objeto_(ci%C3%AAncia_da_computa%C3%A7%C3%A3o)))
+
 - **escopo de uma variável**:
 - global -> toda a classe
 - local -> método onde ela está contida (ou bloco dentro do método)
@@ -66,6 +69,6 @@ Em programação orientada a objetos, a palavra _objeto_ refere-se a uma instân
 - **pure functions**: funções puras, não modificam o escopo ao redor. Seu retorno é determinado somente pelos seus próprios argumentos, e o retorno sempre será o mesmo dado os mesmos argumentos.
    ```js
     function dobro(num) {
-        return (num * 2)
-      }
+      return (num * 2)
+    }
   ```

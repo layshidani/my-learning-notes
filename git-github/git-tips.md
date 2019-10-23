@@ -9,7 +9,18 @@ Enquanto o `git log` exibe apenas os commits, o `git reflog` exibe todo o histó
 git reflog
 ```
 
+## Atalho para fazer push sem digitar o nome da branch em que você está (HEAD)
+```bash
+git push origin +HEAD
+```
+
 ## Alterar (Reescrever) mensagem do último commit
+
+```bash
+git commit -m  'mensagem certa' --amend
+```
+
+ou (neste caso, irá abrir o editor no terminal para alterar):
 
 ```bash
 git commit -v --amend
@@ -43,7 +54,12 @@ ou
 git commit --amend --no-edit
 ```
 
-## Desfazer o último commit
+## Desfazer commits
+
+- com **soft**: apaga só os commits
+- com **hard**: apaga os commits e o código
+
+### Desfazer o último commit
 
 ```bash
 # mantendo as alterações do commit que você deseja desfazer:
@@ -51,6 +67,16 @@ git reset --soft HEAD^
 
 # deletando todas as alterações do commit que você deseja desfazer:
 git reset --hard HEAD^
+```
+
+### Desfazer commits por quantidade (do mais atual para o mais antigo)
+
+```bash
+# Desfaz apenas os commits
+git reset --soft HEAD~<quantidade de commits>
+
+# Desfaz os commits e o código
+git reset --hard HEAD~<quantidade de commits>
 ```
 
 ## Procurar commits com uma mensagem/palavra
@@ -152,6 +178,13 @@ git revert -m 1 <merge-commit-hash>
   ```bash
   git tag -d <tag-name>
   ```
+
+## Squash ('comprimir' commits em um só)
+Considerando que você deseja comprimir/transformar seus últimos 5 commits em 1 só.. para isso fazemos o squash.
+
+- desfaz os últimos 5 commits: `git reset --soft HEAD~5`
+- faz o processo de add e commit com a mensagem certa
+- faz push para o repositório remoto
 
 ## Cherry Pick
 

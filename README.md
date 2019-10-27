@@ -18,11 +18,15 @@
 <!-- * [Linha de Comando](https://layshidani.github.io/my-learning-notes/command-line/command-line)
 * [ZSH](https://layshidani.github.io/my-learning-notes/command-line/zsh) -->
 
-## GitHub
-* [Git e GitHub](https://github.com/layshidani/my-learning-notes/blob/master/git-github/git.md)
-* [Git alias](https://github.com/layshidani/my-learning-notes/blob/master/git-github/git-alias.md)
-* [Git dicas](https://github.com/layshidani/my-learning-notes/blob/master/git-github/git-tips.md)
-* [GitHub Badges + Travis + Coveralls](https://github.com/layshidani/my-learning-notes/blob/master/git-github/github-badges.md)
+## Git
+* [Git: conceitos](https://github.com/layshidani/my-learning-notes/blob/master/git/git.md)
+  * [Git init: iniciando um repositório](https://github.com/layshidani/my-learning-notes/blob/master/git/basic-commands.md)
+  * [Comandos básicos](https://github.com/layshidani/my-learning-notes/blob/master/git/basic-commands.md)
+  * [Branchs](https://github.com/layshidani/my-learning-notes/blob/master/git/branchs.md)
+  * [Git Ignore](https://github.com/layshidani/my-learning-notes/blob/master/git/gitignore.md)
+* [Git dicas](https://github.com/layshidani/my-learning-notes/blob/master/git/git-tips.md)
+* [Git alias](https://github.com/layshidani/my-learning-notes/blob/master/git/git-alias.md)
+* [GitHub Badges + Travis + Coveralls](https://github.com/layshidani/my-learning-notes/blob/master/git/github-badges.md)
 
 <!-- * [Git e GitHub](https://layshidani.github.io/my-learning-notes/git-github/git)
 * [Git alias](https://layshidani.github.io/my-learning-notes/git-github/git-alias)
@@ -51,6 +55,9 @@
   * [Módulos - WebPack](https://github.com/layshidani/my-learning-notes/tree/master/modules-webpack/)
   * [Import e Export - es6](https://github.com/layshidani/my-learning-notes/blob/master/import-export/import-export.md)
   * [JavaScript dicas](https://github.com/layshidani/my-learning-notes/blob/master/javascript/js-tips.md)
+
+* [Conceitos]()
+  * [Paradigmas de Programação](https://github.com/layshidani/my-learning-notes/blob/master/conceitos/paradigmas.md)
 
 ## Node - Config Biblioteca NPM
 * [Node](https://github.com/layshidani/my-learning-notes/blob/master/node/node.md)
